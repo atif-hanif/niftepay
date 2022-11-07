@@ -308,43 +308,29 @@ footer {
     float: right;
 }
 
-.syotimer {
-	text-align: center;
-	margin: 30px auto 0;
-	padding: 0 0 10px;
+#timer {
+    font-weight: 100;
+    padding: 0px;
+    width: 100%;
+    color: var(--black-color);
+    text-align: end;
+    position: absolute;
+    margin-top: 30px;
+    right: 80px;
 }
 
-.syotimer-cell {
-	display: inline-block;
-	margin: 0 5px;
-	width: 79px;
-	background: url(./assets/images/timer.png) no-repeat 0 0;
+.minutes {
+    display: inline-block;
+    background-color: var(--white-color);
+    padding: 5px;
+    font-weight: bold;
 }
 
-.syotimer-cell__value {
-	font-size: 35px;
-	color: #80a3ca;
-	height: 81px;
-	line-height: 81px;
-	margin: 0 0 5px;
-}
-
-.syotimer-cell__unit {
-	font-family: Arial, serif;
-	font-size: 12px;
-	text-transform: uppercase;
-}
-
-#simple-timer .syotimer-cell_type_day,
-      #periodic-timer_period_days .syotimer-cell_type_hour,
-      #layout-timer_only-seconds .syotimer-cell_type_second,
-      #layout-timer_mixed-units .syotimer-cell_type_minute {
-	width: 120px;
-	background-image: url(./assets/images/timer_long.png);
-}
-
-.option {
-	font-weight: 700;
+.seconds {
+    display: inline-block;
+    background-color: var(--white-color);
+    padding: 5px;
+    font-weight: bold;
 }
 
 /* Tabs */
