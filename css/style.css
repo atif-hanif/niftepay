@@ -25,15 +25,15 @@ body {
 }
 
 .card1 {
-    width: 65%;
-    padding: 50px 0px 10px;
-    background: var(--bg-color2);
-}
-
-.card2 {
     width: 35%;
     background: var(--bg-color);
     position: relative;
+}
+
+.card2 {
+    width: 65%;
+    padding: 50px 0px 10px;
+    background: var(--bg-color2);
 }
 
 #logo {
@@ -306,6 +306,7 @@ footer {
     color: #fff;
     position: relative;
     float: right;
+    margin-right: -30px;
 }
 
 #timer {
@@ -315,21 +316,21 @@ footer {
     color: var(--black-color);
     text-align: end;
     position: absolute;
-    margin-top: 30px;
-    right: 80px;
+    margin-top: 25px;
+    right: 55px;
 }
 
 .minutes {
     display: inline-block;
     background-color: var(--white-color);
-    padding: 5px;
+    padding: 3px 5px;
     font-weight: bold;
 }
 
 .seconds {
     display: inline-block;
     background-color: var(--white-color);
-    padding: 5px;
+    padding: 3px 5px;
     font-weight: bold;
 }
 
@@ -349,7 +350,7 @@ footer {
 
 .nav-link {
     padding: 8px;
-    font-size: 15px;
+    font-size: 12px;
     color: var(--tab-color);
 }
 
