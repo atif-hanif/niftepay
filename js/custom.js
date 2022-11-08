@@ -11,14 +11,14 @@ function showTab(n) {
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
     if (n == 0) {
-        document.getElementById("prevBtn").style.display = "none";
+        document.getElementById("prevBtn1").style.display = "none";
     } else {
-        document.getElementById("prevBtn").style.display = "inline";
+        document.getElementById("prevBtn1").style.display = "inline";
     }
     if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "Pay <i class='fa-solid fa-arrow-right'></i>";
+        document.getElementById("nextBtn1").innerHTML = "Pay <i class='fa-solid fa-arrow-right'></i>";
     } else {
-        document.getElementById("nextBtn").innerHTML = "Next <i class='fa-solid fa-arrow-right'></i>";
+        document.getElementById("nextBtn1").innerHTML = "Next <i class='fa-solid fa-arrow-right'></i>";
     }
     fixStepIndicator(n)
 }
@@ -32,9 +32,7 @@ function nextPrev(n) {
         // document.getElementById("regForm").submit();
         // return false;
         //alert("sdf");
-        document.getElementById("nextprevious").style.display = "none";
-        document.getElementById("text-message").style.display = "block";
-
+        document.getElementById("nextprevious1").style.display = "none";
     }
     showTab(currentTab);
 }
@@ -63,6 +61,30 @@ $(document).ready(function () {
     $("#cnic").mask("99999-9999999-9");
 });
 
+$(document).ready(function () {
+    $("#account-no").mask("9999999999999999");
+});
+
+$(document).ready(function () {
+    $("#vendor-cnic").mask("99999-9999999-9");
+});
+
+$(document).ready(function () {
+    $("#mobile-no").mask("9999-9999999");
+});
+
+$(document).ready(function () {
+    $("#card-no").mask("9999 9999 9999 9999");
+});
+
+$(document).ready(function () {
+    $("#card-expiry").mask("99/99");
+});
+
+$(document).ready(function () {
+    $("#cvv").mask("999");
+});
+
 var deadline = new Date("Nov 7, 2022 18:00:00").getTime();
 var x = setInterval(function() {
 var now = new Date().getTime();
@@ -77,3 +99,18 @@ document.getElementById("timer").innerHTML = "<div class='minutes'>" + minutes +
         document.getElementById("timer").innerHTML = "EXPIRED";
     }
 }, 1000);
+
+function clickEvent(first,last){
+    if(first.value.length){
+        document.getElementById(last).focus();
+    }
+}
+
+$(document).ready(function () {
+    $(document).on('click' , '.nextBtn', function(e) {
+        if ($('#thank-you').hasClass('d-none')) {
+            $('#thank-you').removeClass('d-none');
+            $('#payment').addClass('d-none');
+        }
+    });
+});
