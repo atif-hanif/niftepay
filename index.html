@@ -8,6 +8,7 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/all.min.css" rel="stylesheet">
     <link href="css/font.css" rel="stylesheet">
+    <link href="css/smart_wizard.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -137,88 +138,102 @@
                                             </div>
                                             CARDS PAYMENT
                                         </a>
-                                    '</li>
+                                    </li>
                                 </ul>
 
                                 <div class="tab-content mt-5">
                                     <div id="bank" class="container tab-pane active">
-                                        <form action="#" class="was-validated" id="regForm">
-                                            <div class="tab">
-                                                <span class="step">Step 1</span>
-                                                <h3 class="select-bank">Select your Bank</h3>
-                                                <label for="bank-account" class="form-label">Bank Account Number <span class="star">*</span></label>
-                                                <select class="form-select bank w-50" id="bank-account" name="bank-account">
-                                                    <option selected>Select Your Bank</option>
-                                                    <option value="mcb">MCB Bank</option>
-                                                    <option value="allied">Allied Bank</option>
-                                                    <option value="alfalah">Bank Alfalah</option>
-                                                    <option value="faysal">Faysal Bank</option>
-                                                    <option value="bop">The Bank of Punjab</option>
-                                                    <option value="alfalah">Habib Bank Limited</option>
-                                                </select>
-                                                <br>
-                                                <span class="step">Step 2</span>
-                                                <h3 class="bank-info">Bank Information</h3>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <label for="account-no" class="form-label">Account <span class="star">*</span></label>
-                                                        <input type="text" class="form-control account-no" placeholder="9999999999999999" name="account-no" id="account-no" required maxlength="16">
-                                                        <div class="invalid-feedback">Please enter 16 digit account number following the layout below 10XXXXXXXXXXXXXX</div>
+                                        <div id="smartwizard">
+                                            <ul class="nav nav-progress d-none">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#step-1">
+                                                        <div class="num">1</div> Customer Details </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#step-2">
+                                                        <span class="num">2</span> Products Details
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                            <div class="tab-content">
+                                                <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+                                                    <form id="form-1" class="needs-validation" novalidate>
+                                                        <span class="step">Step 1</span>
+                                                        <h3 class="select-bank">Select your Bank</h3>
+                                                        <label for="bank-account" class="form-label">Bank Account Number <span class="star">*</span></label>
+                                                        <select class="form-select bank w-50" id="bank-account" name="bank-account" required>
+                                                            <option value="">Select Your Bank</option>
+                                                            <option value="mcb">MCB Bank</option>
+                                                            <option value="allied">Allied Bank</option>
+                                                            <option value="alfalah">Bank Alfalah</option>
+                                                            <option value="faysal">Faysal Bank</option>
+                                                            <option value="bop">The Bank of Punjab</option>
+                                                            <option value="alfalah">Habib Bank Limited</option>
+                                                        </select>
+                                                        <div class="invalid-feedback">Select Bank</div>
+                                                        <br>
+                                                        <span class="step">Step 2</span>
+                                                        <h3 class="bank-info">Bank Information</h3>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <label for="account-no" class="form-label">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control account-no" placeholder="9999999999999999" name="account-no" id="account-no" required maxlength="16">
+                                                                <div class="invalid-feedback">Please enter 16 digit account number following the layout below 10XXXXXXXXXXXXXX</div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="cnic" class="form-label">CNIC Number <span class="star">*</span></label>
+                                                                <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" name="cnic" id="cnic" required>
+                                                                <div class="invalid-feedback">Kindly enter your valid CNIC Number</div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+                                                    <p>MCB Bank</p>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label for="account-no" class="form-label">Bank Account Number <span class="star">*</span></label>
+                                                            <p class="fw-bold">02112415368779</p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="cnic" class="form-label">CNIC Number <span class="star">*</span></label>
+                                                            <p class="fw-bold">42201-xxxxxxx-9</p>
+                                                        </div>
                                                     </div>
-                                                    <div class="col">
-                                                        <label for="cnic" class="form-label">CNIC Number <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" name="cnic" id="cnic" required>
-                                                        <div class="invalid-feedback">Kindly enter your valid CNIC Number</div>
-                                                    </div>
+                                                    <br>
+                                                    <form id="form-2" class="needs-validation" novalidate>
+                                                        <span class="step">Step 3</span>
+                                                        <h3 class="otp">OTP Verficiation</h3>
+                                                        <p>A 6 digit verification code has been sent to +92 3******514 or email to n*****786@hotmail.com</p>
+                                                        <p class="inline w-50 float-start userInput">
+                                                            <input type="text" id='first' maxlength="1" onkeyup="clickEvent(this,'sec')">
+                                                            <input type="text" id="sec" maxlength="1" onkeyup="clickEvent(this,'third')">
+                                                            <input type="text" id="third" maxlength="1" onkeyup="clickEvent(this,'fourth')">
+                                                            <input type="text" id="fourth" maxlength="1" onkeyup="clickEvent(this,'fifth')">
+                                                            <input type="text" id="fifth" maxlength="1" onkeyup="clickEvent(this,'sixth')">
+                                                            <input type="text" id="sixth" maxlength="1">
+                                                        </p>
+                                                        <p class="inline w-50 float-end">Code Expire in <span id="otp-timer"></span> Sec</p>
+                                                        <p class="otp-code">Didn't receive the code? <a href="" class="code">Resend</a></p>
+                                                        <div class="mt-2">
+                                                            <ul>
+                                                                <li>You are going to receive OTP on your mobile number registered with Bank.</li>
+                                                                <li>Please make sure not to disclose your OTP and Account details with anyone.</li>
+                                                            </ul>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
-                                                
-                                            <div class="tab">
-                                                <p>MCB Bank</p>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <label for="account-no" class="form-label">Bank Account Number <span class="star">*</span></label>
-                                                        <p class="fw-bold">02112415368779</p>
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="cnic" class="form-label">CNIC Number <span class="star">*</span></label>
-                                                        <p class="fw-bold">42201-xxxxxxx-9</p>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <span class="step">Step 3</span>
-                                                <h3 class="otp">OTP Verficiation</h3>
-                                                <p>A 6 digit verification code has been sent to +92 3******514 or email to n*****786@hotmail.com</p>
-                                                <p class="inline w-50 float-start userInput">
-                                                    <input type="text" id='first' maxlength="1" onkeyup="clickEvent(this,'sec')">
-                                                    <input type="text" id="sec" maxlength="1" onkeyup="clickEvent(this,'third')">
-                                                    <input type="text" id="third" maxlength="1" onkeyup="clickEvent(this,'fourth')">
-                                                    <input type="text" id="fourth" maxlength="1" onkeyup="clickEvent(this,'fifth')">
-                                                    <input type="text" id="fifth" maxlength="1" onkeyup="clickEvent(this,'sixth')">
-                                                    <input type="text" id="sixth" maxlength="1">
-                                                </p>
-                                                <p class="inline w-50 float-end">Code Expire in 00:59 Sec</p>
-                                                <p class="otp-code">Didn't receive the code? <a href="" class="code">Resend</a></p>
-                                                <div class="mt-2">
-                                                    <ul>
-                                                        <li>You are going to receive OTP on your mobile number registered with Bank.</li>
-                                                        <li>Please make sure not to disclose your OTP and Account details with anyone.</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="my-5" id="nextprevious"> 
-                                                <button type="button" class="btn btn-primary btn-black" id="prevBtn" onclick="nextPrev(-1)"><i class="fa-solid fa-arrow-left"></i> Previous </button>
-                                                <button type="button" class="btn btn-danger btn-red nextBtn" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                                            </div>
-                                        </form>
+                                        </div>
                                     </div>
                                     <div id="wallet" class="container tab-pane fade">
-                                        <form action="#" class="was-validated" id="regForm2">
+                                        <form id="form-3" class="needs-validation" novalidate>
                                             <span class="step">Step 1</span>
                                             <h3 class="select-bank">Wallet Payment</h3>
                                             <label for="vendor" class="form-label">Select your Vendor <span class="star">*</span></label>
                                             <select class="form-select bank w-50" id="vendor" name="sellist2">
-                                                <option selected>Select</option>
+                                                <option selected="">Select</option>
                                                 <option value="easypaisa">Easy Paisa</option>
                                                 <option value="jazzcash">Jazz Cash</option>
                                                 <option value="upaisa">UPaisa</option>
@@ -227,24 +242,21 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <label for="mobile-no" class="form-label">Mobile Number <span class="star">*</span></label>
-                                                    <input type="text" class="form-control account-no" placeholder="9999-9999999" name="mobile-no" id="mobile-no" required>
+                                                    <input type="text" class="form-control account-no" placeholder="9999-9999999" name="mobile-no" id="mobile-no" required="">
                                                     <div class="invalid-feedback">Mobile Number Required</div>
                                                 </div>
                                                 <div class="col">
                                                     <label for="vendor-cnic" class="form-label">CNIC Number <span class="star">*</span></label>
-                                                    <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" name="vendor-cnic" id="vendor-cnic" required>
+                                                    <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" name="vendor-cnic" id="vendor-cnic" required="">
                                                     <div class="invalid-feedback">Kindly enter your valid CNIC Number</div>
                                                 </div>
                                             </div>
-                                            <div class="my-5" id="nextprevious2"> 
-                                                <!-- <button type="button" class="btn btn-primary btn-black" id="prevBtn2" onclick="nextPrev(-1)"><i class="fa-solid fa-arrow-left"></i> Previous </button> -->
-                                                <button type="button" class="btn btn-danger btn-red nextBtn2" id="nextBtn2" onclick="nextPrev(1)">Next</button>
-                                            </div>
+                                            <button type="button" class="btn btn-danger btn-red text-uppercase mt-4">Proceed </button>
                                         </form>
                                     </div>
                                     <div id="card" class="container tab-pane fade">
                                         <form action="#" class="was-validated" id="regForm2">
-                                            <span class="step">Step 1</span>
+                                            <span class="step">Step 3</span>
                                             <h3 class="select-bank">Card Payment</h3>
                                             <div class="row">
                                                 <div class="col">
@@ -288,8 +300,135 @@
     </section>
 
     <section class="mt-3 mb-3 d-none" id="thank-you">
-        <div class="container mx-auto">
-            
+        <div class="container-fluid mx-auto">
+            <div class="card thankyou-card">
+                <div class="card-body my-4">
+                    <div class="row">
+                        <div class="col-lg-7 my-auto text-center">
+                            <img src="images/check.png" alt="Confirm">
+                            <h2 class="pt-3 fw-bold">Thank You !</h2>
+                            <p class="mb-0">Payment Done Successful</p>
+                            <p>You will receive a confirmation email or message shortly</p>
+                            <button type="button" class="btn btn-danger btn-red home">Back To Home <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                        <div class="col-lg-5 receipt-col">
+                            <div class="card receipt-card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="images/logo.png" alt="NIFT ePay Logo" class="img-fluid">
+                                        </div>
+                                        <div class="col-md-6 text-center my-auto">
+                                            <p class="receipt mb-0">E-Receipt</p>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders mt-4">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-0">Transaction ID</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-end mb-0">A64564AWED65</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-0">Trasnfer to</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-end mb-0">DEL Electronics</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-0">Order ID</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-end mb-0">28232</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-0">Payment Method</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-end mb-0">Bank Account</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-0">Account Number</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-end mb-0">0211*************9</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-0">Account Title</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-end mb-0">Noman Shahid</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-0">Amount</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-end mb-0">6299.00 PKR</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-0">Date/Time</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-end mb-0">20 Aug 2022 | 11:00am</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders"></div>
+                                    <p class="note mb-0">Note</p>
+                                    <ul>
+                                        <li class="opacity-50">This is computer generated receipt no signature required.</li>
+                                        <li class="opacity-50">Electronic receipt owns no official legal effect. You may go to branch to get
+                                            the paper receipt.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-4">
+                                <div class="col-lg-10">
+                                    <div class="row">
+                                        <div class="col-6 text-end">
+                                            <i class="fa-solid fa-download d-inline float-left"></i>
+                                            <p class="mb-0 d-inline float-left opacity-50">Download Receipt</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <i class="fa-solid fa-print d-inline float-left"></i>
+                                            <p class="mb-0 d-inline float-left opacity-50">Print Receipt</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -300,7 +439,9 @@
     </footer>
 
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.smartWizard.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/jquery.maskedinput.min.js"></script>
     <script src="js/custom.js"></script>

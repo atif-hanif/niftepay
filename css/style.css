@@ -19,21 +19,25 @@ body {
     font-family: var(--font-family);
 }
 
-.card {
-    border-radius: 0;
-    border: none;
+.card0 {
+    border-radius: 0 !important;
+    border: none !important;
 }
 
 .card1 {
     width: 35%;
     background: var(--bg-color);
     position: relative;
+    border-radius: 0 !important;
+    border: none !important;
 }
 
 .card2 {
     width: 65%;
     padding: 50px 0px 10px;
     background: var(--bg-color2);
+    border-radius: 0 !important;
+    border: none !important;
 }
 
 #logo {
@@ -403,40 +407,6 @@ footer {
     font-weight: 500;
 }
 
-.tab {
-    display: none
-}
-
-button {
-    background-color: #4CAF50;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 17px;
-    font-family: Raleway;
-    cursor: pointer
-}
-
-.thanks-message {
-    display: none
-}
-
-button:hover {
-    opacity: 0.8
-}
-
-.btn-black, .btn-black:hover{
-    border-radius: 5px;
-    background-color: var(--btn-black);
-    border-color: var(--btn-black);
-}
-
-.btn-red, .btn-red:hover {
-    border-radius: 5px;
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
 .otp-code {
     font-size: 13px;
     font-weight: 600;
@@ -472,4 +442,69 @@ button:hover {
 
 .error {
     color: var(--primary-color);
+}
+
+/* Smart Wizard */
+
+.sw-btn-prev, .sw-btn-prev:hover{
+    border-radius: 5px;
+    background-color: var(--btn-black) !important;
+    border-color: var(--btn-black) !important;
+    border-radius: 5px !important;
+}
+
+.sw-btn-next, .sw-btn-next:hover {
+    border-radius: 5px;
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    border-radius: 5px !important;
+}
+
+.toolbar-top {
+    display: none;
+}
+
+.toolbar-bottom {
+    text-align: left !important;
+}
+
+.thankyou-card {
+    background: linear-gradient(to right, #E9EEF2, #EFF4F8) !important;
+}
+
+.receipt {
+    color: var(--primary-color);
+    text-align: end;
+}
+
+.receipt-card {
+    border-radius: 25px;
+    border: 1px solid var(--white-color)
+}
+
+.receipt-col {
+    width: 500px;
+}
+
+.custom-borders {
+    border-top: 1px solid rgba(22, 30, 43, 0.05);
+    padding: 15px 0px;
+}
+
+.note {
+    color: var(--primary-color);
+}
+
+.fa-print, .fa-download {
+    color: var(--primary-color);
+}
+
+.btn-success {
+    border-radius: 5px !important;
+}
+
+.btn-red {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: 5px;
 }
