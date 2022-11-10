@@ -22,6 +22,11 @@ body {
 .card0 {
     border-radius: 0 !important;
     border: none !important;
+    height: 800px;
+}
+
+.cards {
+    height: 800px;
 }
 
 .card1 {
