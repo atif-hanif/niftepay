@@ -1,0 +1,236 @@
+@media screen and (max-width: 767px) {
+
+    .container {
+        padding: 10px !important;
+    }
+
+    .card1 {
+        padding: 40px 20px 10px;
+    }
+
+    .card2 {
+        padding: 40px 20px 10px;
+    }
+    
+    .ribbon-wrapper {
+        margin-bottom: 80px;
+    }
+
+    .ribbon-front {
+        left: -30px;
+        width: 124%;
+    }
+
+    .ribbon-edge-topleft, .ribbon-edge-bottomleft {
+        left: -30px;
+    }
+
+    .bank {
+        width: 100%;
+    }
+
+    .complaint-detail {
+        bottom: 0px;
+        position: relative;
+    }
+
+    .session-img {
+        width: 50%;
+    }
+
+    .payment-div {
+        text-align: center;
+    }
+
+    .payment-tabs {
+        justify-content: center;
+    }
+
+    .code-expire-div {
+        text-align: center;
+    }
+
+    .vendor {
+        width: 100%;
+    }
+
+    .session-text {
+        color: #000;
+        position: relative;
+        margin-bottom: 0px;
+    }
+
+    #timer {
+        font-weight: 100;
+        padding: 0px;
+        width: 100%;
+        color: var(--black-color);
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+    .card1 {
+        width: 100%;
+        padding: 40px 30px 10px 30px;
+    }
+
+    .card2 {
+        width: 100%;
+    }
+
+    .ribbon-front {
+        left: -40px;
+        width: 124%;
+    }
+
+    .ribbon-edge-topleft, .ribbon-edge-bottomleft {
+        left: -40px;
+    }
+
+    .receipt-column {
+        width: 650px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .userInput {
+        width: 50%;
+    }
+
+    .vendor {
+        width: 100%;
+    }
+
+    .session-text {
+        color: #fff;
+        position: relative;
+        float: right;
+        margin-right: -30px;
+    }
+
+    #timer {
+        font-weight: 100;
+        padding: 0px;
+        width: 100%;
+        color: var(--black-color);
+        text-align: end;
+        position: absolute;
+        margin-top: 25px;
+        right: 55px;
+    }
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .bank {
+        width: 50%;
+    }
+
+    .card0 {
+        height: 800px;
+    }
+    
+    .cards {
+        height: 800px;
+    }
+
+    .card1 {
+        width: 35%;
+    }
+    
+    .card2 {
+        width: 65%;
+    }
+
+    .receipt-column {
+        width: 500px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .userInput {
+        width: 50%;
+    }
+
+    .vendor {
+        width: 100%;
+    }
+
+    .session-text {
+        color: #fff;
+        position: relative;
+        float: right;
+        margin-right: -10px;
+    }
+
+    #timer {
+        font-weight: 100;
+        padding: 0px;
+        width: 100%;
+        color: var(--black-color);
+        text-align: end;
+        position: absolute;
+        margin-top: 25px;
+        right: 60px;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    .bank {
+        width: 50%;
+    }
+
+    .card0 {
+        height: 800px;
+    }
+    
+    .cards {
+        height: 800px;
+    }
+
+    .card1 {
+        width: 35%;
+    }
+    
+    .card2 {
+        width: 65%;
+    }
+
+    .receipt-column {
+        width: 500px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .userInput {
+        width: 50%;
+    }
+
+    .vendor {
+        width: 100%;
+    }
+
+    .session-text {
+        color: #fff;
+        position: relative;
+        float: right;
+        margin-right: -30px;
+    }
+
+    #timer {
+        font-weight: 100;
+        padding: 0px;
+        width: 100%;
+        color: var(--black-color);
+        text-align: end;
+        position: absolute;
+        margin-top: 25px;
+        right: 55px;
+    }
+
+}

@@ -10,6 +10,7 @@
     <link href="css/font.css" rel="stylesheet">
     <link href="css/smart_wizard.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
 </head>
 
 <body>
@@ -28,51 +29,51 @@
             <div class="card card0">
                 <div class="d-flex flex-lg-row flex-column cards">
                     <div class="card card1">
-                        <div class="mt-5 mb-4 mx-md-3 px-md-1 right">
+                        <div class="mt-0 mt-md-0 mt-lg-5 mb-4 mx-md-3 px-md-1 right">
                             <h3 class="text-red">Transaction Details</h3>
                             <h4 class="order">Order Summary</h4>
                             <div class="custom-border mt-4">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <p class="text-white opacity-50 mb-0">Company</p>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <p class="text-white text-end mb-0">DEL Electronics</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="custom-border">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <p class="text-white opacity-50 mb-0">Order ID</p>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <p class="text-white text-end mb-0">28232</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="custom-border">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <p class="text-white opacity-50 mb-0">Description</p>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <p class="text-white text-end mb-0">DWHB 875</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="custom-border">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <p class="text-white opacity-50 mb-0">Discount</p>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-6">
                                         <p class="text-white text-end mb-0">5%</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="ribbon-wrapper">
+                        <div class="ribbon-wrapper mb-3 mb-md-5">
                             <div class="ribbon-front">
                                 <div class="row align-items-center">
                                     <div class="col-md-6">
@@ -88,7 +89,7 @@
                             <div class="ribbon-edge-bottomleft"></div>
                             <div class="ribbon-edge-bottomright"></div>
                         </div>
-                        <div class="mx-md-3 px-md-1 right">
+                        <div class="my-4 my-md-5 mx-md-3 px-md-1 right">
                             <div class="complaint-detail">
                                 <p class="text-white mb-0">For any queries or complaint</p>
                                 <p class="text-white mb-0">call us on <span class="number">222-222-222</span></p>
@@ -99,16 +100,17 @@
                     </div>
                     <div class="card card2">
                         <div class="row justify-content-center">                          
-                            <div class="col-10 col-md-11">
+                            <div class="col-12 col-md-11">
                                 <div class="session-div">
                                     <img src="images/session-bg.png" alt="" class="session-img">
                                     <p class="session-text">Session will expire in</p>
                                     <p id="timer"></p>
                                 </div> 
-                                <h3 class="mb-1 fw-bold">Payment Method</h3>
-                                <p class="mb-2">Choose your best payment method</p>
-
-                                <ul class="nav nav-tabs" role="tablist">
+                                <div class="payment-div mb-1">
+                                    <h3 class="fw-bold">Payment Method</h3>
+                                    <p class="mb-2">Choose your best payment method</p>
+                                </div>
+                                <ul class="nav nav-tabs payment-tabs" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active text-center" data-bs-toggle="tab" href="#bank">
                                             <div class="card payment-card">
@@ -162,7 +164,7 @@
                                                         <span class="step">Step 1</span>
                                                         <h3 class="select-bank">Select your Bank</h3>
                                                         <label for="bank-account" class="form-label">Bank Account Number <span class="star">*</span></label>
-                                                        <select class="form-select bank w-50" id="bank-account" name="bank-account" required>
+                                                        <select class="form-select bank" id="bank-account" name="bank-account" required>
                                                             <option value="">Select Your Bank</option>
                                                             <option value="mcb">MCB Bank</option>
                                                             <option value="allied">Allied Bank</option>
@@ -176,14 +178,14 @@
                                                         <span class="step">Step 2</span>
                                                         <h3 class="bank-info">Bank Information</h3>
                                                         <div class="row">
-                                                            <div class="col">
+                                                            <div class="col-12 col-md-6">
                                                                 <label for="account-no" class="form-label">Account <span class="star">*</span></label>
-                                                                <input type="text" class="form-control account-no" placeholder="9999999999999999" name="account-no" id="account-no" required maxlength="16">
+                                                                <input type="text" class="form-control account-no" placeholder="9999999999999999" id="account-no" required>
                                                                 <div class="invalid-feedback">Please enter 16 digit account number following the layout below 10XXXXXXXXXXXXXX</div>
                                                             </div>
-                                                            <div class="col">
+                                                            <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                                 <label for="cnic" class="form-label">CNIC Number <span class="star">*</span></label>
-                                                                <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" name="cnic" id="cnic" required>
+                                                                <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" id="cnic" required>
                                                                 <div class="invalid-feedback">Kindly enter your valid CNIC Number</div>
                                                             </div>
                                                         </div>
@@ -192,11 +194,11 @@
                                                 <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
                                                     <p>MCB Bank</p>
                                                     <div class="row">
-                                                        <div class="col">
+                                                        <div class="col-12 col-md-6">
                                                             <label for="account-no" class="form-label">Bank Account Number <span class="star">*</span></label>
                                                             <p class="fw-bold">02112415368779</p>
                                                         </div>
-                                                        <div class="col">
+                                                        <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                             <label for="cnic" class="form-label">CNIC Number <span class="star">*</span></label>
                                                             <p class="fw-bold">42201-xxxxxxx-9</p>
                                                         </div>
@@ -206,16 +208,22 @@
                                                         <span class="step">Step 3</span>
                                                         <h3 class="otp">OTP Verficiation</h3>
                                                         <p>A 6 digit verification code has been sent to +92 3******514 or email to n*****786@hotmail.com</p>
-                                                        <p class="inline w-50 float-start userInput">
-                                                            <input type="text" id='first' maxlength="1" onkeyup="clickEvent(this,'sec')">
-                                                            <input type="text" id="sec" maxlength="1" onkeyup="clickEvent(this,'third')">
-                                                            <input type="text" id="third" maxlength="1" onkeyup="clickEvent(this,'fourth')">
-                                                            <input type="text" id="fourth" maxlength="1" onkeyup="clickEvent(this,'fifth')">
-                                                            <input type="text" id="fifth" maxlength="1" onkeyup="clickEvent(this,'sixth')">
-                                                            <input type="text" id="sixth" maxlength="1">
-                                                        </p>
-                                                        <p class="inline w-50 float-end">Code Expire in <span id="otp-timer"></span> Sec</p>
-                                                        <p class="otp-code">Didn't receive the code? <a href="" class="code">Resend</a></p>
+                                                        <div class="otp-div row">
+                                                            <div class="col-md-6">
+                                                                <p class="inline float-start userInput mb-0">
+                                                                    <input type="text" id='first' maxlength="1" onkeyup="clickEvent(this,'sec')">
+                                                                    <input type="text" id="sec" maxlength="1" onkeyup="clickEvent(this,'third')">
+                                                                    <input type="text" id="third" maxlength="1" onkeyup="clickEvent(this,'fourth')">
+                                                                    <input type="text" id="fourth" maxlength="1" onkeyup="clickEvent(this,'fifth')">
+                                                                    <input type="text" id="fifth" maxlength="1" onkeyup="clickEvent(this,'sixth')">
+                                                                    <input type="text" id="sixth" maxlength="1">
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-md-6 mt-2 mt-md-0">
+                                                                <p class="inline code-expire-div">Code Expire in <span id="otp-timer"></span> Sec</p>
+                                                            </div>
+                                                        </div>
+                                                        <p class="otp-code pt-3">Didn't receive the code? <a href="" class="code">Resend</a></p>
                                                         <div class="mt-2">
                                                             <ul>
                                                                 <li>You are going to receive OTP on your mobile number registered with Bank.</li>
@@ -228,66 +236,64 @@
                                         </div>
                                     </div>
                                     <div id="wallet" class="container tab-pane fade">
-                                        <form id="form-3" class="needs-validation" novalidate>
+                                        <form class="needs-validation" novalidate>
                                             <span class="step">Step 1</span>
                                             <h3 class="select-bank">Wallet Payment</h3>
                                             <label for="vendor" class="form-label">Select your Vendor <span class="star">*</span></label>
-                                            <select class="form-select bank w-50" id="vendor" name="sellist2">
-                                                <option selected="">Select</option>
+                                            <select class="form-select vendor" id="vendor" required>
+                                                <option value="">Select</option>
                                                 <option value="easypaisa">Easy Paisa</option>
                                                 <option value="jazzcash">Jazz Cash</option>
                                                 <option value="upaisa">UPaisa</option>
                                             </select>
+                                            <div class="invalid-feedback">Select Vendor</div>
                                             <br>
                                             <div class="row">
-                                                <div class="col">
+                                                <div class="col-12 col-md-6">
                                                     <label for="mobile-no" class="form-label">Mobile Number <span class="star">*</span></label>
-                                                    <input type="text" class="form-control account-no" placeholder="9999-9999999" name="mobile-no" id="mobile-no" required="">
+                                                    <input type="text" class="form-control account-no" placeholder="9999-9999999" id="mobile-no" required="">
                                                     <div class="invalid-feedback">Mobile Number Required</div>
                                                 </div>
-                                                <div class="col">
+                                                <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                     <label for="vendor-cnic" class="form-label">CNIC Number <span class="star">*</span></label>
-                                                    <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" name="vendor-cnic" id="vendor-cnic" required="">
+                                                    <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" id="vendor-cnic" required="">
                                                     <div class="invalid-feedback">Kindly enter your valid CNIC Number</div>
                                                 </div>
                                             </div>
-                                            <button type="button" class="btn btn-danger btn-red text-uppercase mt-4">Proceed </button>
+                                            <button type="submit" class="btn btn-danger btn-red text-uppercase mt-4" data-bs-toggle="modal" data-bs-target="#myModal">Proceed </button>
                                         </form>
                                     </div>
                                     <div id="card" class="container tab-pane fade">
-                                        <form action="#" class="was-validated" id="regForm2">
-                                            <span class="step">Step 3</span>
+                                        <form class="needs-validation" novalidate id="form-4">
+                                            <span class="step">Step 1</span>
                                             <h3 class="select-bank">Card Payment</h3>
                                             <div class="row">
-                                                <div class="col">
+                                                <div class="col-12 col-md-6">
                                                     <label for="card-no" class="form-label">Card Number <span class="star">*</span></label>
-                                                    <input type="text" class="form-control account-no" placeholder="9999 9999 9999 9999" name="card-no" id="card-no" required>
+                                                    <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="card-no" name="cardno" required>
                                                     <div class="invalid-feedback">Card Number Required</div>
                                                 </div>
-                                                <div class="col">
+                                                <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                     <label for="card-name" class="form-label">Card Holder Name <span class="star">*</span></label>
-                                                    <input type="text" class="form-control" placeholder="e.g Noman Shahid" name="card-name" id="card-name" required>
+                                                    <input type="text" class="form-control" placeholder="e.g Noman Shahid" id="card-name" name="cardname" required>
                                                     <div class="invalid-feedback">Please enter card holder name as specified in the card</div>
                                                 </div>
                                             </div>
                                             <br>
                                             <div class="row">
-                                                <div class="col">
+                                                <div class="col-12 col-md-6">
                                                     <label for="card-expiry" class="form-label">Expiry Date <span class="star">*</span></label>
-                                                    <input type="text" class="form-control account-no" placeholder="99/99" name="card-expiry" id="card-expiry" required>
+                                                    <input type="text" class="form-control" placeholder="99/99" id="card-expiry" required>
                                                     <div class="invalid-feedback">Card Expiry Required</div>
                                                 </div>
-                                                <div class="col">
+                                                <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                     <label for="cvv" class="form-label">CVV <span class="star">*</span></label>
-                                                    <input type="text" class="form-control" placeholder="999" name="cvv" id="cvv" required>
+                                                    <input type="text" class="form-control" placeholder="999" id="cvv" required>
                                                     <div class="invalid-feedback">CVV Number Required</div>
                                                 </div>
                                                 <div class="col"></div>
                                             </div>
-                                            <div class="my-5" id="nextprevious2"> 
-                                                <!-- <button type="button" class="btn btn-primary btn-black" id="prevBtn2" onclick="nextPrev(-1)"><i class="fa-solid fa-arrow-left"></i> Previous </button> -->
-                                                <button type="button" class="btn btn-danger btn-red nextBtn2" id="nextBtn2" onclick="nextPrev(1)">Next</button>
-                                            </div>
+                                            <button type="submit" class="btn btn-danger btn-red text-uppercase mt-4 proceed">Proceed </button>
                                         </form>
                                     </div>
                                 </div>
@@ -299,106 +305,146 @@
         </div>
     </section>
 
-    <section class="mt-3 mb-3 d-none" id="thank-you">
+    <!-- Start Popup -->
+    <div class="modal" id="myModal" >
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content popup-modal">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <img src="images/logo.png" alt="NIFT ePay Logo" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center my-3">
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <span class="option">Option 1</span>
+                                    <h4 class="customer">If you are Telenor Customer</h4>
+                                    <p class="opacity-50">Please unlock your phone and you will receive and MPIN input prompt.</p>
+                                    <div class="divder"></div>
+                                    <span class="option">Option 2</span>
+                                    <h4 class="customer">If you are customer of another network</h4>
+                                    <p class="opacity-50">Please login into your EasyPaisa App and enter your MPIN.</p>
+                                    <button type="button" class="btn btn-dark btn-black text-uppercase" data-bs-dismiss="modal">Back</button>
+                                    <button type="button" class="btn btn-danger btn-red text-uppercase wallet-div">Proceed</button>
+                                </div>
+                                <div class="col-lg-5 mt-3 mt-md-3 mt-md-0">
+                                    <img src="images/mobile.png" alt="Mobile" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Popup -->
+
+    <!-- Start Confirmation -->
+    <section class="d-none" id="bank-confirmation">
         <div class="container-fluid mx-auto">
             <div class="card thankyou-card">
                 <div class="card-body my-4">
+                    <div class="session-div">
+                        <img src="images/session-bg.png" alt="" class="session-img">
+                    </div>
                     <div class="row">
                         <div class="col-lg-7 my-auto text-center">
                             <img src="images/check.png" alt="Confirm">
                             <h2 class="pt-3 fw-bold">Thank You !</h2>
-                            <p class="mb-0">Payment Done Successful</p>
-                            <p>You will receive a confirmation email or message shortly</p>
-                            <button type="button" class="btn btn-danger btn-red home">Back To Home <i class="fa-solid fa-arrow-right"></i></button>
+                            <p class="mb-0">Payment Done Successful!</p>
+                            <p>You will receive a confirmation email or message shortly.</p>
+                            <button type="button" class="btn btn-danger btn-red home">Back To Home</button>
                         </div>
-                        <div class="col-lg-5 receipt-col">
-                            <div class="card receipt-card">
+                        <div class="col-lg-5 receipt-column">
+                            <div class="card receipt-card mt-4 mt-md-4 mt-lg-0">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <img src="images/logo.png" alt="NIFT ePay Logo" class="img-fluid">
                                         </div>
-                                        <div class="col-md-6 text-center my-auto">
-                                            <p class="receipt mb-0">E-Receipt</p>
+                                        <div class="col-md-6 text-center my-3 my-md-auto">
+                                            <p class="receipt mb-0 text-center text-md-end">E-Receipt</p>
                                         </div>
                                     </div>
-                                    <div class="custom-borders mt-4">
+                                    <div class="custom-borders mt-0 mt-md-0">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <p class="opacity-50 mb-0">Transaction ID</p>
+                                                <p class="opacity-50 mb-2 mb-md-0">Transaction ID</p>
                                             </div>
                                             <div class="col-md-6">
-                                                <p class="text-end mb-0">A64564AWED65</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-borders">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <p class="opacity-50 mb-0">Trasnfer to</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p class="text-end mb-0">DEL Electronics</p>
+                                                <p class="text-start text-md-end mb-0">A64564AWED65</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="custom-borders">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <p class="opacity-50 mb-0">Order ID</p>
+                                                <p class="opacity-50 mb-2 mb-md-0">Trasnfer to</p>
                                             </div>
                                             <div class="col-md-6">
-                                                <p class="text-end mb-0">28232</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-borders">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <p class="opacity-50 mb-0">Payment Method</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p class="text-end mb-0">Bank Account</p>
+                                                <p class="text-start text-md-end mb-0">DEL Electronics</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="custom-borders">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <p class="opacity-50 mb-0">Account Number</p>
+                                                <p class="opacity-50 mb-2 mb-md-0">Order ID</p>
                                             </div>
                                             <div class="col-md-6">
-                                                <p class="text-end mb-0">0211*************9</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="custom-borders">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <p class="opacity-50 mb-0">Account Title</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p class="text-end mb-0">Noman Shahid</p>
+                                                <p class="text-start text-md-end mb-0">28232</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="custom-borders">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <p class="opacity-50 mb-0">Amount</p>
+                                                <p class="opacity-50 mb-2 mb-md-0">Payment Method</p>
                                             </div>
                                             <div class="col-md-6">
-                                                <p class="text-end mb-0">6299.00 PKR</p>
+                                                <p class="text-start text-md-end mb-0">Bank Account</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="custom-borders">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <p class="opacity-50 mb-0">Date/Time</p>
+                                                <p class="opacity-50 mb-2 mb-md-0">Account Number</p>
                                             </div>
                                             <div class="col-md-6">
-                                                <p class="text-end mb-0">20 Aug 2022 | 11:00am</p>
+                                                <p class="text-start text-md-end mb-0">0211*************9</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Account Title</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">Noman Shahid</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Amount</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">6299.00 PKR</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Date/Time</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">20 Aug 2022 | 11:00am</p>
                                             </div>
                                         </div>
                                     </div>
@@ -414,11 +460,11 @@
                             <div class="row justify-content-center mt-4">
                                 <div class="col-lg-10">
                                     <div class="row">
-                                        <div class="col-6 text-end">
+                                        <div class="col-md-6 text-center text-md-end">
                                             <i class="fa-solid fa-download d-inline float-left"></i>
                                             <p class="mb-0 d-inline float-left opacity-50">Download Receipt</p>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-md-6 mt-2 mt-md-0 text-center text-md-start">
                                             <i class="fa-solid fa-print d-inline float-left"></i>
                                             <p class="mb-0 d-inline float-left opacity-50">Print Receipt</p>
                                         </div>
@@ -431,6 +477,305 @@
             </div>
         </div>
     </section>
+    <!-- End Confirmation -->
+
+    <!-- Start Confirmation -->
+    <section class="d-none" id="wallet-confirmation">
+        <div class="container-fluid mx-auto">
+            <div class="card thankyou-card">
+                <div class="card-body my-4">
+                    <div class="session-div">
+                        <img src="images/session-bg.png" alt="" class="session-img">
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7 my-auto text-center">
+                            <img src="images/check.png" alt="Confirm">
+                            <h2 class="pt-3 fw-bold">Thank You !</h2>
+                            <p class="mb-0">Payment Done Successful!</p>
+                            <p>You will receive a confirmation email or message shortly.</p>
+                            <button type="button" class="btn btn-danger btn-red home">Back To Home</button>
+                        </div>
+                        <div class="col-lg-5 receipt-column">
+                            <div class="card receipt-card mt-4 mt-md-4 mt-lg-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="images/logo.png" alt="NIFT ePay Logo" class="img-fluid">
+                                        </div>
+                                        <div class="col-md-6 text-center my-3 my-md-auto">
+                                            <p class="receipt mb-0 text-center text-md-end">E-Receipt</p>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders mt-0 mt-md-0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Transaction ID</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">A64564AWED65</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Trasnfer to</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">DEL Electronics</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Order ID</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">28232</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Payment Method</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">Wallet Payment</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Payment Through</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">EasyPaisa</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Contact Number</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">0331 2324251</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Amount</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">6299.00 PKR</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Date/Time</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">20 Aug 2022 | 11:00am</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders"></div>
+                                    <p class="note mb-0">Note</p>
+                                    <ul>
+                                        <li class="opacity-50">This is computer generated receipt no signature required.</li>
+                                        <li class="opacity-50">Electronic receipt owns no official legal effect. You may go to branch to get
+                                            the paper receipt.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-4">
+                                <div class="col-lg-10">
+                                    <div class="row">
+                                        <div class="col-md-6 text-center text-md-end">
+                                            <i class="fa-solid fa-download d-inline float-left"></i>
+                                            <p class="mb-0 d-inline float-left opacity-50">Download Receipt</p>
+                                        </div>
+                                        <div class="col-md-6 mt-2 mt-md-0 text-center text-md-start">
+                                            <i class="fa-solid fa-print d-inline float-left"></i>
+                                            <p class="mb-0 d-inline float-left opacity-50">Print Receipt</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Confirmation -->
+
+    <!-- Start Confirmation -->
+    <section class="d-none" id="card-confirmation">
+        <div class="container-fluid mx-auto">
+            <div class="card thankyou-card">
+                <div class="card-body my-4">
+                    <div class="session-div">
+                        <img src="images/session-bg.png" alt="" class="session-img">
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7 my-auto text-center">
+                            <img src="images/check.png" alt="Confirm">
+                            <h2 class="pt-3 fw-bold">Thank You !</h2>
+                            <p class="mb-0">Payment Done Successful!</p>
+                            <p>You will receive a confirmation email or message shortly.</p>
+                            <button type="button" class="btn btn-danger btn-red home">Back To Home</button>
+                        </div>
+                        <div class="col-lg-5 receipt-column">
+                            <div class="card receipt-card mt-4 mt-md-4 mt-lg-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="images/logo.png" alt="NIFT ePay Logo" class="img-fluid">
+                                        </div>
+                                        <div class="col-md-6 text-center my-3 my-md-auto">
+                                            <p class="receipt mb-0 text-center text-md-end">E-Receipt</p>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders mt-0 mt-md-0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Transaction ID</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">A64564AWED65</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Trasnfer to</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">DEL Electronics</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Order ID</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">28232</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Payment Method</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">Credit Card</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Card Number</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">0345 **** **** ***9</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Contact Holder Name</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">Noman Shahid</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Amount</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">6299.00 PKR</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="opacity-50 mb-2 mb-md-0">Date/Time</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="text-start text-md-end mb-0">20 Aug 2022 | 11:00am</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-borders"></div>
+                                    <p class="note mb-0">Note</p>
+                                    <ul>
+                                        <li class="opacity-50">This is computer generated receipt no signature required.</li>
+                                        <li class="opacity-50">Electronic receipt owns no official legal effect. You may go to branch to get
+                                            the paper receipt.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mt-4">
+                                <div class="col-lg-10">
+                                    <div class="row">
+                                        <div class="col-md-6 text-center text-md-end">
+                                            <i class="fa-solid fa-download d-inline float-left"></i>
+                                            <p class="mb-0 d-inline float-left opacity-50">Download Receipt</p>
+                                        </div>
+                                        <div class="col-md-6 mt-2 mt-md-0 text-center text-md-start">
+                                            <i class="fa-solid fa-print d-inline float-left"></i>
+                                            <p class="mb-0 d-inline float-left opacity-50">Print Receipt</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Confirmation -->
+
+    <!-- Start Confirmation -->
+    <section class="d-none" id="card-confirmation">
+        <div class="container-fluid mx-auto">
+            <div class="card thankyou-card">
+                <div class="card-body my-5">
+                    <div class="session-div">
+                        <img src="images/session-bg.png" alt="" class="session-img">
+                    </div>
+                    <div class="row justify-content-center my-5">
+                        <div class="col-lg-8 my-auto text-center">
+                            <h2 class="pt-3 fw-bold">You will be redirected<br> to merchant website shortly. </h2>
+                            <img src="images/cancel.png" alt="Confirm">
+                            <h3 class="mb-0 opacity-50">Transaction Failed</h3>
+                            <p class="mb-0 opacity-50">Issuer Timeout</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Confirmation -->
 
     <footer>
         <div class="container-fluid my-4">

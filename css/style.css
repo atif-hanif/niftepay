@@ -1,15 +1,13 @@
 :root {
     --primary-color: #FF213A;
-    --black-color: #000000;
+    --black-color: #161E2B;
     --white-color: #ffffff;
     --bg-color: linear-gradient(to bottom, #4C5360, #2A323F);
     --bg-color2: linear-gradient(107.56deg, rgba(233, 238, 242, 0.9) 0%, rgba(239, 244, 248, 0.855) 100%);
     --font-family: Montserrat;
     --tabs-border: #4CAF50;
     --tabs-background: #C7E6C8;
-    --tab-color: rgba(22,30,43,0.25);
-    --tab-active: #000000;
-    --btn-black: #161E2B;
+    --third-color: #b2b8bf;
 }
 
 body {
@@ -22,15 +20,9 @@ body {
 .card0 {
     border-radius: 0 !important;
     border: none !important;
-    height: 800px;
-}
-
-.cards {
-    height: 800px;
 }
 
 .card1 {
-    width: 35%;
     background: var(--bg-color);
     position: relative;
     border-radius: 0 !important;
@@ -38,7 +30,6 @@ body {
 }
 
 .card2 {
-    width: 65%;
     padding: 50px 0px 10px;
     background: var(--bg-color2);
     border-radius: 0 !important;
@@ -77,41 +68,12 @@ body {
     margin-bottom: 30px;
 }
 
-.btn-color {
-    border-radius: 50px;
-    color: #fff;
-    background-image: linear-gradient(to right, #FFD54F, #D500F9);
-    padding: 15px;
-    cursor: pointer;
-    border: none !important;
-    margin-top: 40px;
-}
-
-.btn-color:hover {
-    color: #fff;
-    background-image: linear-gradient(to right, #D500F9, #FFD54F);
-}
-
-.btn-white {
-    border-radius: 50px;
-    color: #D500F9;
-    background-color: #fff;
-    padding: 8px 40px;
-    cursor: pointer;
-    border: 2px solid #D500F9 !important;
-}
-
-.btn-white:hover {
-    color: #fff;
-    background-image: linear-gradient(to right, #FFD54F, #D500F9);
-}
-
 a {
-    color: #000;
+    color: var(--black-color);
 }
 
 a:hover {
-    color: #000;
+    color: var(--black-color);
 }
 
 .bottom {
@@ -138,37 +100,6 @@ a:hover {
     line-height: 29px;
     letter-spacing: 0.02em;
     padding-top: 30px;
-}
-
-@media screen and (max-width: 992px) {
-    .card1 {
-        width: 100%;
-        padding: 40px 30px 10px 30px;
-    }
-
-    .card2 {
-        width: 100%;
-    }
-
-    .right {
-        margin-top: 100px !important;
-        margin-bottom: 100px !important;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        padding: 10px !important;
-    }
-
-    .card2 {
-        padding: 50px;
-    }
-
-    .right {
-        margin-top: 50px !important;
-        margin-bottom: 50px !important;
-    }
 }
 
 .custom-border {
@@ -311,24 +242,6 @@ footer {
     display: inline;
 }
 
-.session-text {
-    color: #fff;
-    position: relative;
-    float: right;
-    margin-right: -30px;
-}
-
-#timer {
-    font-weight: 100;
-    padding: 0px;
-    width: 100%;
-    color: var(--black-color);
-    text-align: end;
-    position: absolute;
-    margin-top: 25px;
-    right: 55px;
-}
-
 .minutes {
     display: inline-block;
     background-color: var(--white-color);
@@ -360,12 +273,13 @@ footer {
 .nav-link {
     padding: 8px;
     font-size: 12px;
-    color: var(--tab-color);
+    color: var(--third-color) !important;
 }
 
 .nav-link.active {
     font-weight: 600;
-    color: var(--tab-active);
+    color: var(--black-color) !important;
+    opacity: 1;
 }
 
 .nav-tabs .nav-link {
@@ -383,9 +297,13 @@ footer {
     margin-bottom: 5px;
 }
 
+.nav-tabs .nav-link .payment-card {
+    background-color: var(--white-color) !important;
+}
+
 .nav-tabs .nav-link.active .payment-card {
-    background-color: var(--tabs-background);
-    border: 1px solid var(--tabs-border);
+    background-color: var(--tabs-background) !important;
+    border: 1px solid var(--tabs-border) !important;
 }
 
 .nav-tabs .nav-link.active .payment-card svg {
@@ -434,7 +352,7 @@ footer {
     margin: 5px;
 	height: 30px;
 	width: 30px;
-	border-bottom: 2px solid var(--btn-black);
+	border-bottom: 2px solid var(--black-color);
     border-top: 2px solid transparent;
     border-right: 2px solid transparent;
     border-left: 2px solid transparent;
@@ -453,8 +371,8 @@ footer {
 
 .sw-btn-prev, .sw-btn-prev:hover{
     border-radius: 5px;
-    background-color: var(--btn-black) !important;
-    border-color: var(--btn-black) !important;
+    background-color: var(--black-color) !important;
+    border-color: var(--black-color) !important;
     border-radius: 5px !important;
 }
 
@@ -479,16 +397,11 @@ footer {
 
 .receipt {
     color: var(--primary-color);
-    text-align: end;
 }
 
 .receipt-card {
     border-radius: 25px;
     border: 1px solid var(--white-color)
-}
-
-.receipt-col {
-    width: 500px;
 }
 
 .custom-borders {
@@ -512,4 +425,45 @@ footer {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     border-radius: 5px;
+}
+
+.btn-black {
+    background-color: var(--black-color);
+    border-color: var(--black-color);
+    border-radius: 5px;
+}
+
+.sw > .tab-content > .tab-pane {
+    padding: 0rem !important;
+}
+
+.sw .toolbar {
+    padding: 0.8rem 0rem;
+}
+
+/* Modal */
+
+.popup-modal {
+    background-image: url(../images/modal-background.png);
+    background-size: cover;
+}
+
+.option {
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.customer {
+    font-weight: 700;
+}
+
+.divder {
+    border-top: 1px solid var(--black-color);
+    opacity: 0.1;
+    padding: 15px 0px;
+}
+
+.modal-backdrop.show {
+    opacity: 0.8;
 }

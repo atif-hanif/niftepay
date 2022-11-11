@@ -8,6 +8,83 @@ $(document).ready(function () {
     $("#cvv").mask("999");
 });
 
+$(document).ready(function() {
+	$(document).on('click', '.finish', function(e) {
+		if($('#bank-confirmation').hasClass('d-none')) {
+			$('#bank-confirmation').removeClass('d-none');
+			$('#bank-confirmation').addClass('d-block');
+			$('#payment').addClass('d-none');
+		}
+	});
+
+	$(document).on('click', '.wallet-div', function(e) {
+		if($('#wallet-confirmation').hasClass('d-none')) {
+			$('#wallet-confirmation').removeClass('d-none');
+			$('#wallet-confirmation').addClass('d-block');
+			$('#payment').addClass('d-none');
+			$('#myModal').removeClass('show');
+			$('#myModal').addClass('d-none');
+			$('.modal-backdrop').removeClass('show');
+			$('.modal-backdrop').addClass('d-none');
+			$('.modal-open').css({"overflow": ""});
+		}
+	});
+
+	$(document).on('click', '.proceed', function(e) {
+		if($('#card-confirmation').hasClass('d-none')) {
+			$('#card-confirmation').removeClass('d-none');
+			$('#card-confirmation').addClass('d-block');
+			$('#payment').addClass('d-none');
+		}
+	});
+
+	$(document).on('click', '.home', function(e) {
+		if($('#bank-confirmation').hasClass('d-block')) {
+			$('#bank-confirmation').addClass('d-none');
+			$('#payment').removeClass('d-none');
+		}
+	});
+
+	$(document).on('click', '.home', function(e) {
+		if($('#wallet-confirmation').hasClass('d-block')) {
+			$('#wallet-confirmation').addClass('d-none');
+			$('#payment').removeClass('d-none');
+		}
+	});
+	
+	$(document).on('click', '.home', function(e) {
+		if($('#card-confirmation').hasClass('d-block')) {
+			$('#card-confirmation').addClass('d-none');
+			$('#payment').removeClass('d-none');
+		}
+	});
+
+});
+
+// Validate Form
+
+(function () {
+	'use strict'
+  
+	// Fetch all the forms we want to apply custom Bootstrap validation styles to
+	var forms = document.querySelectorAll('.needs-validation')
+  
+	// Loop over them and prevent submission
+	Array.prototype.slice.call(forms)
+	  .forEach(function (form) {
+		form.addEventListener('submit', function (event) {
+		  if (!form.checkValidity()) {
+			event.preventDefault()
+			event.stopPropagation()
+		  }
+  
+		  form.classList.add('was-validated')
+		}, false)
+	  })
+})()
+
+// Session
+
 var deadline = new Date("Nov 9, 2022 00:00:00").getTime();
 var x = setInterval(function() {
 var now = new Date().getTime();
@@ -28,6 +105,8 @@ function clickEvent(first,last){
         document.getElementById(last).focus();
     }
 }
+
+// OTP
 
 let timerOn = true;
 
@@ -56,26 +135,6 @@ function otptimer(remaining) {
 otptimer(120);
 
 // Smart Wizrd
-
-$(document).ready(function() {
-	$(document).on('click', '.finish', function(e) {
-		if($('#thank-you').hasClass('d-none')) {
-			$('#thank-you').removeClass('d-none');
-			$('#thank-you').addClass('d-block');
-			$('#payment').addClass('d-none');
-		}
-	});
-
-	$(document).on('click', '.home', function(e) {
-		if($('#thank-you').hasClass('d-block')) {
-			$('#thank-you').addClass('d-none');
-			$('#payment').removeClass('d-none');
-		}
-	});
-
-});
-
-// Smart Wizard
 
 $(function() {
 	// Leave step event is used for validating the forms
@@ -121,6 +180,7 @@ $(function() {
 		selected: 0,
 		// autoAdjustHeight: false,
 		theme: 'arrows', // basic, arrows, square, round, dots
+		enableUrlHash: false, // Enable selection of the step based on url hash
 		transition: {
 			animation: 'none'
 		},
@@ -128,7 +188,7 @@ $(function() {
 			showNextButton: true, // show/hide a Next button
 			showPreviousButton: true, // show/hide a Previous button
 			position: 'bottom', // none/ top/ both bottom
-			extraHtml: `<button class="btn btn-success finish ms-2" id="btnFinish" disabled onclick="onConfirm()">Complete</button>`
+			extraHtml: `<button class="btn btn-success finish ms-1 mt-2 mt-md-0 ms-md-2" id="btnFinish" disabled onclick="onConfirm()">Complete</button>`
                               //<button class="btn btn-danger" id="btnCancel" onclick="onCancel()">Cancel</button>
 		},
 		anchor: {
