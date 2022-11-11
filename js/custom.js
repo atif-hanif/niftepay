@@ -188,7 +188,7 @@ $(function() {
 			showNextButton: true, // show/hide a Next button
 			showPreviousButton: true, // show/hide a Previous button
 			position: 'bottom', // none/ top/ both bottom
-			extraHtml: `<button class="btn btn-success finish ms-1 mt-2 mt-md-0 ms-md-2" id="btnFinish" disabled onclick="onConfirm()">Complete</button>`
+			extraHtml: `<button class="btn btn-success finish ms-1 mt-2 mt-md-0 ms-md-2" id="btnFinish" disabled onclick="onConfirm()">Pay</button>`
                               //<button class="btn btn-danger" id="btnCancel" onclick="onCancel()">Cancel</button>
 		},
 		anchor: {
