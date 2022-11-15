@@ -316,14 +316,29 @@ input::placeholder {
 .nav-tabs .nav-link.active .payment-card {
     background-color: var(--tabs-background) !important;
     border: 1px solid var(--tabs-border) !important;
+    position: relative;
 }
+
+/* .nav-tabs .nav-link.active .payment-card::after {
+    background-image: url(../images/check-icon.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    right: 0px;
+    top: 0px;
+    position: absolute;
+} */
 
 .nav-tabs .nav-link.active .payment-card svg {
     color: var(--tabs-border);
 }
 
+.payment-heading {
+    font-weight: 700;
+}
+
 .payment-card svg {
-    font-size: 24px;
+    font-size: 32px;
 }
 
 .select-bank, .bank-info, .otp {
@@ -353,6 +368,15 @@ input::placeholder {
     font-size: 13px;
     font-weight: 600;
     text-decoration: underline;
+}
+
+.red {
+    color: var(--primary-color);
+    font-size: 12px;
+}
+
+.black {
+    font-size: 12px;
 }
 
 /* OTP */
@@ -454,6 +478,10 @@ input::placeholder {
     padding: 0.8rem 0rem;
 }
 
+.hide {
+    display: none;
+}
+
 /* Modal */
 
 .popup-modal {
@@ -493,4 +521,18 @@ input::placeholder {
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
     top: 6px;
+}
+
+/* Multi Step Form */
+
+#assessment-form .page:not(.active) {
+    display: none;
+}
+
+#assessment-form .page.active {
+    display: block;
+}
+
+#back.nw-button {
+    display: none;
 }

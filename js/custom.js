@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $("#cnic").mask("99999-9999999-9");
-    $("#account-no").mask("9999999999999999");
+    // $("#account-no").mask("9999999999999999");
     $("#vendor-cnic").mask("99999-9999999-9");
     $("#mobile-no").mask("9999-9999999");
     $("#card-no").mask("9999 9999 9999 9999");
@@ -134,81 +134,114 @@ function otptimer(remaining) {
 
 otptimer(120);
 
-// Smart Wizrd
+// Milti Step Form
 
-$(function() {
-	// Leave step event is used for validating the forms
-	$(".smartwizard").on("leaveStep", function(e, anchorObject, currentStepIdx, nextStepIdx, stepDirection) {
-		// Validate only on forward movement  
-		if(stepDirection == 'forward') {
-			let form = document.getElementById('form-' + (currentStepIdx + 1));
-			if(form) {
-				if(!form.checkValidity()) {
-					form.classList.add('was-validated');
-					$('.smartwizard').smartWizard("setState", [currentStepIdx], 'error');
-					$(".smartwizard").smartWizard('fixHeight');
-					return false;
-				}
-				$('.smartwizard').smartWizard("unsetState", [currentStepIdx], 'error');
+const nextButton = document.getElementById("next");
+const backButton = document.getElementById("back");
+// get all of the pages
+const pages = $("#assessment-form .page");
+const firstPage = $(pages).first()[0];
+const lastPage = $(pages).last()[0];
+const activeClass = "active";
+const nextButtonContent = "Next Page <i class='fa fa-arrow-right'></i>";
+nextButton.addEventListener("click", function() {
+	const activePage = $("#assessment-form .page.active");
+	// validate before going to the next page.
+	const isValid = validatePage(activePage);
+	if(isValid) {
+		nextPage(activePage);
+	} 
+	else {
+		alert("There are inputs that are not valid. Please fill out all fields and check to make sure your email is valid.");
+	}
+});
+
+backButton.addEventListener("click", function() {
+	const activePage = $("#assessment-form .page.active");
+	previousPage(activePage);
+});
+
+/**
+ * Navigate to the next form page.
+ * @param {HTMLElement} element The current page element
+ * @returns void on it being the last page.
+ */
+function nextPage(element) {
+	const onLastPage = $(lastPage).hasClass(activeClass);
+	if(onLastPage) {
+		submitForm();
+		return;
+	}
+	$(element).removeClass(activeClass);
+	const nextElement = $(element).next();
+	if(nextElement[0] === lastPage) {
+		nextButton.innerHTML = "Proceed <i class='fa fa-arrow-right'></i>";
+	}
+	nextElement.addClass(activeClass);
+	if(!$(firstPage).hasClass(activeClass)) {
+		$(backButton).css("display", "unset");
+	}
+}
+
+/**
+ * Submitting the website assessment form to firebase real-time database.
+ */
+function submitForm() {
+	const form = $("#assessment-form");
+	const submittedValues = $(form).serializeArray();
+	const formValues = {};
+	for(submittedValue of submittedValues) {
+		formValues[submittedValue.name] = submittedValue.value;
+	}
+	window.submitAssessment(formValues);
+	alert("Thank you for submitting an inquiry. You will be contacted by email or your preferred contact method shortly.");
+	//   clear the form fields
+	$(form)[0].reset();
+	//   go back to the first page.
+	$(lastPage).removeClass("active");
+	$(firstPage).addClass("active");
+}
+
+/**
+ * Navigate to the previus form page.
+ * @param {HTMLElement} element The active page element
+ */
+function previousPage(element) {
+	$(element).removeClass(activeClass);
+	const previousElement = $(element).prev();
+	if(previousElement[0] === firstPage) {
+		// no backbutton on the first page.
+		$(backButton).css("display", "none");
+	}
+	// change from "submit" text
+	nextButton.innerHTML = nextButtonContent;
+	$(previousElement).addClass(activeClass);
+}
+/**
+ * Validates a form page.
+ * @param {HTMLElement} page The current page being validated
+ * @returns {Boolean} If the page is successully validated or not.
+ */
+// validate elements before proceeding to the nxt page
+function validatePage(page) {
+	// get all the form element from this page only.
+	var emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+	const formElements = $(page).find("input, textarea, select");
+	for(formElement of formElements) {
+		const value = formElement.value;
+		if(!value) {
+			return false;
+		}
+		// validating email inputs
+		if(formElement.type === "email") {
+			if(!value.match(emailPattern)) {
+				return false;
 			}
 		}
-	});
-	// Step show event
-	$(".smartwizard").on("showStep", function(e, anchorObject, stepIndex, stepDirection, stepPosition) {
-		$("#prev-btn").removeClass('disabled').prop('disabled', false);
-		$("#next-btn").removeClass('disabled').prop('disabled', false);
-		if(stepPosition === 'first') {
-			$("#prev-btn").addClass('disabled').prop('disabled', true);
-		} else if(stepPosition === 'last') {
-			$("#next-btn").addClass('disabled').prop('disabled', true);
-		} else {
-			$("#prev-btn").removeClass('disabled').prop('disabled', false);
-			$("#next-btn").removeClass('disabled').prop('disabled', false);
-		}
-		// Get step info from Smart Wizard
-		let stepInfo = $('.smartwizard').smartWizard("getStepInfo");
-		$("#sw-current-step").text(stepInfo.currentStep + 1);
-		$("#sw-total-step").text(stepInfo.totalSteps);
-		if(stepPosition == 'last') {
-			$("#btnFinish").prop('disabled', false);
-		} else {
-			$("#btnFinish").prop('disabled', true);
-		}
-	});
-	// Smart Wizard
-	$('.smartwizard').smartWizard({
-		selected: 0,
-		// autoAdjustHeight: false,
-		theme: 'arrows', // basic, arrows, square, round, dots
-		enableUrlHash: false, // Enable selection of the step based on url hash
-		transition: {
-			animation: 'none'
-		},
-		toolbar: {
-			showNextButton: true, // show/hide a Next button
-			showPreviousButton: true, // show/hide a Previous button
-			position: 'bottom', // none/ top/ both bottom
-			extraHtml: `<button class="btn btn-success finish ms-1 ms-md-2" id="btnFinish" disabled onclick="onConfirm()">Pay</button>`
-                              //<button class="btn btn-danger" id="btnCancel" onclick="onCancel()">Cancel</button>
-		},
-		anchor: {
-			enableNavigation: true, // Enable/Disable anchor navigation 
-			enableNavigationAlways: false, // Activates all anchors clickable always
-			enableDoneState: true, // Add done state on visited steps
-			markPreviousStepsAsDone: true, // When a step selected by url hash, all previous steps are marked done
-			unDoneOnBackNavigation: true, // While navigate back, done state will be cleared
-			enableDoneStateNavigation: true // Enable/Disable the done state navigation
-		},
-	});
-	$("#state_selector").on("change", function() {
-		$('.smartwizard').smartWizard("setState", [$('#step_to_style').val()], $(this).val(), !$('#is_reset').prop("checked"));
-		return true;
-	});
-	$("#style_selector").on("change", function() {
-		$('.smartwizard').smartWizard("setStyle", [$('#step_to_style').val()], $(this).val(), !$('#is_reset').prop("checked"));
-		return true;
-	});
-});
+	}
+	return true;
+}
+
 
 function formatBank (bank) {
 	if (!bank.id) {
