@@ -15,6 +15,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     font-family: var(--font-family);
+    font-size: 14px;
 }
 
 .card0 {
@@ -30,7 +31,7 @@ body {
 }
 
 .card2 {
-    padding: 50px 0px 10px;
+    /* padding: 50px 0px 10px; */
     background: var(--bg-color2);
     border-radius: 0 !important;
     border: none !important;
@@ -88,7 +89,6 @@ a:hover {
 .text-red {
     color: var(--primary-color);
     font-weight: 700;
-    font-size: 32px;
     line-height: 39px;
     letter-spacing: 0.02em;
 }
@@ -225,11 +225,15 @@ footer {
 
 /* Timer */
 
+.session-text {
+    font-size: 11px;
+}
+
 .session-img {
     position: absolute;
     top: 0;
     right: 0;
-    width: 35%;
+    width: 30%;
 }
 
 .timer {
@@ -245,18 +249,22 @@ footer {
 .minutes {
     display: inline-block;
     background-color: var(--white-color);
-    padding: 3px 5px;
+    padding: 2px 5px;
     font-weight: bold;
 }
 
 .seconds {
     display: inline-block;
     background-color: var(--white-color);
-    padding: 3px 5px;
+    padding: 2px 5px;
     font-weight: bold;
 }
 
 /* Tabs */
+
+input::placeholder {
+    opacity: 50% !important;
+}
 
 .nav-tabs {
     border-bottom: 1px solid transparent;
@@ -297,6 +305,10 @@ footer {
     margin-bottom: 5px;
 }
 
+.payment-card .card-body {
+    padding: 26px 16px;
+}
+
 .nav-tabs .nav-link .payment-card {
     background-color: var(--white-color) !important;
 }
@@ -320,8 +332,9 @@ footer {
 
 .step {
     color: var(--primary-color);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 .star {
@@ -466,4 +479,18 @@ footer {
 
 .modal-backdrop.show {
     opacity: 0.8;
+}
+
+.select2-container {
+    display: block;
+}
+
+.select2-container .select2-selection--single {
+    height: 38px;
+    padding: .275rem 2.25rem .375rem .75rem;
+    border: 1px solid #ced4da;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 6px;
 }

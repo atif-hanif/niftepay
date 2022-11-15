@@ -5,11 +5,11 @@
     }
 
     .card1 {
-        padding: 40px 20px 10px;
+        padding: 20px 20px 10px;
     }
 
     .card2 {
-        padding: 40px 20px 10px;
+        padding: 20px 20px 10px;
     }
     
     .ribbon-wrapper {
@@ -35,7 +35,7 @@
     }
 
     .session-img {
-        width: 50%;
+        width: 40%;
     }
 
     .payment-div {
@@ -73,16 +73,17 @@
 
     .card1 {
         width: 100%;
-        padding: 40px 30px 10px 30px;
+        padding: 40px 30px 10px;
     }
 
     .card2 {
         width: 100%;
+        padding: 40px 00px 10px;
     }
 
     .ribbon-front {
         left: -40px;
-        width: 124%;
+        width: 112%;
     }
 
     .ribbon-edge-topleft, .ribbon-edge-bottomleft {
@@ -108,6 +109,7 @@
         position: relative;
         float: right;
         margin-right: -30px;
+        top: -2px
     }
 
     #timer {
@@ -117,7 +119,7 @@
         color: var(--black-color);
         text-align: end;
         position: absolute;
-        margin-top: 25px;
+        margin-top: 20px;
         right: 55px;
     }
 
@@ -186,19 +188,19 @@
     }
 
     .card0 {
-        height: 800px;
+        height: 700px;
     }
     
     .cards {
-        height: 800px;
+        height: 700px;
     }
 
     .card1 {
-        width: 35%;
+        width: 30%;
     }
     
     .card2 {
-        width: 65%;
+        width: 70%;
     }
 
     .receipt-column {
@@ -212,7 +214,7 @@
     }
 
     .vendor {
-        width: 100%;
+        width: 50%;
     }
 
     .session-text {
@@ -220,6 +222,7 @@
         position: relative;
         float: right;
         margin-right: -30px;
+        top: 20px;
     }
 
     #timer {
@@ -229,8 +232,12 @@
         color: var(--black-color);
         text-align: end;
         position: absolute;
-        margin-top: 25px;
+        margin-top: 45px;
         right: 55px;
+    }
+
+    .select2-container {
+        width: 50% !important;
     }
 
 }

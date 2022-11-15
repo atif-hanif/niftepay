@@ -85,7 +85,7 @@ $(document).ready(function() {
 
 // Session
 
-var deadline = new Date("Nov 9, 2022 00:00:00").getTime();
+var deadline = new Date("Nov 16, 2022 00:00:00").getTime();
 var x = setInterval(function() {
 var now = new Date().getTime();
 var t = deadline - now;
@@ -138,23 +138,23 @@ otptimer(120);
 
 $(function() {
 	// Leave step event is used for validating the forms
-	$("#smartwizard").on("leaveStep", function(e, anchorObject, currentStepIdx, nextStepIdx, stepDirection) {
+	$(".smartwizard").on("leaveStep", function(e, anchorObject, currentStepIdx, nextStepIdx, stepDirection) {
 		// Validate only on forward movement  
 		if(stepDirection == 'forward') {
 			let form = document.getElementById('form-' + (currentStepIdx + 1));
 			if(form) {
 				if(!form.checkValidity()) {
 					form.classList.add('was-validated');
-					$('#smartwizard').smartWizard("setState", [currentStepIdx], 'error');
-					$("#smartwizard").smartWizard('fixHeight');
+					$('.smartwizard').smartWizard("setState", [currentStepIdx], 'error');
+					$(".smartwizard").smartWizard('fixHeight');
 					return false;
 				}
-				$('#smartwizard').smartWizard("unsetState", [currentStepIdx], 'error');
+				$('.smartwizard').smartWizard("unsetState", [currentStepIdx], 'error');
 			}
 		}
 	});
 	// Step show event
-	$("#smartwizard").on("showStep", function(e, anchorObject, stepIndex, stepDirection, stepPosition) {
+	$(".smartwizard").on("showStep", function(e, anchorObject, stepIndex, stepDirection, stepPosition) {
 		$("#prev-btn").removeClass('disabled').prop('disabled', false);
 		$("#next-btn").removeClass('disabled').prop('disabled', false);
 		if(stepPosition === 'first') {
@@ -166,7 +166,7 @@ $(function() {
 			$("#next-btn").removeClass('disabled').prop('disabled', false);
 		}
 		// Get step info from Smart Wizard
-		let stepInfo = $('#smartwizard').smartWizard("getStepInfo");
+		let stepInfo = $('.smartwizard').smartWizard("getStepInfo");
 		$("#sw-current-step").text(stepInfo.currentStep + 1);
 		$("#sw-total-step").text(stepInfo.totalSteps);
 		if(stepPosition == 'last') {
@@ -176,7 +176,7 @@ $(function() {
 		}
 	});
 	// Smart Wizard
-	$('#smartwizard').smartWizard({
+	$('.smartwizard').smartWizard({
 		selected: 0,
 		// autoAdjustHeight: false,
 		theme: 'arrows', // basic, arrows, square, round, dots
@@ -188,7 +188,7 @@ $(function() {
 			showNextButton: true, // show/hide a Next button
 			showPreviousButton: true, // show/hide a Previous button
 			position: 'bottom', // none/ top/ both bottom
-			extraHtml: `<button class="btn btn-success finish ms-1 mt-2 mt-md-0 ms-md-2" id="btnFinish" disabled onclick="onConfirm()">Pay</button>`
+			extraHtml: `<button class="btn btn-success finish ms-1 ms-md-2" id="btnFinish" disabled onclick="onConfirm()">Pay</button>`
                               //<button class="btn btn-danger" id="btnCancel" onclick="onCancel()">Cancel</button>
 		},
 		anchor: {
@@ -201,11 +201,41 @@ $(function() {
 		},
 	});
 	$("#state_selector").on("change", function() {
-		$('#smartwizard').smartWizard("setState", [$('#step_to_style').val()], $(this).val(), !$('#is_reset').prop("checked"));
+		$('.smartwizard').smartWizard("setState", [$('#step_to_style').val()], $(this).val(), !$('#is_reset').prop("checked"));
 		return true;
 	});
 	$("#style_selector").on("change", function() {
-		$('#smartwizard').smartWizard("setStyle", [$('#step_to_style').val()], $(this).val(), !$('#is_reset').prop("checked"));
+		$('.smartwizard').smartWizard("setStyle", [$('#step_to_style').val()], $(this).val(), !$('#is_reset').prop("checked"));
 		return true;
 	});
+});
+
+function formatBank (bank) {
+	if (!bank.id) {
+	  return bank.text;
+	}
+	var baseUrl = "images/bank";
+	var $bank = $(
+	  '<span><img src="' + baseUrl + '/' + bank.element.value.toLowerCase() + '.png" class="img-flag" /> ' + bank.text + '</span>'
+	);
+	return $bank;
+};
+  
+$(".bank").select2({
+	templateResult: formatBank
+});
+
+function formatWallet (wallet) {
+	if (!wallet.id) {
+	  return wallet.text;
+	}
+	var baseUrl = "images/wallet";
+	var $wallet = $(
+	  '<span><img src="' + baseUrl + '/' + wallet.element.value.toLowerCase() + '.png" class="img-flag" /> ' + wallet.text + '</span>'
+	);
+	return $wallet;
+};
+  
+$(".vendor").select2({
+	templateResult: formatWallet
 });
