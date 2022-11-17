@@ -108,6 +108,43 @@ function clickEvent(first,last){
 
 // OTP
 
+$(document).ready(function () {
+	$(".otp-form *:input[type!=hidden]:first").focus();
+	let otp_fields = $(".otp-form .otp-field"),
+	otp_value_field = $(".otp-form .otp-value");
+	otp_fields
+		.on("input", function (e) {
+			$(this).val(
+				$(this)
+					.val()
+					.replace(/[^0-9]/g, "")
+			);
+			let opt_value = "";
+			otp_fields.each(function () {
+				let field_value = $(this).val();
+				if (field_value != "") opt_value += field_value;
+			});
+			otp_value_field.val(opt_value);
+		})
+		.on("keyup", function (e) {
+			let key = e.keyCode || e.charCode;
+			if (key == 8 || key == 46 || key == 37 || key == 40) {
+				// Backspace or Delete or Left Arrow or Down Arrow
+				$(this).prev().focus();
+			} else if (key == 38 || key == 39 || $(this).val() != "") {
+				// Right Arrow or Top Arrow or Value not empty
+				$(this).next().focus();
+			}
+		})
+		.on("paste", function (e) {
+			let paste_data = e.originalEvent.clipboardData.getData("text");
+			let paste_data_splitted = paste_data.split("");
+			$.each(paste_data_splitted, function (index, value) {
+				otp_fields.eq(index).val(value);
+			});
+		});
+});
+
 let timerOn = true;
 
 function otptimer(remaining) {
@@ -138,26 +175,28 @@ otptimer(120);
 
 const nextButton = document.getElementById("next");
 const backButton = document.getElementById("back");
-// get all of the pages
-const pages = $("#assessment-form .page");
+const payButton = document.getElementById("pay");
+
+const pages = $(".assessment-form .page");
 const firstPage = $(pages).first()[0];
 const lastPage = $(pages).last()[0];
 const activeClass = "active";
-const nextButtonContent = "Next Page <i class='fa fa-arrow-right'></i>";
+const nextButtonContent = "Proceed <i class='fa fa-arrow-right'></i>";
 nextButton.addEventListener("click", function() {
-	const activePage = $("#assessment-form .page.active");
-	// validate before going to the next page.
+	const activePage = $(".assessment-form .page.active");
 	const isValid = validatePage(activePage);
 	if(isValid) {
 		nextPage(activePage);
 	} 
 	else {
-		alert("There are inputs that are not valid. Please fill out all fields and check to make sure your email is valid.");
+		document.getElementById("error").innerHTML = "Please fill all required fields";
+		//alert("There are inputs that are not valid. Please fill out all fields and check to make sure your email is valid.");
 	}
 });
 
+
 backButton.addEventListener("click", function() {
-	const activePage = $("#assessment-form .page.active");
+	const activePage = $(".assessment-form .page.active");
 	previousPage(activePage);
 });
 
@@ -166,6 +205,7 @@ backButton.addEventListener("click", function() {
  * @param {HTMLElement} element The current page element
  * @returns void on it being the last page.
  */
+
 function nextPage(element) {
 	const onLastPage = $(lastPage).hasClass(activeClass);
 	if(onLastPage) {
@@ -180,24 +220,22 @@ function nextPage(element) {
 	nextElement.addClass(activeClass);
 	if(!$(firstPage).hasClass(activeClass)) {
 		$(backButton).css("display", "unset");
+		$(backButton).css("margin-right", "5px");
+		$(nextButton).css("display", "none");
+		$(payButton).css("display", "unset");
 	}
 }
 
-/**
- * Submitting the website assessment form to firebase real-time database.
- */
 function submitForm() {
-	const form = $("#assessment-form");
+	const form = $(".assessment-form");
 	const submittedValues = $(form).serializeArray();
 	const formValues = {};
 	for(submittedValue of submittedValues) {
 		formValues[submittedValue.name] = submittedValue.value;
 	}
 	window.submitAssessment(formValues);
-	alert("Thank you for submitting an inquiry. You will be contacted by email or your preferred contact method shortly.");
-	//   clear the form fields
+	//alert("Thank you for submitting an inquiry. You will be contacted by email or your preferred contact method shortly.");
 	$(form)[0].reset();
-	//   go back to the first page.
 	$(lastPage).removeClass("active");
 	$(firstPage).addClass("active");
 }
@@ -210,38 +248,28 @@ function previousPage(element) {
 	$(element).removeClass(activeClass);
 	const previousElement = $(element).prev();
 	if(previousElement[0] === firstPage) {
-		// no backbutton on the first page.
 		$(backButton).css("display", "none");
 	}
-	// change from "submit" text
 	nextButton.innerHTML = nextButtonContent;
 	$(previousElement).addClass(activeClass);
 }
+
 /**
  * Validates a form page.
  * @param {HTMLElement} page The current page being validated
  * @returns {Boolean} If the page is successully validated or not.
  */
-// validate elements before proceeding to the nxt page
+
 function validatePage(page) {
-	// get all the form element from this page only.
-	var emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-	const formElements = $(page).find("input, textarea, select");
+	const formElements = $(page).find("input, select");
 	for(formElement of formElements) {
 		const value = formElement.value;
 		if(!value) {
 			return false;
 		}
-		// validating email inputs
-		if(formElement.type === "email") {
-			if(!value.match(emailPattern)) {
-				return false;
-			}
-		}
 	}
 	return true;
 }
-
 
 function formatBank (bank) {
 	if (!bank.id) {
@@ -271,4 +299,11 @@ function formatWallet (wallet) {
   
 $(".vendor").select2({
 	templateResult: formatWallet
+});
+
+$(document).ready(function(){
+	$('#form-3').on('submit', function(e){
+		$('#myModal').modal('show');
+		e.preventDefault();
+	})
 });

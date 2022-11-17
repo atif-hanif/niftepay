@@ -146,7 +146,7 @@
 
                                     <div class="tab-content mt-5">
                                         <div id="bank" class="container tab-pane active">
-                                            <form id="assessment-form">
+                                            <form class="assessment-form">
                                                 <div class="page active">
                                                     <span class="step">Step 1</span>
                                                     <h3 class="select-bank">Select your Bank</h3>
@@ -159,8 +159,12 @@
                                                         <option value="faysal-bank">Faysal Bank</option>
                                                         <option value="bop-bank">The Bank of Punjab</option>
                                                         <option value="habib-bank">Habib Bank Limited</option>
+                                                        <option value="askari-bank">Askari Bank</option>
+                                                        <option value="bank-al-habib-bank">Bank Al Habib</option>
+                                                        <option value="bank-islami-bank">Bank Islami</option>
+                                                        <option value="habib-metro-bank">Habib Metro</option>
                                                     </select>
-                                                    <div class="red fw-bold">Please Select Bank</div>
+                                                    <!-- <div class="red fw-bold pt-1">Please Select Bank</div> -->
                                                     <br>
                                                     <span class="step">Step 2</span>
                                                     <h3 class="bank-info">Bank Information</h3>
@@ -168,13 +172,13 @@
                                                         <div class="col-12 col-md-6">
                                                             <label for="account-no" class="form-label">Account <span class="star">*</span></label>
                                                             <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="account-no" required maxlength="16">
-                                                            <div class="red fw-bold">Account not Found.</div>
+                                                            <div class="red fw-bold pt-1">Account not Found.</div>
                                                             <div class="black fw-bold">Please enter 16 digit account number following the <br>layout below <br> 10XXXXXXXXXXXXXX</div>
                                                         </div>
                                                         <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                             <label for="cnic" class="form-label">CNIC Number <span class="star">*</span></label>
                                                             <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" id="cnic" required>
-                                                            <div class="red fw-bold">Kindly enter your valid CNIC Number</div>
+                                                            <div class="red fw-bold pt-1">Kindly enter your valid CNIC Number</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -196,17 +200,18 @@
                                                         <h3 class="otp">OTP Verficiation</h3>
                                                         <p>A 6 digit verification code has been sent to +92 3******514 or email to n*****786@hotmail.com</p>
                                                         <div class="otp-div row">
-                                                            <div class="col-md-6">
-                                                                <p class="inline float-start userInput mb-0">
-                                                                    <input type="text" id='first' maxlength="1" onkeyup="clickEvent(this,'sec')">
-                                                                    <input type="text" id="sec" maxlength="1" onkeyup="clickEvent(this,'third')">
-                                                                    <input type="text" id="third" maxlength="1" onkeyup="clickEvent(this,'fourth')">
-                                                                    <input type="text" id="fourth" maxlength="1" onkeyup="clickEvent(this,'fifth')">
-                                                                    <input type="text" id="fifth" maxlength="1" onkeyup="clickEvent(this,'sixth')">
-                                                                    <input type="text" id="sixth" maxlength="1">
-                                                                </p>
+                                                            <div class="col-md-6 col-lg-4">
+                                                                <div class="otp-form">
+                                                                    <input class="otp-field" type="text" name="opt-field[]" maxlength=1>
+                                                                    <input class="otp-field" type="text" name="opt-field[]" maxlength=1>
+                                                                    <input class="otp-field" type="text" name="opt-field[]" maxlength=1>
+                                                                    <input class="otp-field" type="text" name="opt-field[]" maxlength=1>
+                                                                    <input class="otp-field" type="text" name="opt-field[]" maxlength=1>
+                                                                    <input class="otp-field" type="text" name="opt-field[]" maxlength=1>
+                                                                </div>
+                                                                <input class="otp-value" type="hidden" name="opt-value">
                                                             </div>
-                                                            <div class="col-md-6 mt-2 mt-md-0">
+                                                            <div class="col-md-6 col-lg-4 mt-2 mt-md-0">
                                                                 <p class="inline code-expire-div">Code Expire in <span id="otp-timer"></span> Sec</p>
                                                             </div>
                                                         </div>
@@ -219,16 +224,22 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row mt-3">
-                                                    <div class="col-6 d-flex">
+                                                <div class="row mt-2">
+                                                    <div class="col-12">
+                                                        <p id="error" class="red mb-1 fw-bold"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 d-flex">
                                                         <button class="btn btn-danger btn-black black nw-button" type="button" id="back"><i class="fa fa-arrow-left"></i> Back</button>
-                                                        <button class="btn btn-dark btn-red next nw-button ms-3" type="button" id="next">Proceed <i class="fa fa-arrow-right"></i></button>
+                                                        <button class="btn btn-dark btn-red next nw-button" type="button" id="next">Proceed <i class="fa fa-arrow-right"></i></button>
+                                                        <button class="btn btn-dark btn-red finish nw-button" type="button" id="pay">Proceed <i class="fa fa-arrow-right"></i></button>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
                                         <div id="wallet" class="container tab-pane fade">
-                                            <form class="needs-validation" novalidate id="form-3">
+                                            <form class="needs-validation" novalidate data-bs-toggle="modal">
                                                 <span class="step">Step 1</span>
                                                 <h3 class="select-bank">Wallet Payment</h3>
                                                 <label for="vendor" class="form-label">Select your Vendor <span class="star">*</span></label>
@@ -252,7 +263,12 @@
                                                         <div class="invalid-feedback fw-bold">Kindly enter your valid CNIC Number</div>
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn btn-danger btn-red text-uppercase mt-4" data-bs-toggle="modal" data-bs-target="#myModal" onclick="validateform()" id="submit">Proceed </button>
+                                                <div class="row">
+                                                    <div class="col-12 d-flex">
+                                                        <button type="submit" class="btn btn-danger btn-red text-uppercase mt-4" data-bs-toggle="modal" data-bs-target="#myModal">Proceed <i class="fa fa-arrow-right"></i></button>
+                                                    </div>
+                                                </div>
+                                                
                                             </form>
                                         </div>
                                         <div id="card" class="container tab-pane fade">
@@ -291,7 +307,7 @@
                                                         <p class="mb-0">Please ensure your card is activated for e-Commerce usage.</p>
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn btn-danger btn-red text-uppercase mt-4 proceed">Proceed </button>
+                                                <button type="submit" class="btn btn-danger btn-red text-uppercase mt-4 proceed">Proceed <i class="fa fa-arrow-right"></i></button>
                                             </form>
                                         </div>
                                     </div>
@@ -325,8 +341,8 @@
                                     <span class="option">Option 2</span>
                                     <h4 class="customer">If you are customer of another network</h4>
                                     <p class="opacity-50">Please login into your EasyPaisa App and enter your MPIN.</p>
-                                    <button type="button" class="btn btn-dark btn-black text-uppercase" data-bs-dismiss="modal">Back</button>
-                                    <button type="button" class="btn btn-danger btn-red text-uppercase wallet-div">Proceed</button>
+                                    <button type="button" class="btn btn-dark btn-black text-uppercase" data-bs-dismiss="modal"><i class="fa fa-arrow-left"></i> Back</button>
+                                    <button type="button" class="btn btn-danger btn-red text-uppercase wallet-div">Proceed <i class="fa fa-arrow-right"></i></button>
                                 </div>
                                 <div class="col-lg-5 mt-3 mt-md-3 mt-md-0">
                                     <img src="images/mobile.png" alt="Mobile" class="img-fluid">

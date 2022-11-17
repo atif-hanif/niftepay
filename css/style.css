@@ -381,23 +381,19 @@ input::placeholder {
 
 /* OTP */
 
-.userInput {
-	display: flex;
+.otp-form .otp-field {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	border: none;
+	border-bottom: 2px solid var(--black-color);
+	outline: none;
+    background: transparent;
 }
 
-.userInput input {
-    margin: 5px;
-	height: 30px;
-	width: 30px;
-	border-bottom: 2px solid var(--black-color);
-    border-top: 2px solid transparent;
-    border-right: 2px solid transparent;
-    border-left: 2px solid transparent;
-	border-radius: 5px;
-	text-align: center;
-    background-color: transparent;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+.otp-form .otp-field:focus {
+	border-bottom-color: var(--black-color);
 }
 
 .error {
@@ -464,10 +460,22 @@ input::placeholder {
     border-radius: 5px;
 }
 
+.btn-red:hover {
+    background-color: var(--white-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
 .btn-black {
     background-color: var(--black-color);
     border-color: var(--black-color);
     border-radius: 5px;
+}
+
+.btn-black:hover {
+    background-color: var(--white-color);
+    border-color: var(--black-color);
+    color: var(--black-color);
 }
 
 .sw > .tab-content > .tab-pane {
@@ -525,14 +533,18 @@ input::placeholder {
 
 /* Multi Step Form */
 
-#assessment-form .page:not(.active) {
+.assessment-form .page:not(.active) {
     display: none;
 }
 
-#assessment-form .page.active {
+.assessment-form .page.active {
     display: block;
 }
 
 #back.nw-button {
+    display: none;
+}
+
+#pay.nw-button {
     display: none;
 }
