@@ -124,7 +124,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link text-center" data-bs-toggle="tab" href="#wallet">
-                                                <div class="card payment-card">
+                                                <div class="card payment-card wallet-card">
                                                     <div class="card-body">
                                                         <i class="fa-solid fa-wallet"></i>
                                                     </div>
@@ -134,7 +134,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link text-center" data-bs-toggle="tab" href="#card">
-                                                <div class="card payment-card">
+                                                <div class="card payment-card cards-card">
                                                     <div class="card-body">
                                                         <i class="fa-regular fa-credit-card"></i>
                                                     </div>
@@ -146,8 +146,13 @@
 
                                     <div class="tab-content mt-5">
                                         <div id="bank" class="container tab-pane active">
-                                            <form class="assessment-form">
-                                                <div class="page active">
+                                            <form class="bank-form">
+                                                <div class="bank-steps d-none" id="bank-steps">
+                                                    <span class="bank-step"></span>
+                                                    <span class="bank-step"></span>
+                                                </div>
+
+                                                <div class="tab">
                                                     <span class="step">Step 1</span>
                                                     <h3 class="select-bank">Select your Bank</h3>
                                                     <label for="bank-account" class="form-label">Bank Account Number <span class="star">*</span></label>
@@ -164,6 +169,7 @@
                                                         <option value="bank-islami-bank">Bank Islami</option>
                                                         <option value="habib-metro-bank">Habib Metro</option>
                                                     </select>
+                                                    
                                                     <!-- <div class="red fw-bold pt-1">Please Select Bank</div> -->
                                                     <br>
                                                     <span class="step">Step 2</span>
@@ -171,18 +177,19 @@
                                                     <div class="row">
                                                         <div class="col-12 col-md-6">
                                                             <label for="account-no" class="form-label">Account <span class="star">*</span></label>
-                                                            <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="account-no" required maxlength="16">
+                                                            <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="account-no" maxlength="16" required>
                                                             <div class="red fw-bold pt-1">Account not Found.</div>
                                                             <div class="black fw-bold">Please enter 16 digit account number following the <br>layout below <br> 10XXXXXXXXXXXXXX</div>
                                                         </div>
                                                         <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                             <label for="cnic" class="form-label">CNIC Number <span class="star">*</span></label>
-                                                            <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" id="cnic" required>
+                                                            <input type="text" class="form-control" id="cnic" placeholder="42201-xxxxxxx-9" maxlength="15" required>
                                                             <div class="red fw-bold pt-1">Kindly enter your valid CNIC Number</div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="page">
+
+                                                <div class="tab">
                                                     <img src="images/bank/mcb-bank.png" class="d-inline" alt="MCB Logo">
                                                     <p class="d-inline">MCB Bank</p>
                                                     <div class="row mt-3">
@@ -226,49 +233,49 @@
                                                 </div>
                                                 <div class="row mt-2">
                                                     <div class="col-12">
-                                                        <p id="error" class="red mb-1 fw-bold"></p>
+                                                        <p id="bank-error" class="red mb-1 fw-bold"></p>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-12 d-flex">
-                                                        <button class="btn btn-danger btn-black black nw-button" type="button" id="back"><i class="fa fa-arrow-left"></i> Back</button>
-                                                        <button class="btn btn-dark btn-red next nw-button" type="button" id="next">Proceed <i class="fa fa-arrow-right"></i></button>
-                                                        <button class="btn btn-dark btn-red finish nw-button" type="button" id="pay">Proceed <i class="fa fa-arrow-right"></i></button>
-                                                    </div>
+                                                <div class="mt-2" id="nextprevious">
+                                                    <button type="button" class="btn btn-dark btn-black" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-arrow-left"></i> Previous</button>
+                                                    <button type="button" class="btn btn-danger btn-red" id="nextBtn" onclick="nextPrev(1)">Next <i class="fa fa-arrow-right"></i></button>
+                                                    <button type="button" class="btn btn-success btn-green" id="pay">Pay <i class="fa fa-arrow-right"></i></button>
                                                 </div>
                                             </form>
                                         </div>
                                         <div id="wallet" class="container tab-pane fade">
-                                            <form class="needs-validation" novalidate data-bs-toggle="modal">
-                                                <span class="step">Step 1</span>
-                                                <h3 class="select-bank">Wallet Payment</h3>
-                                                <label for="vendor" class="form-label">Select your Vendor <span class="star">*</span></label>
-                                                <select class="form-select vendor" id="vendor" required>
-                                                    <option value="">Select your Wallet</option>
-                                                    <option value="easypaisa">Easy Paisa</option>
-                                                    <option value="jazzcash">Jazz Cash</option>
-                                                    <option value="upaisa">UPaisa</option>
-                                                </select>
-                                                <div class="invalid-feedback">Select Vendor</div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-12 col-md-6">
-                                                        <label for="mobile-no" class="form-label">Mobile Number <span class="star">*</span></label>
-                                                        <input type="text" class="form-control account-no" placeholder="0331-2324251" id="mobile-no" required="">
-                                                        <div class="invalid-feedback fw-bold">Mobile Number Required</div>
+                                            <form id="assessment-form" class="wallet-form">
+                                                <div class="page active">
+                                                    <span class="step">Step 1</span>
+                                                    <h3 class="select-bank">Wallet Payment</h3>
+                                                    <label for="vendor" class="form-label">Select your Vendor <span class="star">*</span></label>
+                                                    <select class="form-select vendor" id="vendor" required>
+                                                        <option value="">Select your Wallet</option>
+                                                        <option value="easypaisa">Easy Paisa</option>
+                                                        <option value="jazzcash">Jazz Cash</option>
+                                                        <option value="upaisa">UPaisa</option>
+                                                    </select>
+                                                    <div class="red fw-bold">Select Vendor</div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-6">
+                                                            <label for="mobile-no" class="form-label">Mobile Number <span class="star">*</span></label>
+                                                            <input type="text" class="form-control account-no" placeholder="0331-2324251" id="mobile-no" maxlength="12" required>
+                                                            <div class="red fw-bold pt-1">Mobile Number Required</div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6 mt-3 mt-md-0">
+                                                            <label for="vendor-cnic" class="form-label">CNIC Number <span class="star">*</span></label>
+                                                            <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" id="vendor-cnic" maxlength="15" required>
+                                                            <div class="red fw-bold pt-1">Kindly enter your valid CNIC Number</div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-12 col-md-6 mt-3 mt-md-0">
-                                                        <label for="vendor-cnic" class="form-label">CNIC Number <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" id="vendor-cnic" required="">
-                                                        <div class="invalid-feedback fw-bold">Kindly enter your valid CNIC Number</div>
+                                                    <div class="row mt-2">
+                                                        <div class="col-md-6">
+                                                            <button class="nw-button btn btn-dark btn-black" type="button" id="back"><i class="fa fa-arrow-left"></i>Previous Page</button>
+                                                            <button class="nw-button btn btn-danger btn-red" type="button" id="next">Pay <i class="fa fa-arrow-right pt-1 ps-1"></i></button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-12 d-flex">
-                                                        <button type="submit" class="btn btn-danger btn-red text-uppercase mt-4" data-bs-toggle="modal" data-bs-target="#myModal">Proceed <i class="fa fa-arrow-right"></i></button>
-                                                    </div>
-                                                </div>
-                                                
                                             </form>
                                         </div>
                                         <div id="card" class="container tab-pane fade">
@@ -278,7 +285,7 @@
                                                 <div class="row">
                                                     <div class="col-12 col-md-6">
                                                         <label for="card-no" class="form-label">Card Number <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="card-no" name="cardno" required>
+                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="card-no" name="cardno" maxlength="19" required>
                                                         <div class="invalid-feedback fw-bold">Card Number Required</div>
                                                     </div>
                                                     <div class="col-12 col-md-6 mt-3 mt-md-0">
@@ -291,12 +298,12 @@
                                                 <div class="row">
                                                     <div class="col-12 col-md-2">
                                                         <label for="card-expiry" class="form-label">Card Expiry <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="MM/YY" id="card-expiry" required>
+                                                        <input type="text" class="form-control" placeholder="MM/YY" id="card-expiry" maxlength="5" required>
                                                         <div class="invalid-feedback">Invalid Card Expiry</div>
                                                     </div>
                                                     <div class="col-12 col-md-2 mt-3 mt-md-0">
-                                                        <label for="cvv" class="form-label">CVV <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="999" id="cvv" required>
+                                                        <label for="cvv" class="form-label">CVV / CVC <span class="star">*</span></label>
+                                                        <input type="text" class="form-control" placeholder="999" id="cvv" maxlength="3" required>
                                                         <div class="invalid-feedback">CVV Number Required</div>
                                                     </div>
                                                     <div class="col"></div>
@@ -321,7 +328,7 @@
     </section>
 
     <!-- Start Popup -->
-    <div class="modal" id="myModal" >
+    <div class="modal fade" id="myModal" tabindex="-1">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content popup-modal">
                 <div class="modal-body">
@@ -391,7 +398,7 @@
                                     <div class="custom-borders">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <p class="opacity-50 mb-2 mb-md-0">Trasnfer to</p>
+                                                <p class="opacity-50 mb-2 mb-md-0">Transfer to</p>
                                             </div>
                                             <div class="col-md-6">
                                                 <p class="text-start text-md-end mb-0">DEL Electronics</p>

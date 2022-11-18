@@ -67,6 +67,18 @@
         color: var(--black-color);
     }
 
+    .wallet-card {
+        margin-top: 24px;
+    }
+
+    .cards-card {
+        margin-top: 48px;
+    }
+
+    .tab-content {
+        margin-top: 75px;
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -121,6 +133,10 @@
         position: absolute;
         margin-top: 20px;
         right: 55px;
+    }
+
+    .tab-content {
+        margin-top: 40px;
     }
 
 }

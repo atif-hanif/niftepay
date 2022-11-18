@@ -400,29 +400,7 @@ input::placeholder {
     color: var(--primary-color);
 }
 
-/* Smart Wizard */
-
-.sw-btn-prev, .sw-btn-prev:hover{
-    border-radius: 5px;
-    background-color: var(--black-color) !important;
-    border-color: var(--black-color) !important;
-    border-radius: 5px !important;
-}
-
-.sw-btn-next, .sw-btn-next:hover {
-    border-radius: 5px;
-    background-color: var(--primary-color) !important;
-    border-color: var(--primary-color) !important;
-    border-radius: 5px !important;
-}
-
-.toolbar-top {
-    display: none;
-}
-
-.toolbar-bottom {
-    text-align: left !important;
-}
+/* Thank You Card */
 
 .thankyou-card {
     background: linear-gradient(to right, #E9EEF2, #EFF4F8) !important;
@@ -478,6 +456,17 @@ input::placeholder {
     color: var(--black-color);
 }
 
+.btn-green {
+    background-color: var(--tabs-border);
+    border-color: var(--tabs-border);
+    border-radius: 5px;
+}
+
+.btn-green:hover {
+    background-color: var(--white-color);
+    border-color: var(--tabs-border);
+}
+
 .sw > .tab-content > .tab-pane {
     padding: 0rem !important;
 }
@@ -531,20 +520,30 @@ input::placeholder {
     top: 6px;
 }
 
-/* Multi Step Form */
+/* Bank Form */
 
-.assessment-form .page:not(.active) {
+.bank-confirmation {
     display: none;
 }
 
-.assessment-form .page.active {
+input.invalid {
+    border-color: var(--primary-color);
+}
+
+.tab {
+    display: none;
+}
+
+/* Wallet Form */
+
+#assessment-form .page.active {
     display: block;
 }
 
-#back.nw-button {
-    display: none;
+.valid {
+    border-color: var(--primary-color);
 }
 
-#pay.nw-button {
+#back.nw-button {
     display: none;
 }
