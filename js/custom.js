@@ -34,9 +34,63 @@ cexpiry.addEventListener('keyup', function(e) {
 });
 
 $('#account-no').bind('keypress', function (event) {
-    var regex = new RegExp("^[a-zA-Z0-9\b]+$");
-    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regex.test(key)) {
+    var regexa = new RegExp("^[a-zA-Z0-9\b]+$");
+    var keya = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexa.test(keya)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#mobile-no').bind('keypress', function (event) {
+    var regexm = new RegExp("^[0-9\b]+$");
+    var keym = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexm.test(keym)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#cnic').bind('keypress', function (event) {
+    var regexc = new RegExp("^[0-9\b]+$");
+    var keyc = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexc.test(keyc)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#vendor-cnic').bind('keypress', function (event) {
+    var regexvc = new RegExp("^[0-9\b]+$");
+    var keyvc = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexvc.test(keyvc)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#card-no').bind('keypress', function (event) {
+    var regexcn = new RegExp("^[0-9\b]+$");
+    var keycn = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcn.test(keycn)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#card-expiry').bind('keypress', function (event) {
+    var regexce = new RegExp("^[0-9\b]+$");
+    var keyce = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexce.test(keyce)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#cvv').bind('keypress', function (event) {
+    var regexcvv = new RegExp("^[0-9\b]+$");
+    var keycvv = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcvv.test(keycvv)) {
        event.preventDefault();
        return false;
     }
@@ -97,6 +151,10 @@ function validateForm() {
 		if(y[i].value == "") {
 			y[i].className += " invalid";
 			valid = false;
+			document.getElementById("bankerror1").innerHTML = "This field is required."
+			document.getElementById("bankerror2").innerHTML = "This field is required."
+			document.getElementById("bankerror3").innerHTML = "This field is required."
+			document.getElementById("bankerror4").innerHTML = "This field is required."
 		}
 	}
 
@@ -134,13 +192,13 @@ $(".vendor").select2({
 const nextButton = document.getElementById("next");
 const backButton = document.getElementById("back");
 
-const pages = $("#assessment-form .page");
+const pages = $("#walletForm .page");
 const firstPage = $(pages).first()[0];
 const lastPage = $(pages).last()[0];
 const activeClass = "active";
 const nextButtonContent = "Proceed <i class='fa fa-arrow-right pt-1 ps-1'></i>";
 nextButton.addEventListener("click", function() {
-	const activePage = $("#assessment-form .page.active");
+	const activePage = $("#walletForm .page.active");
 	const isValid = validatePage(activePage);
 	if(isValid) {
 		nextPage(activePage);
@@ -149,11 +207,14 @@ nextButton.addEventListener("click", function() {
 		element.classList.add("valid");
 		var element = document.getElementById("vendor-cnic");
 		element.classList.add("valid");
+		document.getElementById("walleterror1").innerHTML = "This field is required."
+		document.getElementById("walleterror2").innerHTML = "This field is required."
+		document.getElementById("walleterror3").innerHTML = "This field is required."
 	}
 });
 
 backButton.addEventListener("click", function() {
-	const activePage = $("#assessment-form .page.active");
+	const activePage = $("#walletForm .page.active");
 	previousPage(activePage);
 });
 
@@ -184,7 +245,7 @@ function nextPage(element) {
  * Submitting the website assessment form to firebase real-time database.
  */
 function submitForm() {
-	const form = $("#assessment-form");
+	const form = $("#walletForm");
 	const submittedValues = $(form).serializeArray();
 	const formValues = {};
 	for(submittedValue of submittedValues) {
@@ -226,6 +287,9 @@ function validatePage(page) {
 	}
 	return true;
 }
+
+// Card Form
+
 
 // OTP
 
@@ -329,33 +393,42 @@ $(document).ready(function() {
 		}
 	});
 
-	$(document).on('click', '.proceed', function(e) {
-		if($('#card-confirmation').hasClass('d-none')) {
-			$('#card-confirmation').removeClass('d-none');
-			$('#card-confirmation').addClass('d-block');
-			$('#payment').addClass('d-none');
-		}
-	});
+	// $(document).on('click', '.proceed', function(e) {
+	// 	if($('#card-confirmation').hasClass('d-none')) {
+	// 		$('#card-confirmation').removeClass('d-none');
+	// 		$('#card-confirmation').addClass('d-block');
+	// 		$('#payment').addClass('d-none');
+	// 	}
+	// });
 
-	$(document).on('click', '.home', function(e) {
-		if($('#bank-confirmation').hasClass('d-block')) {
-			$('#bank-confirmation').addClass('d-none');
-			$('#payment').removeClass('d-none');
-		}
-	});
+	$("#cardForm").validate();
 
-	$(document).on('click', '.home', function(e) {
-		if($('#wallet-confirmation').hasClass('d-block')) {
-			$('#wallet-confirmation').addClass('d-none');
-			$('#payment').removeClass('d-none');
-		}
-	});
+	$(document).on('submit', function(e) {
+		$('#card-confirmation').removeClass('d-none');
+		$('#card-confirmation').addClass('d-block');
+		$('#payment').addClass('d-none');
+		e.preventDefault()
+	})
+
+	// $(document).on('click', '.home', function(e) {
+	// 	if($('#bank-confirmation').hasClass('d-block')) {
+	// 		$('#bank-confirmation').addClass('d-none');
+	// 		$('#payment').removeClass('d-none');
+	// 	}
+	// });
+
+	// $(document).on('click', '.home', function(e) {
+	// 	if($('#wallet-confirmation').hasClass('d-block')) {
+	// 		$('#wallet-confirmation').addClass('d-none');
+	// 		$('#payment').removeClass('d-none');
+	// 	}
+	// });
 	
-	$(document).on('click', '.home', function(e) {
-		if($('#card-confirmation').hasClass('d-block')) {
-			$('#card-confirmation').addClass('d-none');
-			$('#payment').removeClass('d-none');
-		}
-	});
+	// $(document).on('click', '.home', function(e) {
+	// 	if($('#card-confirmation').hasClass('d-block')) {
+	// 		$('#card-confirmation').addClass('d-none');
+	// 		$('#payment').removeClass('d-none');
+	// 	}
+	// });
 
 });

@@ -396,8 +396,11 @@ input::placeholder {
 	border-bottom-color: var(--black-color);
 }
 
-.error {
+label.error {
     color: var(--primary-color);
+    font-size: 12px;
+    font-weight: 700 !important;
+    margin-bottom: .25rem !important;
 }
 
 /* Thank You Card */
@@ -465,6 +468,7 @@ input::placeholder {
 .btn-green:hover {
     background-color: var(--white-color);
     border-color: var(--tabs-border);
+    color: var(--tabs-border);
 }
 
 .sw > .tab-content > .tab-pane {
@@ -527,7 +531,7 @@ input::placeholder {
 }
 
 input.invalid {
-    border-color: var(--primary-color);
+    border-color: transparent;
 }
 
 .tab {
@@ -541,9 +545,17 @@ input.invalid {
 }
 
 .valid {
-    border-color: var(--primary-color);
+    border-color: transparent;
 }
 
 #back.nw-button {
     display: none;
+}
+
+input:-internal-autofill-selected {
+    background-color: #fff !important;
+}
+
+.form-control {
+    height: 38px;
 }
