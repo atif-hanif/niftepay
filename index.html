@@ -154,23 +154,26 @@
 
                                                 <div class="tab">
                                                     <span class="step">Step 1</span>
-                                                    <h3 class="select-bank">Select your Bank</h3>
-                                                    <label for="bank-account" class="form-label">Bank Account Number <span class="star">*</span></label>
-                                                    <select class="bank" id="bank-account" name="bank-account" required>
-                                                        <option value="">Select Your Bank</option>
-                                                        <option value="mcb-bank">MCB Bank</option>
-                                                        <option value="allied-bank">Allied Bank</option>
-                                                        <option value="alfalah-bank">Bank Alfalah</option>
-                                                        <option value="faysal-bank">Faysal Bank</option>
-                                                        <option value="bop-bank">The Bank of Punjab</option>
-                                                        <option value="habib-bank">Habib Bank Limited</option>
-                                                        <option value="askari-bank">Askari Bank</option>
-                                                        <option value="bank-al-habib-bank">Bank Al Habib</option>
-                                                        <option value="bank-islami-bank">Bank Islami</option>
-                                                        <option value="habib-metro-bank">Habib Metro</option>
-                                                    </select>
-                                                    <p id="bankerror1" class="red mb-1 fw-bold"></p>
-                                                    <br>
+                                                    <div class="row mb-3">
+                                                        <div class="col-12 col-md-6">
+                                                            <h3 class="select-bank">Select your Bank</h3>
+                                                            <label for="bank-account" class="form-label">Bank Account Number <span class="star">*</span></label>
+                                                            <select class="bank" id="bank-account" name="bank-account" required>
+                                                                <option value="">Select Your Bank</option>
+                                                                <option value="mcb-bank">MCB Bank</option>
+                                                                <option value="allied-bank">Allied Bank</option>
+                                                                <option value="alfalah-bank">Bank Alfalah</option>
+                                                                <option value="faysal-bank">Faysal Bank</option>
+                                                                <option value="bop-bank">The Bank of Punjab</option>
+                                                                <option value="habib-bank">Habib Bank Limited</option>
+                                                                <option value="askari-bank">Askari Bank</option>
+                                                                <option value="bank-al-habib-bank">Bank Al Habib</option>
+                                                                <option value="bank-islami-bank">Bank Islami</option>
+                                                                <option value="habib-metro-bank">Habib Metro</option>
+                                                            </select>
+                                                            <p id="bankerror1" class="red mb-1 fw-bold"></p>
+                                                        </div>
+                                                    </div>
                                                     <span class="step">Step 2</span>
                                                     <h3 class="bank-info">Bank Information</h3>
                                                     <div class="row">
@@ -244,17 +247,20 @@
                                             <form id="walletForm" class="wallet-form" action="">
                                                 <div class="page active">
                                                     <span class="step">Step 1</span>
-                                                    <h3 class="select-bank">Wallet Payment</h3>
-                                                    <label for="vendor" class="form-label">Select your Vendor <span class="star">*</span></label>
-                                                    <select class="form-select vendor" id="vendor" required>
-                                                        <option value="">Select your Wallet</option>
-                                                        <option value="easypaisa">Easy Paisa</option>
-                                                        <option value="jazzcash">Jazz Cash</option>
-                                                        <option value="upaisa">UPaisa</option>
-                                                    </select>
-                                                    <p class="red fw-bold pt-1 mb-0" id="walleterror1"></p>
-                                                    <br>
                                                     <div class="row">
+                                                        <div class="col-12 col-md-6">
+                                                            <h3 class="select-bank">Wallet Payment</h3>
+                                                            <label for="vendor" class="form-label">Select your Vendor <span class="star">*</span></label>
+                                                            <select class="form-select vendor" id="vendor" required>
+                                                                <option value="">Select your Wallet</option>
+                                                                <option value="easypaisa">Easy Paisa</option>
+                                                                <option value="jazzcash">Jazz Cash</option>
+                                                                <option value="upaisa">UPaisa</option>
+                                                            </select>
+                                                            <p class="red fw-bold pt-1 mb-0" id="walleterror1"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mt-3">
                                                         <div class="col-12 col-md-6">
                                                             <label for="mobile-no" class="form-label">Mobile Number <span class="star">*</span></label>
                                                             <input type="text" class="form-control account-no" placeholder="0331-2324251" id="mobile-no" maxlength="12" required>
