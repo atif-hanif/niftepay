@@ -195,6 +195,14 @@
         right: 60px;
     }
 
+    .tab-content {
+        margin-top: 60px;
+    }
+
+    .cards-card {
+        margin-top: 20px;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -250,6 +258,10 @@
         position: absolute;
         margin-top: 45px;
         right: 55px;
+    }
+
+    .tab-content {
+        margin-top: 40px;
     }
 
 }
