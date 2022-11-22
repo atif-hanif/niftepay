@@ -362,7 +362,7 @@ $(".bank").select2({
 
 //Session
 
-var deadline = new Date("Nov 22, 2022 16:00:00").getTime();
+var deadline = new Date("Nov 24, 2022 00:00:00").getTime();
 var x = setInterval(function() {
 	var now = new Date().getTime();
 	var t = deadline - now;
