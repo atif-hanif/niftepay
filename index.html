@@ -35,40 +35,40 @@
                             <h4 class="order">Order Summary</h4>
                             <div class="custom-border mt-4">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-6">
                                         <p class="text-white opacity-50 mb-0">Company</p>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-6">
                                         <p class="text-white text-end mb-0">DEL Electronics</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="custom-border">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-6">
                                         <p class="text-white opacity-50 mb-0">Order ID</p>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-6">
                                         <p class="text-white text-end mb-0">28232</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="custom-border">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-6">
                                         <p class="text-white opacity-50 mb-0">Description</p>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-6">
                                         <p class="text-white text-end mb-0">DWHB 875</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="custom-border">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-6">
                                         <p class="text-white opacity-50 mb-0">Discount</p>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-6">
                                         <p class="text-white text-end mb-0">5%</p>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@
                         </div>
                         <div class="ribbon-wrapper">
                             <div class="ribbon-front">
-                                <div class="row align-items-center">
+                                <div class="row payment-amount">
                                     <div class="col-md-6">
                                         <p class="text-black fw-bold mb-0">You have to pay</p>
                                     </div>
@@ -158,7 +158,7 @@
                                                     <div class="row mb-3">
                                                         <div class="col-12 col-md-6">
                                                             <h3 class="select-bank">Select your Bank</h3>
-                                                            <label for="bank-account" class="form-label">Bank Account Number <span class="star">*</span></label>
+                                                            <label for="bank-account" class="form-label">Bank Account <span class="star">*</span></label>
                                                             <select class="bank" id="bank-account" name="bank-account" required>
                                                                 <option value="">Select Your Bank</option>
                                                                 <option value="mcb-bank">MCB Bank</option>
@@ -276,7 +276,7 @@
                                                     <div class="row mt-2">
                                                         <div class="col-md-6">
                                                             <button class="nw-button btn btn-dark btn-black" type="button" id="back"><i class="fa fa-arrow-left"></i>Previous Page</button>
-                                                            <button class="nw-button btn btn-danger btn-red" type="button" id="next">Pay <i class="fa fa-arrow-right pt-1 ps-1"></i></button>
+                                                            <button class="nw-button btn btn-danger btn-red pay" type="button" id="next">Pay <i class="fa fa-arrow-right pt-1 ps-1"></i></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -348,7 +348,7 @@
                                     <span class="option">Option 2</span>
                                     <h4 class="customer">If you are customer of another network</h4>
                                     <p class="opacity-50">Please login into your EasyPaisa App and enter your MPIN.</p>
-                                    <button type="button" class="btn btn-dark btn-black back"><i class="fa fa-arrow-left"></i> Back</button>
+                                    <button type="button" class="btn btn-dark btn-black back" data-bs-dismiss="modal"><i class="fa fa-arrow-left"></i> Back</button>
                                     <button type="button" class="btn btn-danger btn-red wallet-div">Proceed <i class="fa fa-arrow-right"></i></button>
                                 </div>
                                 <div class="col-lg-5 mt-3 mt-md-3 mt-md-0">

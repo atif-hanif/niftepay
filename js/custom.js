@@ -398,6 +398,23 @@ $(document).ready(function() {
 		}
 	});
 
+	$(document).on('click', '.pay', function(e) {
+		if($('#myModal').hasClass('d-none')) {
+			$('#myModal').removeClass('d-none');
+			
+		}
+	});
+
+	$("#walletForm").validate();
+
+	// $(document).on('click', '.back', function(e) {
+	// 	if($('#myModal').hasClass('show')) {
+	// 		$('#myModal').css("display", "none")
+	// 		$('.modal-backdrop').removeClass('show');
+	// 		$('.modal-backdrop').addClass('hide');
+	// 	}
+	// });
+
 	$(document).on('click', '.wallet-div', function(e) {
 		if($('#wallet-confirmation').hasClass('d-none')) {
 			$('#wallet-confirmation').removeClass('d-none');
@@ -405,6 +422,7 @@ $(document).ready(function() {
 			$('#payment').addClass('d-none');
 			$('#myModal').removeClass('show');
 			$('#myModal').addClass('hide');
+			$('#myModal').css("display", "none")
 			$('.modal-backdrop').removeClass('show');
 			$('.modal-backdrop').addClass('hide');
 			$('.modal-open').css({"overflow": ""});

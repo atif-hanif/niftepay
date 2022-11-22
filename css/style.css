@@ -165,7 +165,7 @@ a:hover {
 }
 
 .ribbon-edge-bottomright {
-	border-width: 0 0 5px 10px;
+	border-width: 0 0 0px 10px;
 }
 
 @-webkit-keyframes flow {
@@ -202,9 +202,9 @@ a:hover {
 	}
 }
 
-.ribbon-front .row {
+/* .ribbon-front .row {
     height: 100%;
-}
+} */
 
 .number, .email {
     color: var(--primary-color);
