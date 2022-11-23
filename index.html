@@ -147,7 +147,7 @@
 
                                     <div class="tab-content">
                                         <div id="bank" class="container tab-pane active">
-                                            <form class="bank-form" id="bankForm" action="">
+                                            <form class="bank-form" id="bankForm" action="javascript:void(0)">
                                                 <div class="bank-steps d-none" id="bank-steps">
                                                     <span class="bank-step"></span>
                                                     <span class="bank-step"></span>
@@ -187,7 +187,7 @@
                                                         </div>
                                                         <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                             <label for="cnic" class="form-label">CNIC Number <span class="star">*</span></label>
-                                                            <input type="text" class="form-control" id="cnic" placeholder="42201-xxxxxxx-9" maxlength="15" required>
+                                                            <input type="text" class="form-control" id="cnic" placeholder="42201-xxxxxxx-9" maxlength="15" required onKeyup='addDash(this)'>
                                                             <div class="red fw-bold pt-1">Kindly enter your valid CNIC Number</div>
                                                             <p id="bankerror3" class="red mb-1 fw-bold"></p>
                                                         </div>
@@ -239,7 +239,7 @@
                                                 </div>
                                                 <div class="mt-2" id="nextprevious">
                                                     <button type="button" class="btn btn-dark btn-black" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-arrow-left"></i> Previous</button>
-                                                    <button type="button" class="btn btn-danger btn-red" id="nextBtn" onclick="nextPrev(1)">Next <i class="fa fa-arrow-right"></i></button>
+                                                    <button type="button" class="btn btn-danger btn-red" id="nextBtn" onclick="nextPrev(1)">Proceed <i class="fa fa-arrow-right"></i></button>
                                                     <button type="button" class="btn btn-success btn-green" id="pay">Pay <i class="fa fa-arrow-right"></i></button>
                                                 </div>
                                             </form>
@@ -264,19 +264,19 @@
                                                     <div class="row mt-3">
                                                         <div class="col-12 col-md-6">
                                                             <label for="mobile-no" class="form-label">Mobile Number <span class="star">*</span></label>
-                                                            <input type="text" class="form-control account-no" placeholder="0331-2324251" id="mobile-no" maxlength="12" required>
+                                                            <input type="text" class="form-control account-no" placeholder="0331-2324251" id="mobile-no" maxlength="12" required onKeyup='addDashe(this)'>
                                                             <p class="red fw-bold pt-1 mb-0" id="walleterror2"></p>
                                                         </div>
                                                         <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                             <label for="vendor-cnic" class="form-label">CNIC Number <span class="star">*</span></label>
-                                                            <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" id="vendor-cnic" maxlength="15" required>
+                                                            <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" id="vendor-cnic" maxlength="15" required onKeyup='addDashes(this)'>
                                                             <p class="red fw-bold pt-1 mb-0" id="walleterror3"></p>
                                                         </div>
                                                     </div>
                                                     <div class="row mt-2">
                                                         <div class="col-md-6">
                                                             <button class="nw-button btn btn-dark btn-black" type="button" id="back"><i class="fa fa-arrow-left"></i>Previous Page</button>
-                                                            <button class="nw-button btn btn-danger btn-red pay" type="button" id="next">Pay <i class="fa fa-arrow-right pt-1 ps-1"></i></button>
+                                                            <button class="nw-button btn btn-danger btn-red pay" type="button" id="next">Proceed <i class="fa fa-arrow-right pt-1 ps-1"></i></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -289,7 +289,7 @@
                                                 <div class="row">
                                                     <div class="col-12 col-md-6">
                                                         <label for="card-no" class="form-label">Card Number <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="card-no" name="cardno" maxlength="19" required>
+                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="card-no" name="cardno" maxlength="19" required onKeyup='addDashess(this)'>
                                                     </div>
                                                     <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                         <label for="card-name" class="form-label">Card Holder Name <span class="star">*</span></label>
@@ -300,7 +300,11 @@
                                                 <div class="row">
                                                     <div class="col-12 col-md-2">
                                                         <label for="card-expiry" class="form-label">Card Expiry <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="MM/YY" id="card-expiry" maxlength="5" required>
+                                                        <!-- <input type="text" class="form-control" placeholder="MM/YY" id="card-expiry" maxlength="5" required> -->
+                                                        <div class="exp-wrapper form-control">
+                                                            <input autocomplete="off" class="exp" id="month" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="MM" type="text" data-pattern-validate/>
+                                                            <input autocomplete="off" class="exp" id="year" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="YY" type="text" data-pattern-validate/>
+                                                        </div>
                                                     </div>
                                                     <div class="col-12 col-md-2 mt-3 mt-md-0">
                                                         <label for="cvv" class="form-label">CVV / CVC <span class="star">*</span></label>
@@ -348,8 +352,8 @@
                                     <span class="option">Option 2</span>
                                     <h4 class="customer">If you are customer of another network</h4>
                                     <p class="opacity-50">Please login into your EasyPaisa App and enter your MPIN.</p>
-                                    <button type="button" class="btn btn-dark btn-black back" data-bs-dismiss="modal"><i class="fa fa-arrow-left"></i> Back</button>
-                                    <button type="button" class="btn btn-danger btn-red wallet-div">Proceed <i class="fa fa-arrow-right"></i></button>
+                                    <!-- <button type="button" class="btn btn-dark btn-black back" data-bs-dismiss="modal"><i class="fa fa-arrow-left"></i> Back</button>
+                                    <button type="button" class="btn btn-danger btn-red wallet-div">Proceed <i class="fa fa-arrow-right"></i></button> -->
                                 </div>
                                 <div class="col-lg-5 mt-3 mt-md-3 mt-md-0">
                                     <img src="images/mobile.png" alt="Mobile" class="img-fluid">

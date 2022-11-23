@@ -585,3 +585,28 @@ input:-internal-autofill-selected {
 .form-control {
     height: 38px;
 }
+
+.exp-wrapper {
+    position: relative;
+    border: 1px solid #ced4da;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .exp-wrapper:after {
+    content: '/';
+    position: absolute;
+    left: 50%;
+    margin-left: -4px;
+    color: #aaa;
+  }
+
+  input.exp {
+    float: left;
+    font-family: monospace;
+    border: 0;
+    width: 25px;
+    outline: none;
+    appearance: none;
+    font-size: 14px;
+  }

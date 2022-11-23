@@ -1,23 +1,73 @@
-var cnic = document.querySelector('#cnic');
-cnic.addEventListener('keyup', function(e) {
-	if (event.key != 'Backspace' && (cnic.value.length === 5 || cnic.value.length === 13)) {
-  		cnic.value += '-';
-  	}
-});
+// var cnic = document.querySelector('#cnic');
+// cnic.addEventListener('keyup', function(e) {
+// 	if (event.key != 'Backspace' && (cnic.value.length === 5 || cnic.value.length === 13)) {
+//   		cnic.value += '-';
+//   	}
+// });
 
-var vcnic = document.querySelector('#vendor-cnic');
-vcnic.addEventListener('keyup', function(e) {
-	if (event.key != 'Backspace' && (vcnic.value.length === 5 || vcnic.value.length === 13)) {
-  		vcnic.value += '-';
-  	}
-});
+window.addDash = function addDash(a) {
+    var b = /(\D+)/g,
+        npa = '',
+        nxw = '',
+        last1 = '';
+    a.value = a.value.replace(b, '');
+    npa = a.value.substr(0, 5);
+    nxw = a.value.substr(5, 7);
+    last1 = a.value.substr(12, 1);
+    a.value = npa + '-' + nxw + '-' + last1;
+}
 
-var mobile = document.querySelector('#mobile-no');
-mobile.addEventListener('keyup', function(e) {
-	if (event.key != 'Backspace' && (mobile.value.length === 4)) {
-  		mobile.value += '-';
-  	}
-});
+// var mobile = document.querySelector('#mobile-no');
+// mobile.addEventListener('keyup', function(e) {
+// 	if (event.key != 'Backspace' && (mobile.value.length === 4)) {
+//   		mobile.value += '-';
+//   	}
+// });
+
+window.addDashe = function addDashe(c) {
+    var d = /(\D+)/g,
+        npb = '',
+        nxx = '';
+        //last2 = '';
+    c.value = c.value.replace(d, '');
+    npb = c.value.substr(0, 4);
+    nxx = c.value.substr(4, 7);
+    //last2 = f.value.substr(6, 4);
+    c.value = npb + '-' + nxx ;
+}
+
+// var vcnic = document.querySelector('#vendor-cnic');
+// vcnic.addEventListener('keyup', function(e) {
+// 	if (event.key != 'Backspace' && (vcnic.value.length === 5 || vcnic.value.length === 13)) {
+//   		vcnic.value += '-';
+//   	}
+// });
+
+window.addDashes = function addDashes(e) {
+    var f = /(\D+)/g,
+        npc = '',
+        nxy = '',
+        last3 = '';
+    e.value = e.value.replace(f, '');
+    npc = e.value.substr(0, 5);
+    nxy = e.value.substr(5, 7);
+    last3 = e.value.substr(12, 1);
+    e.value = npc + '-' + nxy + '-' + last3;
+}
+
+window.addDashess = function addDashess(g) {
+    var h = /(\D+)/g,
+        npc = '',
+        nxy = '',
+        last4 = '',
+		last = '';
+    g.value = g.value.replace(h, '');
+    npc = g.value.substr(0, 4);
+    nxy = g.value.substr(4, 4);
+    last4 = g.value.substr(8, 4);
+	last = g.value.substr(12, 4);
+    g.value = npc + ' ' + nxy + ' ' + last4 + ' ' + last;
+}
 
 var card = document.querySelector('#card-no');
 card.addEventListener('keyup', function(e) {
@@ -26,12 +76,12 @@ card.addEventListener('keyup', function(e) {
   	}
 });
 
-var cexpiry = document.querySelector('#card-expiry');
-cexpiry.addEventListener('keyup', function(e) {
-	if (event.key != 'Backspace' && (cexpiry.value.length === 2)) {
-  		cexpiry.value += '/';
-  	}
-});
+// var cexpiry = document.querySelector('#card-expiry');
+// cexpiry.addEventListener('keyup', function(e) {
+// 	if (event.key != 'Backspace' && (cexpiry.value.length === 2)) {
+//   		cexpiry.value += '/';
+//   	}
+// });
 
 $('#account-no').bind('keypress', function (event) {
     var regexa = new RegExp("^[a-zA-Z0-9\b]+$");
@@ -437,7 +487,7 @@ $(document).ready(function() {
 	// 	}
 	// });
 
-	$("#cardForm").validate();
+	$("#cardForm").validate() ;
 
 	$(document).on('submit', function(e) {
 		$('#card-confirmation').removeClass('d-none');
@@ -467,4 +517,42 @@ $(document).ready(function() {
 	// 	}
 	// });
 
+});
+
+const monthInput = document.querySelector('#month');
+const yearInput = document.querySelector('#year');
+
+const focusSibling = function(target, direction, callback) {
+	const nextTarget = target[direction];
+	nextTarget && nextTarget.focus();
+	// if callback is supplied we return the sibling target which has focus
+	callback && callback(nextTarget);
+}
+
+// input event only fires if there is space in the input for entry. 
+// If an input of x length has x characters, keyboard press will not fire this input event.
+monthInput.addEventListener('input', (event) => {
+
+	const value = event.target.value.toString();
+	// adds 0 to month user input like 9 -> 09
+	if (value.length === 1 && value > 1) {
+		event.target.value = "0" + value;
+	}
+	// bounds
+	if (value === "00") {
+		event.target.value = "01";
+	} else if (value > 12) {
+		event.target.value = "12";
+	}
+	// if we have a filled input we jump to the year input
+	2 <= event.target.value.length && focusSibling(event.target, "nextElementSibling");
+	event.stopImmediatePropagation();
+});
+
+yearInput.addEventListener('keydown', (event) => {
+	// if the year is empty jump to the month input
+	if (event.key === "Backspace" && event.target.selectionStart === 0) {
+		focusSibling(event.target, "previousElementSibling");
+		event.stopImmediatePropagation();
+	}
 });
