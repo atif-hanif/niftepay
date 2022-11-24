@@ -128,10 +128,28 @@ $('#card-no').bind('keypress', function (event) {
     }
 });
 
-$('#card-expiry').bind('keypress', function (event) {
-    var regexce = new RegExp("^[0-9\b]+$");
-    var keyce = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexce.test(keyce)) {
+$('#card-name').bind('keypress', function (event) {
+    var regexcnm = new RegExp("^[a-zA-Z \b]+$");
+    var keycnm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcnm.test(keycnm)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#month').bind('keypress', function (event) {
+    var regexcm = new RegExp("^[0-9\b]+$");
+    var keycm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcm.test(keycm)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#year').bind('keypress', function (event) {
+    var regexcy = new RegExp("^[0-9\b]+$");
+    var keycy = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcy.test(keycy)) {
        event.preventDefault();
        return false;
     }
@@ -201,10 +219,11 @@ function validateForm() {
 		if(y[i].value == "") {
 			y[i].className += " invalid";
 			valid = false;
-			document.getElementById("bankerror1").innerHTML = "This field is required."
-			document.getElementById("bankerror2").innerHTML = "This field is required."
-			document.getElementById("bankerror3").innerHTML = "This field is required."
-			document.getElementById("bankerror4").innerHTML = "This field is required."
+			document.getElementById("bankerror").innerHTML = "All fields are required."
+			// document.getElementById("bankerror1").innerHTML = "This field is required."
+			// document.getElementById("bankerror2").innerHTML = "This field is required."
+			// document.getElementById("bankerror3").innerHTML = "This field is required."
+			// document.getElementById("bankerror4").innerHTML = "This field is required."
 		}
 	}
 
@@ -257,9 +276,10 @@ nextButton.addEventListener("click", function() {
 		element.classList.add("valid");
 		var element = document.getElementById("vendor-cnic");
 		element.classList.add("valid");
-		document.getElementById("walleterror1").innerHTML = "This field is required."
-		document.getElementById("walleterror2").innerHTML = "This field is required."
-		document.getElementById("walleterror3").innerHTML = "This field is required."
+		document.getElementById("walleterror").innerHTML = "All fields are required."
+		// document.getElementById("walleterror1").innerHTML = "This field is required."
+		// document.getElementById("walleterror2").innerHTML = "This field is required."
+		// document.getElementById("walleterror3").innerHTML = "This field is required."
 	}
 });
 
@@ -340,6 +360,15 @@ function validatePage(page) {
 
 // Card Form
 
+// $("#cardForm").validate() ;
+
+function validateForms() {
+	let x = document.forms["cardForm"]["cardname"].value;
+	if (x == "") {
+	  alert("Name must be filled out");
+	  return false;
+	}
+  }
 
 // OTP
 
@@ -455,7 +484,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#walletForm").validate();
+	// $("#walletForm").validate();
 
 	// $(document).on('click', '.back', function(e) {
 	// 	if($('#myModal').hasClass('show')) {
@@ -486,8 +515,6 @@ $(document).ready(function() {
 	// 		$('#payment').addClass('d-none');
 	// 	}
 	// });
-
-	$("#cardForm").validate() ;
 
 	$(document).on('submit', function(e) {
 		$('#card-confirmation').removeClass('d-none');

@@ -172,7 +172,7 @@
                                                                 <option value="bank-islami-bank">Bank Islami</option>
                                                                 <option value="habib-metro-bank">Habib Metro</option>
                                                             </select>
-                                                            <p id="bankerror1" class="red mb-1 fw-bold"></p>
+                                                            <!-- <p id="bankerror1" class="red mb-1 fw-bold"></p> -->
                                                         </div>
                                                     </div>
                                                     <span class="step">Step 2</span>
@@ -183,15 +183,16 @@
                                                             <input type="text" class="form-control account-no" placeholder="Enter Account Number / IBAN" id="account-no" maxlength="16" required>
                                                             <div class="red fw-bold pt-1">Account not Found.</div>
                                                             <div class="black fw-bold">Please enter 16 digit account number following the <br>layout below <br> 10XXXXXXXXXXXXXX</div>
-                                                            <p id="bankerror2" class="red mb-1 fw-bold"></p>
+                                                            <!-- <p id="bankerror2" class="red mb-1 fw-bold"></p> -->
                                                         </div>
                                                         <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                             <label for="cnic" class="form-label">CNIC Number <span class="star">*</span></label>
                                                             <input type="text" class="form-control" id="cnic" placeholder="42201-xxxxxxx-9" maxlength="15" required onKeyup='addDash(this)'>
                                                             <div class="red fw-bold pt-1">Kindly enter your valid CNIC Number</div>
-                                                            <p id="bankerror3" class="red mb-1 fw-bold"></p>
+                                                            <!-- <p id="bankerror3" class="red mb-1 fw-bold"></p> -->
                                                         </div>
                                                     </div>
+                                                    <p id="bankerror" class="red mb-1 fw-bold"></p>
                                                 </div>
 
                                                 <div class="tab">
@@ -258,21 +259,24 @@
                                                                 <option value="jazzcash">Jazz Cash</option>
                                                                 <option value="upaisa">UPaisa</option>
                                                             </select>
-                                                            <p class="red fw-bold pt-1 mb-0" id="walleterror1"></p>
+                                                            <!-- <p class="red fw-bold pt-1 mb-0" id="walleterror1"></p> -->
                                                         </div>
                                                     </div>
                                                     <div class="row mt-3">
                                                         <div class="col-12 col-md-6">
                                                             <label for="mobile-no" class="form-label">Mobile Number <span class="star">*</span></label>
                                                             <input type="text" class="form-control account-no" placeholder="0331-2324251" id="mobile-no" maxlength="12" required onKeyup='addDashe(this)'>
-                                                            <p class="red fw-bold pt-1 mb-0" id="walleterror2"></p>
+                                                            <div class="red fw-bold pt-1">Kindly enter your valid Mobile Number</div>
+                                                            <!-- <p class="red fw-bold pt-1 mb-0" id="walleterror2"></p> -->
                                                         </div>
                                                         <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                             <label for="vendor-cnic" class="form-label">CNIC Number <span class="star">*</span></label>
                                                             <input type="text" class="form-control" placeholder="42201-xxxxxxx-9" id="vendor-cnic" maxlength="15" required onKeyup='addDashes(this)'>
-                                                            <p class="red fw-bold pt-1 mb-0" id="walleterror3"></p>
+                                                            <div class="red fw-bold pt-1">Kindly enter your valid CNIC Number</div>
+                                                            <!-- <p class="red fw-bold pt-1 mb-0" id="walleterror3"></p> -->
                                                         </div>
                                                     </div>
+                                                    <p class="red fw-bold pt-1 mb-0" id="walleterror"></p>
                                                     <div class="row mt-2">
                                                         <div class="col-md-6">
                                                             <button class="nw-button btn btn-dark btn-black" type="button" id="back"><i class="fa fa-arrow-left"></i>Previous Page</button>
@@ -280,35 +284,40 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                
                                             </form>
                                         </div>
                                         <div id="card" class="container tab-pane fade">
-                                            <form class="card-form" action="" id="cardForm">
+                                            <form class="card-form" action="" id="cardForm" onsubmit="return validateForms()">
                                                 <span class="step">Step 1</span>
                                                 <h3 class="select-bank">Card Payment</h3>
                                                 <div class="row">
                                                     <div class="col-12 col-md-6">
                                                         <label for="card-no" class="form-label">Card Number <span class="star">*</span></label>
                                                         <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="card-no" name="cardno" maxlength="19" required onKeyup='addDashess(this)'>
+                                                        <div class="red fw-bold pt-1">Kindly enter your valid Card Number</div>
                                                     </div>
                                                     <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                         <label for="card-name" class="form-label">Card Holder Name <span class="star">*</span></label>
                                                         <input type="text" class="form-control" placeholder="e.g Noman Shahid" id="card-name" name="cardname" required>
+                                                        <div class="red fw-bold pt-1">Kindly enter your valid Card Holder Name</div>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 <div class="row">
-                                                    <div class="col-12 col-md-2">
+                                                    <div class="col-12 col-md-3">
                                                         <label for="card-expiry" class="form-label">Card Expiry <span class="star">*</span></label>
                                                         <!-- <input type="text" class="form-control" placeholder="MM/YY" id="card-expiry" maxlength="5" required> -->
                                                         <div class="exp-wrapper form-control">
                                                             <input autocomplete="off" class="exp" id="month" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="MM" type="text" data-pattern-validate/>
                                                             <input autocomplete="off" class="exp" id="year" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="YY" type="text" data-pattern-validate/>
                                                         </div>
+                                                        <div class="red fw-bold pt-1">Kindly enter your valid Card Expiry</div>
                                                     </div>
-                                                    <div class="col-12 col-md-2 mt-3 mt-md-0">
+                                                    <div class="col-12 col-md-3 mt-3 mt-md-0">
                                                         <label for="cvv" class="form-label">CVV / CVC <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="999" id="cvv" maxlength="3" required>
+                                                        <input type="text" class="form-control" placeholder="999" id="cvv" maxlength="3" name="cvv">
+                                                        <div class="red fw-bold pt-1">Kindly enter your valid Card CVV/CVC</div>
                                                     </div>
                                                     <div class="col"></div>
                                                 </div>
@@ -754,7 +763,7 @@
     </footer>
 
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/all.min.js"></script>
     <script src="js/jquery.maskedinput.min.js"></script>

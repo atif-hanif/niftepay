@@ -398,7 +398,7 @@ input::placeholder {
 
 .red {
     color: var(--primary-color);
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .black {
@@ -591,17 +591,17 @@ input:-internal-autofill-selected {
     border: 1px solid #ced4da;
     display: flex;
     justify-content: space-around;
-  }
+}
   
-  .exp-wrapper:after {
+.exp-wrapper:after {
     content: '/';
     position: absolute;
     left: 50%;
     margin-left: -4px;
     color: #aaa;
-  }
+}
 
-  input.exp {
+input.exp {
     float: left;
     font-family: monospace;
     border: 0;
@@ -609,4 +609,4 @@ input:-internal-autofill-selected {
     outline: none;
     appearance: none;
     font-size: 14px;
-  }
+}
