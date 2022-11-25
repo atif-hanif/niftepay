@@ -383,7 +383,7 @@ $(".vendor").select2({
 
 // Card Form
 
-$("#cardForm").validate() ;
+$("#cardForm").validate();
 
 
 // OTP

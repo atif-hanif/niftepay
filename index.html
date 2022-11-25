@@ -294,18 +294,18 @@
                                             </form>
                                         </div>
                                         <div id="card" class="container tab-pane fade">
-                                            <form class="card-form" action="" id="cardForm" onsubmit="return validateForms()">
+                                            <form class="card-form" action="" id="cardForm">
                                                 <span class="step">Step 1</span>
                                                 <h3 class="select-bank">Card Payment</h3>
                                                 <div class="row">
                                                     <div class="col-12 col-md-6">
                                                         <label for="card-no" class="form-label">Card Number <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="card-no" name="cardno" maxlength="19" onKeyup='addDashess(this)'>
+                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="card-no" name="cardno" maxlength="19" onKeyup='addDashess(this)' required>
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Number</div>
                                                     </div>
                                                     <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                         <label for="card-name" class="form-label">Card Holder Name <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="e.g Noman Shahid" id="card-name" name="cardname">
+                                                        <input type="text" class="form-control" placeholder="e.g Noman Shahid" id="card-name" name="cardname" required>
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Holder Name</div>
                                                     </div>
                                                 </div>
@@ -322,7 +322,7 @@
                                                     </div>
                                                     <div class="col-12 col-md-3 mt-3 mt-md-0">
                                                         <label for="cvv" class="form-label">CVV / CVC <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="999" id="cvv" maxlength="3" name="cvv">
+                                                        <input type="text" class="form-control" placeholder="999" id="cvv" maxlength="3" name="cvv" required>
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card CVV/CVC</div>
                                                     </div>
                                                     <div class="col"></div>
@@ -334,7 +334,7 @@
                                                         <p class="mb-0">Please ensure your card is activated for e-Commerce usage.</p>
                                                     </div>
                                                 </div>
-                                                <button type="submit" class="btn btn-danger btn-red text-uppercase mt-4 proceed">Proceed <i class="fa fa-arrow-right"></i></button>
+                                                <button type="submit" class="btn btn-danger btn-red text-uppercase mt-2 proceed">Proceed <i class="fa fa-arrow-right"></i></button>
                                             </form>
                                         </div>
                                     </div>
