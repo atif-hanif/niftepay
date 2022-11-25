@@ -219,7 +219,7 @@ function validateForm() {
 		if(y[i].value == "") {
 			y[i].className += " invalid";
 			valid = false;
-			document.getElementById("bankerror").innerHTML = "All fields are required."
+			document.getElementById("bankerror").innerHTML = "Please fill all fields."
 			// document.getElementById("bankerror1").innerHTML = "This field is required."
 			// document.getElementById("bankerror2").innerHTML = "This field is required."
 			// document.getElementById("bankerror3").innerHTML = "This field is required."
@@ -280,7 +280,7 @@ nextButton.addEventListener("click", function() {
 		element.classList.add("valid");
 		var element = document.getElementById("vendor-cnic");
 		element.classList.add("valid");
-		document.getElementById("walleterror").innerHTML = "All fields are required."
+		document.getElementById("walleterror").innerHTML = "Please fill all fields."
 		// document.getElementById("walleterror1").innerHTML = "This field is required."
 		// document.getElementById("walleterror2").innerHTML = "This field is required."
 		// document.getElementById("walleterror3").innerHTML = "This field is required."
@@ -383,8 +383,7 @@ $(".vendor").select2({
 
 // Card Form
 
-// $("#cardForm").validate() ;
-
+$("#cardForm").validate() ;
 
 
 // OTP
