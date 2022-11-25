@@ -161,16 +161,22 @@
                                                             <label for="bank-account" class="form-label">Bank Account <span class="star">*</span></label>
                                                             <select class="bank" id="bank-account" name="bank-account" required>
                                                                 <option value="">Select Your Bank</option>
-                                                                <option value="mcb-bank">MCB Bank</option>
                                                                 <option value="allied-bank">Allied Bank</option>
+                                                                <option value="habib-metro-bank">Habib Metropolitan Bank</option>
                                                                 <option value="alfalah-bank">Bank Alfalah</option>
-                                                                <option value="faysal-bank">Faysal Bank</option>
                                                                 <option value="bop-bank">The Bank of Punjab</option>
-                                                                <option value="habib-bank">Habib Bank Limited</option>
+                                                                <option value="mcb-bank">MCB Bank</option>
+                                                                <option value="samba-bank">Samba Bank</option>
+                                                                <option value="bok-bank">Bank of Khyber</option>
+                                                                <option value="faysal-bank">Faysal Bank</option>
                                                                 <option value="askari-bank">Askari Bank</option>
-                                                                <option value="bank-al-habib-bank">Bank Al Habib</option>
                                                                 <option value="bank-islami-bank">Bank Islami</option>
-                                                                <option value="habib-metro-bank">Habib Metro</option>
+                                                                <option value="bank-al-habib-bank">Bank Al Habib</option>
+                                                                <option value="habib-bank">Habib Bank Limited</option>
+                                                                <option value="konnect-bank">Habib Bank Limited (Konnect)</option>
+                                                                <option value="albaraka-bank">Albaraka Bank</option>
+                                                                
+                                                                
                                                             </select>
                                                             <!-- <p id="bankerror1" class="red mb-1 fw-bold"></p> -->
                                                         </div>
@@ -294,12 +300,12 @@
                                                 <div class="row">
                                                     <div class="col-12 col-md-6">
                                                         <label for="card-no" class="form-label">Card Number <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="card-no" name="cardno" maxlength="19" required onKeyup='addDashess(this)'>
+                                                        <input type="text" class="form-control" placeholder="9999 9999 9999 9999" id="card-no" name="cardno" maxlength="19" onKeyup='addDashess(this)'>
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Number</div>
                                                     </div>
                                                     <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                         <label for="card-name" class="form-label">Card Holder Name <span class="star">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="e.g Noman Shahid" id="card-name" name="cardname" required>
+                                                        <input type="text" class="form-control" placeholder="e.g Noman Shahid" id="card-name" name="cardname">
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Holder Name</div>
                                                     </div>
                                                 </div>
@@ -321,6 +327,7 @@
                                                     </div>
                                                     <div class="col"></div>
                                                 </div>
+                                                <p class="red fw-bold pt-1 mb-0" id="carderror"></p>
                                                 <div class="row mt-3">
                                                     <div class="col-12">
                                                         <p class="note fw-bold mb-0">Note:</p>

@@ -247,13 +247,17 @@ function formatBank (bank) {
 	}
 	var baseUrl = "images/bank";
 	var $bank = $(
-	  '<span><img src="' + baseUrl + '/' + bank.element.value.toLowerCase() + '.png" class="img-flag" /> ' + bank.text + '</span>'
+	//   '<span><img src="' + baseUrl + '/' + bank.element.value.toLowerCase() + '.png" class="img-flag" /> ' + bank.text + '</span>'
+	'<span><img class="img-flag" /> <span></span></span>'
 	);
+	$bank.find("span").text(bank.text);
+  	$bank.find("img").attr("src", baseUrl + "/" + bank.element.value.toLowerCase() + ".png");
 	return $bank;
 };
 
-$(".vendor").select2({
-	templateResult: formatWallet
+$(".bank").select2({
+	templateResult: formatBank,
+	templateSelection: formatBank
 });
 
 // Wallet Bank
@@ -358,17 +362,30 @@ function validatePage(page) {
 	return true;
 }
 
+function formatWallet (wallet) {
+	if (!wallet.id) {
+	  return wallet.text;
+	}
+	var baseUrl = "images/wallet";
+	var $wallet = $(
+	//  '<span><img src="' + baseUrl + '/' + wallet.element.value.toLowerCase() + '.png" class="img-flag" /> ' + wallet.text + '</span>'
+	'<span><img class="img-flag" /> <span></span></span>'
+	);
+	$wallet.find("span").text(wallet.text);
+  	$wallet.find("img").attr("src", baseUrl + "/" + wallet.element.value.toLowerCase() + ".png");
+	return $wallet;
+};
+
+$(".vendor").select2({
+	templateResult: formatWallet,
+	templateSelection: formatWallet
+});
+
 // Card Form
 
 // $("#cardForm").validate() ;
 
-function validateForms() {
-	let x = document.forms["cardForm"]["cardname"].value;
-	if (x == "") {
-	  alert("Name must be filled out");
-	  return false;
-	}
-  }
+
 
 // OTP
 
@@ -435,19 +452,17 @@ function otptimer(remaining) {
 
 otptimer(120);
 
-$(".bank").select2({
-	templateResult: formatBank
-});
 
 //Session
 
-var deadline = new Date("Nov 24, 2022 00:00:00").getTime();
+var deadline = new Date("Nov 25, 2022 13:00:00").getTime();
 var x = setInterval(function() {
 	var now = new Date().getTime();
 	var t = deadline - now;
 	var days = Math.floor(t / (1000 * 60 * 60 * 24));
 	var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
-	var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+	// var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60 ));
+	var minutes = Math.floor(t / (1000 * 60 ));
 	var seconds = Math.floor((t % (1000 * 60)) / 1000);
 	document.getElementById("timer").innerHTML = "<div class='minutes'>" + minutes + "</div> : <div class='seconds'>" + seconds + '</div>';
 		if (t < 0) {
@@ -455,18 +470,6 @@ var x = setInterval(function() {
 			document.getElementById("timer").innerHTML = "EXPIRED";
 		}
 }, 1000);
-
-
-function formatWallet (wallet) {
-	if (!wallet.id) {
-	  return wallet.text;
-	}
-	var baseUrl = "images/wallet";
-	var $wallet = $(
-	  '<span><img src="' + baseUrl + '/' + wallet.element.value.toLowerCase() + '.png" class="img-flag" /> ' + wallet.text + '</span>'
-	);
-	return $wallet;
-};
 
 $(document).ready(function() {
 	$(document).on('click', '#pay', function(e) {

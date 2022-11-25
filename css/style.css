@@ -564,6 +564,10 @@ input.invalid {
     display: none;
 }
 
+.select2-container--default .select2-selection--single .select2-selection__rendered img.img-flag {
+    height: 30px;
+}
+
 /* Wallet Form */
 
 #assessment-form .page.active {
