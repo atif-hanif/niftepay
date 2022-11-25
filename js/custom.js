@@ -454,7 +454,7 @@ otptimer(120);
 
 //Session
 
-var deadline = new Date("Nov 25, 2022 13:00:00").getTime();
+var deadline = new Date("Nov 27, 2022 13:00:00").getTime();
 var x = setInterval(function() {
 	var now = new Date().getTime();
 	var t = deadline - now;
