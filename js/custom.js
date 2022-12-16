@@ -1,9 +1,70 @@
-// var cnic = document.querySelector('#cnic');
-// cnic.addEventListener('keyup', function(e) {
-// 	if (event.key != 'Backspace' && (cnic.value.length === 5 || cnic.value.length === 13)) {
-//   		cnic.value += '-';
-//   	}
-// });
+//Session
+
+// var deadline = new Date("Dec 16, 2022 15:45:00").getTime();
+// var x = setInterval(function() {
+// 	var now = new Date().getTime();
+// 	var t = deadline - now;
+// 	var days = Math.floor(t / (1000 * 60 * 60 * 24));
+// 	var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
+// 	// var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60 ));
+// 	var minutes = Math.floor(t / (1000 * 60 ));
+// 	var seconds = Math.floor((t % (1000 * 60)) / 1000);
+// 	document.getElementById("timer").innerHTML = "<div class='minutes'>" + minutes + "</div> : <div class='seconds'>" + seconds + '</div>';
+// 		if (t < 0) {
+// 			clearInterval(x);
+// 			document.getElementById("timer").innerHTML = "EXPIRED";
+// 		}
+// }, 1000);
+
+$(function() {
+	$('.counter').setCountDownTimer({
+		time: "00:05:00",
+		// button: $('.btn'),
+		countDownText: '',
+		afterCountText: 'Time\'s up!'
+	});
+});
+
+$.fn.setCountDownTimer = function (param) {
+	this.html('<label class="countdownText" style="float:left;margin-right:5px;">' + param.countDownText + '</label>' +
+			'<div id="countdown" style="float:left;">' +
+				'<strong>' +
+					'<span id="minutes" style="float:left"></span>' +
+					'<span style="float:left">:</span>' +
+					'<span id="seconds" style="float:left"></span>' +
+				'</strong>' +
+			'</div>' +
+			'<div id="aftercount" style="display:none">' + param.afterCountText + '</div>');
+	var remTime = param.time.split(":"),
+		sTime = new Date().getTime(),
+		countDown = (remTime[01] * 60) + parseInt(remTime[02]),
+		minutesSel = $("#minutes"),
+		secondsSel = $("#seconds"),
+		afterCountSel = $("#aftercount"),
+		countDownSel = $("#countdown"),
+		countDownTextSel = $('.countdownText');
+
+	var timer = setInterval(function () {
+		var cTime = new Date().getTime(),
+		diff = cTime - sTime,
+		seconds = countDown - Math.floor(diff / 1000);
+		//param.button.attr('disabled', 'disabled');
+		if (seconds >= 0) {
+			var minutes = Math.floor(seconds / 60);
+			seconds -= minutes * 60;
+			minutesSel.text(minutes < 10 ? "0" + minutes : minutes);
+			secondsSel.text(seconds < 10 ? "0" + seconds : seconds);
+		} else {
+			countDownSel.hide();
+			countDownTextSel.hide();
+			afterCountSel.show();
+			//param.button.removeAttr('disabled');
+			clearInterval(timer);
+		}
+	}, 00);
+}
+
+// Bank Form
 
 window.addDash = function addDash(a) {
     var b = /(\D+)/g,
@@ -17,85 +78,10 @@ window.addDash = function addDash(a) {
     a.value = npa + '-' + nxw + '-' + last1;
 }
 
-// var mobile = document.querySelector('#mobile-no');
-// mobile.addEventListener('keyup', function(e) {
-// 	if (event.key != 'Backspace' && (mobile.value.length === 4)) {
-//   		mobile.value += '-';
-//   	}
-// });
-
-window.addDashe = function addDashe(c) {
-    var d = /(\D+)/g,
-        npb = '',
-        nxx = '';
-        //last2 = '';
-    c.value = c.value.replace(d, '');
-    npb = c.value.substr(0, 4);
-    nxx = c.value.substr(4, 7);
-    //last2 = f.value.substr(6, 4);
-    c.value = npb + '-' + nxx ;
-}
-
-// var vcnic = document.querySelector('#vendor-cnic');
-// vcnic.addEventListener('keyup', function(e) {
-// 	if (event.key != 'Backspace' && (vcnic.value.length === 5 || vcnic.value.length === 13)) {
-//   		vcnic.value += '-';
-//   	}
-// });
-
-window.addDashes = function addDashes(e) {
-    var f = /(\D+)/g,
-        npc = '',
-        nxy = '',
-        last3 = '';
-    e.value = e.value.replace(f, '');
-    npc = e.value.substr(0, 5);
-    nxy = e.value.substr(5, 7);
-    last3 = e.value.substr(12, 1);
-    e.value = npc + '-' + nxy + '-' + last3;
-}
-
-window.addDashess = function addDashess(g) {
-    var h = /(\D+)/g,
-        npc = '',
-        nxy = '',
-        last4 = '',
-		last = '';
-    g.value = g.value.replace(h, '');
-    npc = g.value.substr(0, 4);
-    nxy = g.value.substr(4, 4);
-    last4 = g.value.substr(8, 4);
-	last = g.value.substr(12, 4);
-    g.value = npc + ' ' + nxy + ' ' + last4 + ' ' + last;
-}
-
-var card = document.querySelector('#card-no');
-card.addEventListener('keyup', function(e) {
-	if (event.key != 'Backspace' && (card.value.length === 4 || card.value.length === 9 || card.value.length === 14)) {
-  		card.value += ' ';
-  	}
-});
-
-// var cexpiry = document.querySelector('#card-expiry');
-// cexpiry.addEventListener('keyup', function(e) {
-// 	if (event.key != 'Backspace' && (cexpiry.value.length === 2)) {
-//   		cexpiry.value += '/';
-//   	}
-// });
-
-$('#account-no').bind('keypress', function (event) {
+$('.accountno').bind('keypress', function (event) {
     var regexa = new RegExp("^[a-zA-Z0-9\b]+$");
     var keya = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regexa.test(keya)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#mobile-no').bind('keypress', function (event) {
-    var regexm = new RegExp("^[0-9\b]+$");
-    var keym = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexm.test(keym)) {
        event.preventDefault();
        return false;
     }
@@ -109,137 +95,6 @@ $('#cnic').bind('keypress', function (event) {
        return false;
     }
 });
-
-$('#vendor-cnic').bind('keypress', function (event) {
-    var regexvc = new RegExp("^[0-9\b]+$");
-    var keyvc = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexvc.test(keyvc)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#card-no').bind('keypress', function (event) {
-    var regexcn = new RegExp("^[0-9\b]+$");
-    var keycn = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexcn.test(keycn)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#card-name').bind('keypress', function (event) {
-    var regexcnm = new RegExp("^[a-zA-Z \b]+$");
-    var keycnm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexcnm.test(keycnm)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#month').bind('keypress', function (event) {
-    var regexcm = new RegExp("^[0-9\b]+$");
-    var keycm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexcm.test(keycm)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#year').bind('keypress', function (event) {
-    var regexcy = new RegExp("^[0-9\b]+$");
-    var keycy = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexcy.test(keycy)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-$('#cvv').bind('keypress', function (event) {
-    var regexcvv = new RegExp("^[0-9\b]+$");
-    var keycvv = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-    if (!regexcvv.test(keycvv)) {
-       event.preventDefault();
-       return false;
-    }
-});
-
-// Bank Form
-
-var currentTab = 0;
-document.addEventListener("DOMContentLoaded", function(event) {
-	showTab(currentTab);
-});
-
-function showTab(n) {
-	var x = document.getElementsByClassName("tab");
-	x[n].style.display = "block";
-	if(n == 0) {
-		document.getElementById("prevBtn").style.display = "none";
-		document.getElementById("pay").style.display = "none";
-	} else {
-		document.getElementById("prevBtn").style.display = "inline";
-		document.getElementById("pay").style.display = "none";
-	}
-	if(n == (x.length - 1)) {
-		document.getElementById("pay").style.display = "inline";
-		document.getElementById("nextBtn").style.display = "none";
-		//document.getElementById("nextBtn").innerHTML = "Submit <i class='fa fa-arrow-right'></i>";
-	} else {
-		document.getElementById("pay").style.display = "none";
-		document.getElementById("nextBtn").style.display = "inline";
-		//document.getElementById("nextBtn").innerHTML = "Next <i class='fa fa-arrow-right'></i>";
-	}
-	fixStepIndicator(n)
-}
-
-function nextPrev(n) {
-	var x = document.getElementsByClassName("tab");
-	if(n == 1 && !validateForm()) return false;
-	x[currentTab].style.display = "none";
-	currentTab = currentTab + n;
-	if(currentTab >= x.length) {
-		// document.getElementById("regForm").submit();
-		// return false;
-		//alert("sdf");
-		document.getElementById("nextprevious").style.display = "none";
-		document.getElementById("bank-steps").style.display = "none";
-		document.getElementById("register").style.display = "none";
-		document.getElementById("payment").style.display = "none";
-		document.getElementById("bank-confirmation").style.display = "block";
-	}
-	showTab(currentTab);
-}
-
-function validateForm() {
-	var x, y, i, valid = true;
-	x = document.getElementsByClassName("tab");
-	y = x[currentTab].getElementsByTagName("input");
-	for(i = 0; i < y.length; i++) {
-		if(y[i].value == "") {
-			y[i].className += " invalid";
-			valid = false;
-			document.getElementById("bankerror").innerHTML = "Please fill all fields."
-			// document.getElementById("bankerror1").innerHTML = "This field is required."
-			// document.getElementById("bankerror2").innerHTML = "This field is required."
-			// document.getElementById("bankerror3").innerHTML = "This field is required."
-			// document.getElementById("bankerror4").innerHTML = "This field is required."
-		}
-	}
-
-	if(valid) {
-		document.getElementsByClassName("bank-step")[currentTab].className += " finish";
-	}
-	return valid;
-}
-
-function fixStepIndicator(n) {
-	var i, x = document.getElementsByClassName("bank-step");
-	for(i = 0; i < x.length; i++) {
-		x[i].className = x[i].className.replace(" active", "");
-	}
-	x[n].className += " active";
-}
 
 function formatBank (bank) {
 	if (!bank.id) {
@@ -255,136 +110,600 @@ function formatBank (bank) {
 	return $bank;
 };
 
-$(".bank").select2({
-	templateResult: formatBank,
-	templateSelection: formatBank
+$(document).ready(function () {
+
+    $('.bank').on('change', function () {
+        $(this).valid();
+    });
+
+    $(".bank").select2({
+		templateResult: formatBank,
+		templateSelection: formatBank
+   	});
+
+    var validator = $("#bankForm").validate();
+
 });
 
-// Wallet Bank
-
-const nextButton = document.getElementById("next");
-const backButton = document.getElementById("back");
-
-const pages = $("#walletForm .page");
-const firstPage = $(pages).first()[0];
-const lastPage = $(pages).last()[0];
-const activeClass = "active";
-const nextButtonContent = "Proceed <i class='fa fa-arrow-right pt-1 ps-1'></i>";
-nextButton.addEventListener("click", function() {
-	const activePage = $("#walletForm .page.active");
-	const isValid = validatePage(activePage);
-	if(isValid) {
-		nextPage(activePage);
-	} else {
-		var element = document.getElementById("mobile-no");
-		element.classList.add("valid");
-		var element = document.getElementById("vendor-cnic");
-		element.classList.add("valid");
-		document.getElementById("walleterror").innerHTML = "Please fill all fields."
-		// document.getElementById("walleterror1").innerHTML = "This field is required."
-		// document.getElementById("walleterror2").innerHTML = "This field is required."
-		// document.getElementById("walleterror3").innerHTML = "This field is required."
-	}
-});
-
-backButton.addEventListener("click", function() {
-	const activePage = $("#walletForm .page.active");
-	previousPage(activePage);
-});
-
-/**
- * Navigate to the next form page.
- * @param {HTMLElement} element The current page element
- * @returns void on it being the last page.
- */
-function nextPage(element) {
-	const onLastPage = $(lastPage).hasClass(activeClass);
-	if(onLastPage) {
-		submitForm();
-		return;
-	}
-	$(element).removeClass(activeClass);
-	const nextElement = $(element).next();
-	if(nextElement[0] === lastPage) {
-		nextButton.innerHTML = "Submit Assessment";
-		$('#next').removeClass("d-flex");
-	}
-	nextElement.addClass(activeClass);
-	if(!$(firstPage).hasClass(activeClass)) {
-		$(backButton).css("display", "unset");
-	}
-}
-
-/**
- * Submitting the website assessment form to firebase real-time database.
- */
-function submitForm() {
-	const form = $("#walletForm");
-	const submittedValues = $(form).serializeArray();
-	const formValues = {};
-	for(submittedValue of submittedValues) {
-		formValues[submittedValue.name] = submittedValue.value;
-	}
-	$(lastPage).removeClass("active");
-	$(firstPage).addClass("active");
-	$('#myModal').modal('show');
-	// $('#myModal').removeClass("d-none");
-	// $('#myModal').addClass("d-block");
-}
-
-/**
- * Navigate to the previus form page.
- * @param {HTMLElement} element The active page element
- */
-function previousPage(element) {
-	$(element).removeClass(activeClass);
-	const previousElement = $(element).prev();
-	if(previousElement[0] === firstPage) {
-		$(backButton).css("display", "none");
-	}
-	nextButton.innerHTML = nextButtonContent;
-	$(previousElement).addClass(activeClass);
-}
-
-/**
- * Validates a form page.
- * @param {HTMLElement} page The current page being validated
- * @returns {Boolean} If the page is successully validated or not.
- */
-function validatePage(page) {
-	const formElements = $(page).find("input, textarea, select");
-	for(formElement of formElements) {
-		const value = formElement.value;
-		if(!value) {
-			return false;
+$(document).ready(function() {
+	// Custom method to validate username
+	$(".next").click(function() {
+		var form = $("#bankForm");
+		form.validate({
+			errorElement: 'label',
+			errorClass: 'error',
+			highlight: function(element, errorClass, validClass) {
+				//$(element).closest('.form-group').addClass("has-error");
+				$(element).parents('.form-control').removeClass('has-success').addClass('has-error');
+			},
+			unhighlight: function(element, errorClass, validClass) {
+				//$(element).closest('.form-group').removeClass("has-error");
+				$(element).parents('.form-control').removeClass('has-success').addClass('has-error');
+			},
+			errorPlacement: function (error, element) {
+				if (element.parent('.form-group').length) {
+					error.insertAfter(element.parent());
+				} else if (element.hasClass('select2')) {
+					error.insertAfter(element.next('span'));
+				} else {
+					error.insertAfter(element);
+				}
+			},
+			rules: {
+				bankaccount: {
+					required: true,
+				},
+				accountno: {
+					required: true,
+				},
+				cnic: {
+					required: true,
+				},
+			},
+			// messages: {
+			// 	bankaccount: {
+			// 		required: "This field is Required",
+			// 	},
+			// 	accountno: {
+			// 		required: "This Field is Required",
+			// 	},
+			// 	cnic: {
+			// 		required: "This Field is Required",
+			// 	},
+			// }
+		});
+		if(form.valid() === true) {
+			if($('#bank_information_1').is(":visible")) {
+				current_fs = $('#bank_information_1');
+				next_fs = $('#bank_information_2');
+			} else if($('#bank_information_2').is(":visible")) {
+				current_fs = $('#bank_information_2');
+				// next_fs = $('#account_information');
+			}
+			next_fs.show();
+			current_fs.hide();
 		}
-	}
-	return true;
-}
-
-function formatWallet (wallet) {
-	if (!wallet.id) {
-	  return wallet.text;
-	}
-	var baseUrl = "images/wallet";
-	var $wallet = $(
-	//  '<span><img src="' + baseUrl + '/' + wallet.element.value.toLowerCase() + '.png" class="img-flag" /> ' + wallet.text + '</span>'
-	'<span><img class="img-flag" /> <span></span></span>'
-	);
-	$wallet.find("span").text(wallet.text);
-  	$wallet.find("img").attr("src", baseUrl + "/" + wallet.element.value.toLowerCase() + ".png");
-	return $wallet;
-};
-
-$(".vendor").select2({
-	templateResult: formatWallet,
-	templateSelection: formatWallet
+	});
+	$('#previous').click(function() {
+		if($('#bank_information_2').is(":visible")) {
+			current_fs = $('#bank_information_2');
+			next_fs = $('#bank_information_1');
+		} else if($('#bank_information_2').is(":visible")) {
+			current_fs = $('#bank_information_2');
+			//next_fs = $('#company_information');
+		}
+		next_fs.show();
+		current_fs.hide();
+	});
 });
 
-// Card Form
+$(document).ready(function(){
+    $('#bankaccount').on('change', function() {
+		if ( this.value == 'allied-bank')
+		{
+			$("#allied").show();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'habib-metro-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").show();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'alfalah-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").show();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'bop-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").show();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'mcbi-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").show();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'samba-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").show();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'bok-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").show();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'faysal-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").show();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'askari-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").show();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'bank-islami-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").show();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'bank-al-habib-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").show();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'habib-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").show();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+		// else if ( this.value == 'konnect-bank')
+		// {
+		// 	$("#allied").hide();
+		// 	$("#inputaccount").hide();
+		// 	$("#habibmetro").hide();
+		// 	$("#alfalah").hide();
+		// 	$("#bop").hide();
+		// 	$("#mcb").hide();
+		// 	$("#samba").hide();
+		// 	$("#bok").hide();
+		// 	$("#faysal").hide();
+		// 	$("#askari").hide();
+		// 	$("#islami").hide();
+		// 	$("#alhabib").hide();
+		// 	$("#hbl").hide();
+		// 	$("#konnect").show();
+		// 	$("#albaraka").hide();
+		// 	$("#meezan").hide();
+		// }
+		else if ( this.value == 'albaraka-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").show();
+			$("#meezan").hide();
+		}
+		else if ( this.value == 'meezan-bank')
+		{
+			$("#allied").hide();
+			$("#inputaccount").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").show();
+		}
+		else 
+		{	
+			$("#inputaccount").show();
+			$("#allied").hide();
+			$("#habibmetro").hide();
+			$("#alfalah").hide();
+			$("#bop").hide();
+			$("#mcb").hide();
+			$("#samba").hide();
+			$("#bok").hide();
+			$("#faysal").hide();
+			$("#askari").hide();
+			$("#islami").hide();
+			$("#alhabib").hide();
+			$("#hbl").hide();
+			$("#konnect").hide();
+			$("#albaraka").hide();
+			$("#meezan").hide();
+		}
+    });
 
-$("#cardForm").validate();
+	var $regexallac = /^[0-9]{4}(001|002)[0-9]{13}$/;
+	var $regexalliban = /^(PK)[0-9]{2}(ABPA)[0-9]{16}/g;
+	$('#alliedaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexallac) && !$(this).val().match($regexalliban)) {
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			$('.emsg').addClass('hidden');
+		}
+    });
 
+	var $regexhmbac = /^[0]?[6]{1,2}\d{18}$/;
+	var $regexhmbiban = /^(PK)\d{2}(MPBL)[0-9]{16}/g;
+	$('#hmbaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexhmbac) && !$(this).val().match($regexhmbiban)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexalfac = /^[0-9]{4}(1|5)[0-9]{9}$/;
+	$('#alfalahaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexalfac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexbopac = /^(4|5|6|8)[0-9]{15}$/;
+	$('#bopaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexbopac)) {
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	// var $regexmcbac = /^[0-9]{16}$/;
+	var $regexmcbac = /^(10)[0-9]{14}$/;
+	var $regexmcbiban = /^(PK)\d{2}(MCIB)[0-9]{16}/g;
+	$('#mcbaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexmcbac) && !$(this).val().match($regexmcbiban)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexsambaac = /^(20|64|65)[0-9]{8}$/;
+	$('#sambaaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexsambaac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexbokac = /^(0|1)[0-9]{13,15}$/;
+	$('#bokaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexbokac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexfaysalac = /^(0|3|8)[0-9]{13,15}$/;
+	$('#faysalaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexfaysalac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexaskariac = /^[0-9]{13}$/;
+	var $regexaskariiban = /^(PK)\d{2}(ASCM)[0-9]{16}/g;
+	$('#askariaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexaskariac) && !$(this).val().match($regexaskariiban)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexislamiac = /^[0-9]{15}$/;
+	$('#islamiaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexislamiac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexalhabibac = /^[0-9]{17}$/;
+	var $regexalhabibiban = /^(PK)\d{2}(BAHL)[0-9]{16}/g;
+	$('#alhabibaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexalhabibac) && !$(this).val().match($regexalhabibiban)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexhblac = /^[0-9]{14}$/;
+	$('#hblaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexhblac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	// var $regexkonnectac = /^[0-9]{11}$/;
+	// $('#konnectaccount').on('keypress keydown keyup',function(){
+	// 	if (!$(this).val().match($regexkonnectac)) {
+	// 	// there is a mismatch, hence show the error message
+	// 		$('.emsg').removeClass('hidden');
+	// 		$('.emsg').show();
+	// 	}
+	// 	else {
+	// 		// else, do not display message
+	// 		$('.emsg').addClass('hidden');
+	// 	}
+    // });
+
+	var $regexalbarakaac = /^[0-9]{13}$/;
+	var $regexalbarakaiban = /^(PK)\d{2}(AIIN)[0-9]{16}/g;
+	$('#albarakaaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexalbarakaac) && !$(this).val().match($regexalbarakaiban)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+	var $regexmeezanac = /^[0-9]{14}$/;
+	$('#meezanaccount').on('keypress keydown keyup',function(){
+		if (!$(this).val().match($regexmeezanac)) {
+		// there is a mismatch, hence show the error message
+			$('.emsg').removeClass('hidden');
+			$('.emsg').show();
+		}
+		else {
+			// else, do not display message
+			$('.emsg').addClass('hidden');
+		}
+    });
+
+});
 
 // OTP
 
@@ -451,25 +770,6 @@ function otptimer(remaining) {
 
 otptimer(120);
 
-
-//Session
-
-var deadline = new Date("Nov 27, 2022 13:00:00").getTime();
-var x = setInterval(function() {
-	var now = new Date().getTime();
-	var t = deadline - now;
-	var days = Math.floor(t / (1000 * 60 * 60 * 24));
-	var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60));
-	// var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60 ));
-	var minutes = Math.floor(t / (1000 * 60 ));
-	var seconds = Math.floor((t % (1000 * 60)) / 1000);
-	document.getElementById("timer").innerHTML = "<div class='minutes'>" + minutes + "</div> : <div class='seconds'>" + seconds + '</div>';
-		if (t < 0) {
-			clearInterval(x);
-			document.getElementById("timer").innerHTML = "EXPIRED";
-		}
-}, 1000);
-
 $(document).ready(function() {
 	$(document).on('click', '#pay', function(e) {
 		if($('#bank-confirmation').hasClass('d-none')) {
@@ -479,22 +779,106 @@ $(document).ready(function() {
 		}
 	});
 
-	$(document).on('click', '.pay', function(e) {
+});
+
+// Wallet Form
+
+window.addDashe = function addDashe(c) {
+    var d = /(\D+)/g,
+		first2 = '03',
+        npb = '',
+        nxx = '';
+    c.value = c.value.replace(d, '');
+	last2 = c.value.substr(0, 2);
+    npb = c.value.substr(2, 2);
+    nxx = c.value.substr(4, 7);
+    c.value = first2 + npb + '-' + nxx ;
+}
+
+window.addDashes = function addDashes(e) {
+    var f = /(\D+)/g,
+        npc = '',
+        nxy = '',
+        last3 = '';
+    e.value = e.value.replace(f, '');
+    npc = e.value.substr(0, 5);
+    nxy = e.value.substr(5, 7);
+    last3 = e.value.substr(12, 1);
+    e.value = npc + '-' + nxy + '-' + last3;
+}
+
+$('#mobileno').bind('keypress', function (event) {
+    var regexm = new RegExp("^[0-9\b]+$");
+    var keym = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexm.test(keym)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#vendorcnic').bind('keypress', function (event) {
+    var regexvc = new RegExp("^[0-9\b]+$");
+    var keyvc = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexvc.test(keyvc)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+function formatWallet (wallet) {
+	if (!wallet.id) {
+	  return wallet.text;
+	}
+	var baseUrl = "images/wallet";
+	var $wallet = $(
+	//  '<span><img src="' + baseUrl + '/' + wallet.element.value.toLowerCase() + '.png" class="img-flag" /> ' + wallet.text + '</span>'
+	'<span><img class="img-flag" /> <span></span></span>'
+	);
+	$wallet.find("span").text(wallet.text);
+  	$wallet.find("img").attr("src", baseUrl + "/" + wallet.element.value.toLowerCase() + ".png");
+	return $wallet;
+};
+
+$(document).ready(function () {
+
+    $('.vendor').on('change', function () {
+        $(this).valid();
+    });
+
+    $(".vendor").select2({
+		templateResult: formatWallet,
+		templateSelection: formatWallet
+   	});
+
+    var validators = $("#walletForm").validate();
+
+});
+
+$("#walletForm").validate({
+	highlight: function (element, errorClass, validClass) {
+		$(element).parents('.form-control').removeClass('has-success').addClass('has-error');     
+	},
+	unhighlight: function (element, errorClass, validClass) {
+		$(element).parents('.form-control').removeClass('has-error').addClass('has-success');
+	},
+	errorPlacement: function (error, element) {
+		if (element.parent('.form-group').length) {
+			error.insertAfter(element.parent());
+		} else if (element.hasClass('select2')) {
+			error.insertAfter(element.next('span'));
+		} else {
+			error.insertAfter(element);
+		}
+	}
+});
+
+$(document).ready(function() {
+    $(document).on('click', '.pay', function(e) {
 		if($('#myModal').hasClass('d-none')) {
 			$('#myModal').removeClass('d-none');
 			
 		}
 	});
-
-	// $("#walletForm").validate();
-
-	// $(document).on('click', '.back', function(e) {
-	// 	if($('#myModal').hasClass('show')) {
-	// 		$('#myModal').css("display", "none")
-	// 		$('.modal-backdrop').removeClass('show');
-	// 		$('.modal-backdrop').addClass('hide');
-	// 	}
-	// });
 
 	$(document).on('click', '.wallet-div', function(e) {
 		if($('#wallet-confirmation').hasClass('d-none')) {
@@ -509,15 +893,188 @@ $(document).ready(function() {
 			$('.modal-open').css({"overflow": ""});
 		}
 	});
+});
 
-	// $(document).on('click', '.proceed', function(e) {
-	// 	if($('#card-confirmation').hasClass('d-none')) {
-	// 		$('#card-confirmation').removeClass('d-none');
-	// 		$('#card-confirmation').addClass('d-block');
-	// 		$('#payment').addClass('d-none');
-	// 	}
-	// });
+// Card Form
 
+window.addDashess = function addDashess(g) {
+    var h = /(\D+)/g,
+        npc = '',
+        nxy = '',
+        last4 = '',
+		last = '';
+    g.value = g.value.replace(h, '');
+    npc = g.value.substr(0, 4);
+    nxy = g.value.substr(4, 4);
+    last4 = g.value.substr(8, 4);
+	last = g.value.substr(12, 4);
+    g.value = npc + ' ' + nxy + ' ' + last4 + ' ' + last;
+}
+
+var card = document.querySelector('#number');
+card.addEventListener('keyup', function(e) {
+	if (event.key != 'Backspace' && (card.value.length === 4 || card.value.length === 9 || card.value.length === 14)) {
+  		card.value += ' ';
+  	}
+	if(card.value.length == 19)
+	{
+
+		update(card.value);
+
+	}
+});
+
+$('#number').bind('keypress', function (event) {
+    var regexcn = new RegExp("^[0-9\b]+$");
+    var keycn = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcn.test(keycn)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#nameOnCard').bind('keypress', function (event) {
+    var regexcnm = new RegExp("^[a-zA-Z \b]+$");
+    var keycnm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcnm.test(keycnm)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#expiry-month').bind('keypress', function (event) {
+    var regexcm = new RegExp("^[0-9\b]+$");
+    var keycm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcm.test(keycm)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#expiry-year').bind('keypress', function (event) {
+    var regexcy = new RegExp("^[0-9\b]+$");
+    var keycy = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcy.test(keycy)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$('#security-code').bind('keypress', function (event) {
+    var regexcvv = new RegExp("^[0-9\b]+$");
+    var keycvv = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regexcvv.test(keycvv)) {
+       event.preventDefault();
+       return false;
+    }
+});
+
+$("#cardForm").validate();
+
+// function validateCreditCardNumber(cardNumber) {
+	
+// 	cardNumber = cardNumber.split(' ').join("");
+// 	if (parseInt(cardNumber) <= 0 || (!/\d{15,16}(~\W[a-zA-Z])*$/.test(cardNumber)) || cardNumber.length > 16) {
+// 		return false;
+// 	}
+// 	var carray = new Array();
+// 	for (var i = 0; i < cardNumber.length; i++) {
+// 		carray[carray.length] = cardNumber.charCodeAt(i) - 48;
+// 	}
+// 	carray.reverse();
+// 	var sum = 0;
+// 	for (var i = 0; i < carray.length; i++) {
+// 		var tmp = carray[i];
+// 		if ((i % 2) != 0) {
+// 			tmp *= 2;
+// 			if (tmp > 9) {
+// 				tmp -= 9;
+// 			}
+// 		}
+// 		sum += tmp;
+// 	}
+// 	return ((sum % 10) == 0);
+// }
+
+// function cardType(cardNumber) { // returns card type; should not rely on this for checking if a card is valid
+// 	cardNumber = cardNumber.split(' ').join("");
+//     var o = {
+//         electron: /^(4026|417500|4405|4508|4844|4913|4917)\d+$/,
+//         maestro: /^(5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|0604|6390)\d+$/,
+//         dankort: /^(5019)\d+$/,
+//         interpayment: /^(636)\d+$/,
+//         unionpay: /^(62|88)\d+$/,
+//         visa: /^4[0-9]{12}(?:[0-9]{3})?$/,
+//         mastercard: /^5[1-5][0-9]{14}$/,
+//         amex: /^3[47][0-9]{13}$/,
+//         diners: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
+//         discover: /^6(?:011|5[0-9]{2})[0-9]{12}$/,
+//         jcb: /^(?:2131|1800|35\d{3})\d{11}$/
+//     }
+//     for(var k in o) {
+//         if(o[k].test(cardNumber)) {
+//             return k;
+// 		}
+//     }
+// 	return null;
+// }
+
+// function update(cardNumber) {
+// 	var cardtype = document.getElementById("cardtype");
+// 	var valid = document.getElementById("valid");
+// 	if(validateCreditCardNumber(cardNumber)) {
+		
+// 		valid.innerText = "Valid Card";
+// 		cardtype.innerText = cardType(cardNumber);
+// 		// img.src = (cardType(cardNumber) || "other") + "images/card/.png";
+// 	}
+// 	else {
+// 		valid.innerText = "InValid Card";
+// 		valid.style.color = "red";
+// 		cardtype.innerText = cardType(cardNumber);
+// 		//img.src = "images/card/other.png";
+// 	}
+// }
+
+// const monthInput = document.querySelector('#month');
+// const yearInput = document.querySelector('#year');
+
+// const focusSibling = function(target, direction, callback) {
+// 	const nextTarget = target[direction];
+// 	nextTarget && nextTarget.focus();
+// 	// if callback is supplied we return the sibling target which has focus
+// 	callback && callback(nextTarget);
+// }
+
+// // input event only fires if there is space in the input for entry. 
+// // If an input of x length has x characters, keyboard press will not fire this input event.
+// monthInput.addEventListener('input', (event) => {
+
+// 	const value = event.target.value.toString();
+// 	// adds 0 to month user input like 9 -> 09
+// 	if (value.length === 1 && value > 1) {
+// 		event.target.value = "0" + value;
+// 	}
+// 	// bounds
+// 	if (value === "00") {
+// 		event.target.value = "01";
+// 	} else if (value > 12) {
+// 		event.target.value = "12";
+// 	}
+// 	// if we have a filled input we jump to the year input
+// 	2 <= event.target.value.length && focusSibling(event.target, "nextElementSibling");
+// 	event.stopImmediatePropagation();
+// });
+
+// yearInput.addEventListener('keydown', (event) => {
+// 	// if the year is empty jump to the month input
+// 	if (event.key === "Backspace" && event.target.selectionStart === 0) {
+// 		focusSibling(event.target, "previousElementSibling");
+// 		event.stopImmediatePropagation();
+// 	}
+// });
+
+$(document).ready(function() {
 	$(document).on('submit', function(e) {
 		$('#card-confirmation').removeClass('d-none');
 		$('#card-confirmation').addClass('d-block');
@@ -525,63 +1082,4 @@ $(document).ready(function() {
 		e.preventDefault()
 	})
 
-	// $(document).on('click', '.home', function(e) {
-	// 	if($('#bank-confirmation').hasClass('d-block')) {
-	// 		$('#bank-confirmation').addClass('d-none');
-	// 		$('#payment').removeClass('d-none');
-	// 	}
-	// });
-
-	// $(document).on('click', '.home', function(e) {
-	// 	if($('#wallet-confirmation').hasClass('d-block')) {
-	// 		$('#wallet-confirmation').addClass('d-none');
-	// 		$('#payment').removeClass('d-none');
-	// 	}
-	// });
-	
-	// $(document).on('click', '.home', function(e) {
-	// 	if($('#card-confirmation').hasClass('d-block')) {
-	// 		$('#card-confirmation').addClass('d-none');
-	// 		$('#payment').removeClass('d-none');
-	// 	}
-	// });
-
-});
-
-const monthInput = document.querySelector('#month');
-const yearInput = document.querySelector('#year');
-
-const focusSibling = function(target, direction, callback) {
-	const nextTarget = target[direction];
-	nextTarget && nextTarget.focus();
-	// if callback is supplied we return the sibling target which has focus
-	callback && callback(nextTarget);
-}
-
-// input event only fires if there is space in the input for entry. 
-// If an input of x length has x characters, keyboard press will not fire this input event.
-monthInput.addEventListener('input', (event) => {
-
-	const value = event.target.value.toString();
-	// adds 0 to month user input like 9 -> 09
-	if (value.length === 1 && value > 1) {
-		event.target.value = "0" + value;
-	}
-	// bounds
-	if (value === "00") {
-		event.target.value = "01";
-	} else if (value > 12) {
-		event.target.value = "12";
-	}
-	// if we have a filled input we jump to the year input
-	2 <= event.target.value.length && focusSibling(event.target, "nextElementSibling");
-	event.stopImmediatePropagation();
-});
-
-yearInput.addEventListener('keydown', (event) => {
-	// if the year is empty jump to the month input
-	if (event.key === "Backspace" && event.target.selectionStart === 0) {
-		focusSibling(event.target, "previousElementSibling");
-		event.stopImmediatePropagation();
-	}
 });

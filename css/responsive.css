@@ -60,11 +60,15 @@
         margin-bottom: 0px;
     }
 
-    #timer {
+    /* #timer {
         font-weight: 100;
         padding: 0px;
         width: 100%;
         color: var(--black-color);
+    } */
+
+    .counter {
+        margin: 5px 0 40px;
     }
 
     .wallet-card {
@@ -132,7 +136,7 @@
         top: -2px
     }
 
-    #timer {
+    /* #timer {
         font-weight: 100;
         padding: 0px;
         width: 100%;
@@ -141,6 +145,18 @@
         position: absolute;
         margin-top: 20px;
         right: 55px;
+    } */
+
+    .counter {
+        padding: 0px;
+        width: 100%;
+        color: var(--black-color);
+        text-align: end;
+        position: absolute;
+        margin-top: 20px;
+        right: 35px;
+        display: flex;
+        justify-content: end;
     }
 
     .tab-content {
@@ -199,7 +215,7 @@
         margin-right: -10px;
     }
 
-    #timer {
+    /* #timer {
         font-weight: 100;
         padding: 0px;
         width: 100%;
@@ -208,6 +224,18 @@
         position: absolute;
         margin-top: 25px;
         right: 60px;
+    } */
+
+    .counter {
+        padding: 0px;
+        width: 100%;
+        color: var(--black-color);
+        text-align: end;
+        position: absolute;
+        margin-top: 20px;
+        right: 35px;
+        display: flex;
+        justify-content: end;
     }
 
     .tab-content {
@@ -235,11 +263,11 @@
     }
 
     .card0 {
-        height: 700px;
+        height: 720px;
     }
     
     .cards {
-        height: 700px;
+        height: 720px;
     }
 
     .card1 {
@@ -268,11 +296,11 @@
         color: #fff;
         position: relative;
         float: right;
-        margin-right: -30px;
+        margin-right: 0px;
         top: 20px;
     }
 
-    #timer {
+    /* #timer {
         font-weight: 600;
         padding: 0px;
         width: 100%;
@@ -281,6 +309,18 @@
         position: absolute;
         margin-top: 45px;
         right: 55px;
+    } */
+
+    .counter {
+        padding: 0px;
+        width: 100%;
+        color: var(--black-color);
+        text-align: end;
+        position: absolute;
+        margin-top: 45px;
+        right: 55px;
+        display: flex;
+        justify-content: end;
     }
 
     .tab-content {
