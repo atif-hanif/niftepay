@@ -438,20 +438,21 @@ input::placeholder {
 
 .otp-form .otp-field {
 	display: inline-block !important;
-	width: 30px !important;
+	width: 35px !important;
 	height: 30px;
 	text-align: center;
 	border: none;
 	border-bottom: 2px solid var(--black-color);
 	outline: none;
     background: transparent;
+    border-radius: 0px;
 }
 
 .otp-form .otp-field:focus {
 	border-bottom-color: var(--black-color);
 }
 
-label.error {
+label.error, .validator-error {
     color: var(--primary-color);
     font-size: 12px;
     font-weight: 700 !important;

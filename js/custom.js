@@ -159,6 +159,9 @@ $(document).ready(function() {
 				cnic: {
 					required: true,
 				},
+				optfield: {
+					required: true,
+				}
 			},
 			// messages: {
 			// 	bankaccount: {
@@ -744,6 +747,7 @@ $(document).ready(function () {
 		});
 });
 
+
 let timerOn = true;
 
 function otptimer(remaining) {
@@ -872,28 +876,39 @@ $("#walletForm").validate({
 	}
 });
 
-$(document).ready(function() {
-    $(document).on('click', '.pay', function(e) {
-		if($('#myModal').hasClass('d-none')) {
-			$('#myModal').removeClass('d-none');
-			
-		}
-	});
-
-	$(document).on('click', '.wallet-div', function(e) {
-		if($('#wallet-confirmation').hasClass('d-none')) {
-			$('#wallet-confirmation').removeClass('d-none');
-			$('#wallet-confirmation').addClass('d-block');
-			$('#payment').addClass('d-none');
-			$('#myModal').removeClass('show');
-			$('#myModal').addClass('hide');
-			$('#myModal').css("display", "none")
-			$('.modal-backdrop').removeClass('show');
-			$('.modal-backdrop').addClass('hide');
-			$('.modal-open').css({"overflow": ""});
-		}
-	});
+$(".pay").on('click', function () {
+	//This will check validation of form depending on rules
+	if($("#walletForm").valid())
+	{
+		$('#wallet-confirmation').removeClass('d-none');
+		$('#wallet-confirmation').addClass('d-block');
+		$('#payment').removeClass('d-block');
+		$('#payment').addClass('d-none');
+	}
 });
+
+// $(document).ready(function() {
+//     $(document).on('click', '.pay', function(e) {
+// 		if($('#myModal').hasClass('d-none')) {
+// 			$('#myModal').removeClass('d-none');
+			
+// 		}
+// 	});
+
+// 	$(document).on('click', '.wallet-div', function(e) {
+// 		if($('#wallet-confirmation').hasClass('d-none')) {
+// 			$('#wallet-confirmation').removeClass('d-none');
+// 			$('#wallet-confirmation').addClass('d-block');
+// 			$('#payment').addClass('d-none');
+// 			$('#myModal').removeClass('show');
+// 			$('#myModal').addClass('hide');
+// 			$('#myModal').css("display", "none")
+// 			$('.modal-backdrop').removeClass('show');
+// 			$('.modal-backdrop').addClass('hide');
+// 			$('.modal-open').css({"overflow": ""});
+// 		}
+// 	});
+// });
 
 // Card Form
 
@@ -1036,43 +1051,43 @@ function update(cardNumber) {
 	}
 }
 
-// const monthInput = document.querySelector('#month');
-// const yearInput = document.querySelector('#year');
+const monthInput = document.querySelector('#expiry-month');
+const yearInput = document.querySelector('#expiry-year');
 
-// const focusSibling = function(target, direction, callback) {
-// 	const nextTarget = target[direction];
-// 	nextTarget && nextTarget.focus();
-// 	// if callback is supplied we return the sibling target which has focus
-// 	callback && callback(nextTarget);
-// }
+const focusSibling = function(target, direction, callback) {
+	const nextTarget = target[direction];
+	nextTarget && nextTarget.focus();
+	// if callback is supplied we return the sibling target which has focus
+	callback && callback(nextTarget);
+}
 
-// input event only fires if there is space in the input for entry. 
-// If an input of x length has x characters, keyboard press will not fire this input event.
-// monthInput.addEventListener('input', (event) => {
+//input event only fires if there is space in the input for entry. 
+//If an input of x length has x characters, keyboard press will not fire this input event.
+monthInput.addEventListener('input', (event) => {
 
-// 	const value = event.target.value.toString();
-// 	// adds 0 to month user input like 9 -> 09
-// 	if (value.length === 1 && value > 1) {
-// 		event.target.value = "0" + value;
-// 	}
-// 	// bounds
-// 	if (value === "00") {
-// 		event.target.value = "01";
-// 	} else if (value > 12) {
-// 		event.target.value = "12";
-// 	}
-// 	// if we have a filled input we jump to the year input
-// 	2 <= event.target.value.length && focusSibling(event.target, "nextElementSibling");
-// 	event.stopImmediatePropagation();
-// });
+	const value = event.target.value.toString();
+	// adds 0 to month user input like 9 -> 09
+	if (value.length === 1 && value > 1) {
+		event.target.value = "0" + value;
+	}
+	// bounds
+	if (value === "00") {
+		event.target.value = "01";
+	} else if (value > 12) {
+		event.target.value = "12";
+	}
+	// if we have a filled input we jump to the year input
+	2 <= event.target.value.length && focusSibling(event.target, "nextElementSibling");
+	event.stopImmediatePropagation();
+});
 
-// yearInput.addEventListener('keydown', (event) => {
-// 	// if the year is empty jump to the month input
-// 	if (event.key === "Backspace" && event.target.selectionStart === 0) {
-// 		focusSibling(event.target, "previousElementSibling");
-// 		event.stopImmediatePropagation();
-// 	}
-// });
+yearInput.addEventListener('keydown', (event) => {
+	// if the year is empty jump to the month input
+	if (event.key === "Backspace" && event.target.selectionStart === 0) {
+		focusSibling(event.target, "previousElementSibling");
+		event.stopImmediatePropagation();
+	}
+});
 
 $(document).ready(function() {
 	$(document).on('submit', function(e) {

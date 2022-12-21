@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
     <link href="css/font.css" rel="stylesheet">
     <link href="css/select2.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -400,7 +400,7 @@
                                                 </div>
                                                 <div class="row mt-2">
                                                     <div class="col-md-6">
-                                                        <button class="nw-button btn btn-danger btn-red pay" type="submit">Proceed <i class="fa fa-arrow-right pt-1 ps-1"></i></button>
+                                                        <button class="nw-button btn btn-danger btn-red pay" type="button">Proceed <i class="fa fa-arrow-right pt-1 ps-1"></i></button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -412,31 +412,39 @@
                                                 <div class="row">
                                                     <div class="col-12 col-md-6">
                                                         <label for="number">Card Number: <span class="star">*</span></label>
-                                                        <input type="text" id="number" class="input-field" title="card number" placeholder="9999 9999 9999 9999" aria-label="enter your card number" value="" tabindex="1" minlength="19" maxlength="19" required onKeyup='addDashess(this)'>
+                                                        <input type="text" id="number" class="input-field" name="number" placeholder="9999 9999 9999 9999" aria-label="enter your card number" minlength="19" maxlength="19" required onKeyup='addDashess(this)'>
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Number</div>
                                                         <span id="cardtype" class="cardtype"></span>
                                                         <span id="valid" class="validcard"></span>
                                                     </div>
                                                     <div class="col-12 col-md-6 mt-3 mt-md-0">
                                                         <label for="nameOnCard">Cardholder Name: <span class="star">*</span></label>
-                                                        <input type="text" id="nameOnCard" class="input-field" title="cardholder name" placeholder="e.g Noman Shahid" aria-label="enter name on card" value="" tabindex="5" required>
+                                                        <input type="text" id="nameOnCard" class="input-field" name="nameOnCard" placeholder="e.g Noman Shahid" aria-label="enter name on card" required>
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Holder Name</div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12 col-md-2">
-                                                        <label>Expiry Month: <span class="star">*</span></label>
-                                                        <input type="text" id="expiry-month" class="input-field" title="expiry month" placeholder="MM" aria-label="two digit expiry month" value="" tabindex="2" minlength="2" maxlength="2" required>
+                                                        <label for="cardexpiry">Card Expiry <span class="star">*</span></label>
+                                                        <div class="exp-wrapper form-control">
+                                                            <input type="text" id="expiry-month" class="input-field exp" aria-label="two digit expiry month" minlength="2" maxlength="2">
+                                                            <input type="text" id="expiry-year" class="input-field exp" aria-label="two digit expiry year" minlength="2" maxlength="2"/>
+                                                        </div>
+                                                        <div class="red fw-bold pt-1">Kindly enter your valid Card Expiry</div>
+                                                    </div>
+                                                    <!-- <div class="col-12 col-md-2">
+                                                        <label for="expiry-month">Expiry Month: <span class="star">*</span></label>
+                                                        <input type="text" id="expiry-month" class="input-field" name="expiry-month" placeholder="MM" aria-label="two digit expiry month" minlength="2" maxlength="2" required>
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Month</div>
                                                     </div>
                                                     <div class="col-12 col-md-2">
-                                                        <label>Expiry Year: <span class="star">*</span></label>
-                                                        <input type="text" id="expiry-year" class="input-field" title="expiry year" placeholder="YY" aria-label="two digit expiry year" value="" tabindex="3" minlength="2" maxlength="2" required>
+                                                        <label for="expiry-year">Expiry Year: <span class="star">*</span></label>
+                                                        <input type="text" id="expiry-year" class="input-field" name="expiry-year" placeholder="YY" aria-label="two digit expiry year" minlength="2" maxlength="2" required>
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card Year</div>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="col-12 col-md-3 mt-3 mt-md-0">
                                                         <label for="security-code">Security Code: <span class="star">*</span></label>
-                                                        <input type="text" id="security-code" class="input-field" title="security code" placeholder="999" aria-label="three digit CCV security code" value="" tabindex="4" minlength="3" maxlength="3" required>
+                                                        <input type="text" id="security-code" class="input-field" name="security-code" placeholder="999" aria-label="three digit CCV security code" minlength="3" maxlength="3" required>
                                                         <div class="red fw-bold pt-1">Kindly enter your valid Card CVV/CVC</div>
                                                     </div>
                                                     <div class="col"></div>
