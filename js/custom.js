@@ -787,29 +787,29 @@ $(document).ready(function() {
 
 // Wallet Form
 
-window.addDashe = function addDashe(c) {
-    var d = /(\D+)/g,
-		first2 = '03',
-        npb = '',
-        nxx = '';
-    c.value = c.value.replace(d, '');
-	last2 = c.value.substr(0, 2);
-    npb = c.value.substr(2, 2);
-    nxx = c.value.substr(4, 7);
-    c.value = first2 + npb + '-' + nxx ;
-}
+// window.addDashe = function addDashe(c) {
+//     var d = /(\D+)/g,
+// 		first2 = '03',
+//         npb = '',
+//         nxx = '';
+//     c.value = c.value.replace(d, '');
+// 	last2 = c.value.substr(0, 2);
+//     npb = c.value.substr(2, 2);
+//     nxx = c.value.substr(4, 7);
+//     c.value = first2 + npb + '-' + nxx ;
+// }
 
-window.addDashes = function addDashes(e) {
-    var f = /(\D+)/g,
-        npc = '',
-        nxy = '',
-        last3 = '';
-    e.value = e.value.replace(f, '');
-    npc = e.value.substr(0, 5);
-    nxy = e.value.substr(5, 7);
-    last3 = e.value.substr(12, 1);
-    e.value = npc + '-' + nxy + '-' + last3;
-}
+// window.addDashes = function addDashes(e) {
+//     var f = /(\D+)/g,
+//         npc = '',
+//         nxy = '',
+//         last3 = '';
+//     e.value = e.value.replace(f, '');
+//     npc = e.value.substr(0, 5);
+//     nxy = e.value.substr(5, 7);
+//     last3 = e.value.substr(12, 1);
+//     e.value = npc + '-' + nxy + '-' + last3;
+// }
 
 $('#mobileno').bind('keypress', function (event) {
     var regexm = new RegExp("^[0-9\b]+$");
@@ -873,6 +873,14 @@ $("#walletForm").validate({
 		} else {
 			error.insertAfter(element);
 		}
+	},
+	rules: {
+		mobileno: "required",
+		vendorcnic: "required"
+	},
+	messages: {
+		mobileno: "Please enter 11 digits mobile number.",
+		vendorcnic: "Please enter 13 digits cnic number."
 	}
 });
 
