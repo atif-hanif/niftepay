@@ -600,6 +600,10 @@ input.invalid {
     height: 30px;
 }
 
+#masterPreview > div {
+    display: none;
+}
+
 /* Wallet Form */
 
 #assessment-form .page.active {

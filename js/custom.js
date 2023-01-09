@@ -201,316 +201,328 @@ $(document).ready(function() {
 });
 
 $(document).ready(function(){
-    $('#bankaccount').on('change', function() {
-		if ( this.value == 'allied-bank')
-		{
-			$("#allied").show();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'habib-metro-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").show();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'alfalah-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").show();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'bop-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").show();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'mcbi-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").show();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'samba-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").show();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'bok-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").show();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'faysal-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").show();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'askari-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").show();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'bank-islami-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").show();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'bank-al-habib-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").show();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'habib-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").show();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
-		// else if ( this.value == 'konnect-bank')
-		// {
-		// 	$("#allied").hide();
-		// 	$("#inputaccount").hide();
-		// 	$("#habibmetro").hide();
-		// 	$("#alfalah").hide();
-		// 	$("#bop").hide();
-		// 	$("#mcb").hide();
-		// 	$("#samba").hide();
-		// 	$("#bok").hide();
-		// 	$("#faysal").hide();
-		// 	$("#askari").hide();
-		// 	$("#islami").hide();
-		// 	$("#alhabib").hide();
-		// 	$("#hbl").hide();
-		// 	$("#konnect").show();
-		// 	$("#albaraka").hide();
-		// 	$("#meezan").hide();
-		// }
-		else if ( this.value == 'albaraka-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").show();
-			$("#meezan").hide();
-		}
-		else if ( this.value == 'meezan-bank')
-		{
-			$("#allied").hide();
-			$("#inputaccount").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").show();
-		}
-		else 
-		{	
-			$("#inputaccount").show();
-			$("#allied").hide();
-			$("#habibmetro").hide();
-			$("#alfalah").hide();
-			$("#bop").hide();
-			$("#mcb").hide();
-			$("#samba").hide();
-			$("#bok").hide();
-			$("#faysal").hide();
-			$("#askari").hide();
-			$("#islami").hide();
-			$("#alhabib").hide();
-			$("#hbl").hide();
-			$("#konnect").hide();
-			$("#albaraka").hide();
-			$("#meezan").hide();
-		}
+    // $('#bankaccount').on('change', function() {
+	// 	if ( this.value == 'allied-bank')
+	// 	{
+	// 		$("#allied").show();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'habib-metro-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").show();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'alfalah-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").show();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'bop-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").show();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'mcbi-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").show();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'samba-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").show();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'bok-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").show();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'faysal-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").show();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'askari-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").show();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'bank-islami-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").show();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'bank-al-habib-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").show();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'habib-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").show();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'konnect-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").show();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'albaraka-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").show();
+	// 		$("#meezan").hide();
+	// 	}
+	// 	else if ( this.value == 'meezan-bank')
+	// 	{
+	// 		$("#allied").hide();
+	// 		$("#inputaccount").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").show();
+	// 	}
+	// 	else 
+	// 	{	
+	// 		$("#inputaccount").show();
+	// 		$("#allied").hide();
+	// 		$("#habibmetro").hide();
+	// 		$("#alfalah").hide();
+	// 		$("#bop").hide();
+	// 		$("#mcb").hide();
+	// 		$("#samba").hide();
+	// 		$("#bok").hide();
+	// 		$("#faysal").hide();
+	// 		$("#askari").hide();
+	// 		$("#islami").hide();
+	// 		$("#alhabib").hide();
+	// 		$("#hbl").hide();
+	// 		$("#konnect").hide();
+	// 		$("#albaraka").hide();
+	// 		$("#meezan").hide();
+	// 	}
+    // });
+
+	$("#bankaccount").change(function() {
+        $("#masterPreview > div").hide();
+        $("#" + $(this).val()).show();
+        $("input.accountno").attr("id", $(this).val() + "-input");
+    });
+
+	$("#accountno").keyup(function() {
+        var accountno = $(this).val();
+        $(".accountno").html(accountno);
+        return false;
     });
 
 	var $regexallac = /^[0-9]{4}(001|002)[0-9]{13}$/;
 	var $regexalliban = /^(PK)[0-9]{2}(ABPA)[0-9]{16}/g;
-	$('#alliedaccount').on('keypress keydown keyup',function(){
+	$('#allied-bank-input').on('keypress keydown keyup',function(){
 		if (!$(this).val().match($regexallac) && !$(this).val().match($regexalliban)) {
 			$('.emsg').removeClass('hidden');
 			$('.emsg').show();
@@ -934,7 +946,7 @@ window.addDashess = function addDashess(g) {
     g.value = npc + ' ' + nxy + ' ' + last4 + ' ' + last;
 }
 
-var card = document.querySelector('#number');
+var card = document.querySelector('#cardno');
 card.addEventListener('keyup', function(e) {
 	if (event.key != 'Backspace' && (card.value.length === 4 || card.value.length === 9 || card.value.length === 14)) {
   		card.value += ' ';
@@ -947,7 +959,7 @@ card.addEventListener('keyup', function(e) {
 	}
 });
 
-$('#number').bind('keypress', function (event) {
+$('#cardno').bind('keypress', function (event) {
     var regexcn = new RegExp("^[0-9\b]+$");
     var keycn = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regexcn.test(keycn)) {
@@ -956,7 +968,7 @@ $('#number').bind('keypress', function (event) {
     }
 });
 
-$('#nameOnCard').bind('keypress', function (event) {
+$('#cardname').bind('keypress', function (event) {
     var regexcnm = new RegExp("^[a-zA-Z \b]+$");
     var keycnm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regexcnm.test(keycnm)) {
@@ -965,7 +977,7 @@ $('#nameOnCard').bind('keypress', function (event) {
     }
 });
 
-$('#expiry-month').bind('keypress', function (event) {
+$('#month').bind('keypress', function (event) {
     var regexcm = new RegExp("^[0-9\b]+$");
     var keycm = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regexcm.test(keycm)) {
@@ -974,7 +986,7 @@ $('#expiry-month').bind('keypress', function (event) {
     }
 });
 
-$('#expiry-year').bind('keypress', function (event) {
+$('#year').bind('keypress', function (event) {
     var regexcy = new RegExp("^[0-9\b]+$");
     var keycy = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regexcy.test(keycy)) {
@@ -983,7 +995,7 @@ $('#expiry-year').bind('keypress', function (event) {
     }
 });
 
-$('#security-code').bind('keypress', function (event) {
+$('#cvv').bind('keypress', function (event) {
     var regexcvv = new RegExp("^[0-9\b]+$");
     var keycvv = String.fromCharCode(!event.charCode ? event.which : event.charCode);
     if (!regexcvv.test(keycvv)) {
@@ -1059,8 +1071,8 @@ function update(cardNumber) {
 	}
 }
 
-const monthInput = document.querySelector('#expiry-month');
-const yearInput = document.querySelector('#expiry-year');
+const monthInput = document.querySelector('#month');
+const yearInput = document.querySelector('#year');
 
 const focusSibling = function(target, direction, callback) {
 	const nextTarget = target[direction];
@@ -1069,8 +1081,8 @@ const focusSibling = function(target, direction, callback) {
 	callback && callback(nextTarget);
 }
 
-//input event only fires if there is space in the input for entry. 
-//If an input of x length has x characters, keyboard press will not fire this input event.
+// input event only fires if there is space in the input for entry. 
+// If an input of x length has x characters, keyboard press will not fire this input event.
 monthInput.addEventListener('input', (event) => {
 
 	const value = event.target.value.toString();
