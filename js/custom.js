@@ -153,8 +153,10 @@ $(document).ready(function() {
 				bankaccount: {
 					required: true,
 				},
-				accountno: {
+				allied_bank: {
 					required: true,
+					min: 20,
+					max: 24,
 				},
 				cnic: {
 					required: true,
@@ -511,18 +513,21 @@ $(document).ready(function(){
 	$("#bankaccount").change(function() {
         $("#masterPreview > div").hide();
         $("#" + $(this).val()).show();
-        $("input.accountno").attr("id", $(this).val() + "-input");
+        $("input.accountno").attr("id", $(this).val());
+		$("input.accountno").attr("name", $(this).val());
+		$("label.accountno").attr("for", $(this).val());
     });
 
-	$("#accountno").keyup(function() {
-        var accountno = $(this).val();
-        $(".accountno").html(accountno);
-        return false;
-    });
+	var selectedScheme = 'account-no';
+
+	$('#bankaccount').change(function(){
+		$('input').removeClass(selectedScheme).addClass($(this).val());
+		selectedScheme = $(this).val();
+	});
 
 	var $regexallac = /^[0-9]{4}(001|002)[0-9]{13}$/;
 	var $regexalliban = /^(PK)[0-9]{2}(ABPA)[0-9]{16}/g;
-	$('#allied-bank-input').on('keypress keydown keyup',function(){
+	$('.allied_bank').on('keypress keydown keyup',function(){
 		if (!$(this).val().match($regexallac) && !$(this).val().match($regexalliban)) {
 			$('.emsg').removeClass('hidden');
 			$('.emsg').show();
@@ -799,29 +804,29 @@ $(document).ready(function() {
 
 // Wallet Form
 
-// window.addDashe = function addDashe(c) {
-//     var d = /(\D+)/g,
-// 		first2 = '03',
-//         npb = '',
-//         nxx = '';
-//     c.value = c.value.replace(d, '');
-// 	last2 = c.value.substr(0, 2);
-//     npb = c.value.substr(2, 2);
-//     nxx = c.value.substr(4, 7);
-//     c.value = first2 + npb + '-' + nxx ;
-// }
+window.addDashe = function addDashe(c) {
+    var d = /(\D+)/g,
+		first2 = '03',
+        npb = '',
+        nxx = '';
+    c.value = c.value.replace(d, '');
+	last2 = c.value.substr(0, 2);
+    npb = c.value.substr(2, 2);
+    nxx = c.value.substr(4, 7);
+    c.value = first2 + npb + '-' + nxx ;
+}
 
-// window.addDashes = function addDashes(e) {
-//     var f = /(\D+)/g,
-//         npc = '',
-//         nxy = '',
-//         last3 = '';
-//     e.value = e.value.replace(f, '');
-//     npc = e.value.substr(0, 5);
-//     nxy = e.value.substr(5, 7);
-//     last3 = e.value.substr(12, 1);
-//     e.value = npc + '-' + nxy + '-' + last3;
-// }
+window.addDashes = function addDashes(e) {
+    var f = /(\D+)/g,
+        npc = '',
+        nxy = '',
+        last3 = '';
+    e.value = e.value.replace(f, '');
+    npc = e.value.substr(0, 5);
+    nxy = e.value.substr(5, 7);
+    last3 = e.value.substr(12, 1);
+    e.value = npc + '-' + nxy + '-' + last3;
+}
 
 $('#mobileno').bind('keypress', function (event) {
     var regexm = new RegExp("^[0-9\b]+$");

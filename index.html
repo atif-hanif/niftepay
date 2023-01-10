@@ -161,21 +161,21 @@
                                                             <label for="bankaccount" class="form-label">Bank Account <span class="star">*</span></label>
                                                             <select type="text" class="form-control bank required" id="bankaccount" name="bankaccount">
                                                                 <option value="">Select Your Bank</option>
-                                                                <option value="allied-bank">Allied Bank</option>
-                                                                <option value="habib-metro-bank">Habib Metropolitan Bank</option>
-                                                                <option value="alfalah-bank">Bank Alfalah</option>
-                                                                <option value="bop-bank">The Bank of Punjab</option>
-                                                                <option value="mcbi-bank">MCB Islamic Bank</option>
-                                                                <option value="samba-bank">Samba Bank</option>
-                                                                <option value="bok-bank">Bank of Khyber</option>
-                                                                <option value="faysal-bank">Faysal Bank</option>
-                                                                <option value="askari-bank">Askari Bank</option>
-                                                                <option value="bank-islami-bank">Bank Islami</option>
-                                                                <option value="bank-al-habib-bank">Bank Al Habib</option>
-                                                                <option value="habib-bank">Habib Bank Limited</option>
+                                                                <option value="allied_bank">Allied Bank</option>
+                                                                <option value="habib_metro_bank">Habib Metropolitan Bank</option>
+                                                                <option value="alfalah_bank">Bank Alfalah</option>
+                                                                <option value="bop_bank">The Bank of Punjab</option>
+                                                                <option value="mcbi_bank">MCB Islamic Bank</option>
+                                                                <option value="samba_bank">Samba Bank</option>
+                                                                <option value="bok_bank">Bank of Khyber</option>
+                                                                <option value="faysal_bank">Faysal Bank</option>
+                                                                <option value="askari_bank">Askari Bank</option>
+                                                                <option value="bank_islami_bank">Bank Islami</option>
+                                                                <option value="bank_al_habib_bank">Bank Al Habib</option>
+                                                                <option value="habib_bank">Habib Bank Limited</option>
                                                                 <!-- <option value="konnect-bank">Habib Bank Limited (Konnect)</option> -->
-                                                                <option value="albaraka-bank">Albaraka Bank</option>
-                                                                <option value="meezan-bank">Meezan Bank</option>
+                                                                <option value="albaraka_bank">Albaraka Bank</option>
+                                                                <option value="meezan_bank">Meezan Bank</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -184,79 +184,80 @@
                                                     <div class="row">
                                                         <div class="col-12 col-md-6 form-group">
                                                             <div id="inputaccount">
-                                                                <label for="inputfield" class="form-label">Account <span class="star">*</span></label>
-                                                                <input type="text" class="form-control accountno" placeholder="Enter Account Number / IBAN" id="accountno" name="accountno" required minlength="10" maxlength="24">
+                                                                <label for="accountno" class="form-label accountno">Account <span class="star">*</span></label>
+                                                                <input type="text" class="form-control accountno account-no" placeholder="Enter Account Number / IBAN" id="accountno" name="accountno" required>
                                                             </div>
                                                             <div id="masterPreview">
-                                                                <div id="allied-bank">
-                                                                    <div class="black fw-bold">Please ensure that your Account is Activated to use this service. Kindly Call ABL H/L 021-111-225-225 to activate your local e-commerce service. Please enter your 20-digit account number or 24 Alphanumeric IBAN.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="allied_bank">
+                                                                    <p class="black fw-bold mb-0">Please ensure that your Account is Activated to use this service. Kindly Call ABL H/L 021-111-225-225 to activate your local e-commerce service. Please enter your 20-digit Account Number or 24 Alphanumeric IBAN</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found.</p>
+                                                                    <p class="emsg hidden pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="habib-metro-bank">
-                                                                    <div class="black fw-bold">Please enter your 19 or 20 digit account number or 24 Alphanumeric IBAN.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                
+                                                                <div id="habib_metro_bank">
+                                                                    <p class="black fw-bold mb-0">Please enter your 19 or 20 digit Account Number or 24 Alphanumeric IBAN</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="alfalah-bank">
-                                                                    <div class="black fw-bold">Please enter your 14-digit account number.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="alfalah_bank">
+                                                                    <p class="black fw-bold mb-0">Please enter your 14-digit Account Number</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="bop-bank">
-                                                                    <div class="black fw-bold">	Please ensure your account is activated to use this service. Kindly Call BOP H/L 042-111-267-200 to activate your e-commerce service. Please enter your 16-digit account number.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="bop_bank">
+                                                                    <p class="black fw-bold mb-0">Please ensure your account is activated to use this service. Kindly Call BOP H/L 042-111-267-200 to activate your e-commerce service. Please enter your 16-digit Account Number</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="mcbi-bank">
-                                                                    <div class="black fw-bold">Please ensure your account is activated to use this service. Kindly Call MIB H/L 042-111-222-642 to activate your e-commerce service. Please enter your 16 digit account number or 24 Alpha-numeric IBAN.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="mcbi_bank">
+                                                                    <p class="black fw-bold mb-0">Please ensure your account is activated to use this service. Kindly Call MIB H/L 042-111-222-642 to activate your e-commerce service. Please enter your 16 digit Account Number or 24 Alpha-numeric IBAN</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="samba-bank">
-                                                                    <div class="black fw-bold">Please enter your 10-digit account number.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="samba_bank">
+                                                                    <p class="black fw-bold mb-0">Please enter your 10-digit Account Number</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="bok-bank">
-                                                                    <div class="black fw-bold">Please enter your 14-digit or 16-digit account number.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="bok_bank">
+                                                                    <p class="black fw-bold mb-0">Please enter your 14-digit or 16-digit Account Number</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="faysal-bank">
-                                                                    <div class="black fw-bold">Please enter your 14-digit or 16-digit account number.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="faysal_bank">
+                                                                    <p class="black fw-bold mb-0">Please enter your 14-digit or 16-digit Account Number</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="askari-bank">
-                                                                    <div class="black fw-bold">Please enter 13 digit Account number or 24 Alpha-numeric IBAN.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="askari_bank">
+                                                                    <p class="black fw-bold mb-0">Please enter 13 digit Account Number or 24 Alpha-numeric IBAN</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="bank-islami-bank">
-                                                                    <div class="black fw-bold">Please enter your 15-digit account number.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="bank_islami_bank">
+                                                                    <p class="black fw-bold mb-0">Please enter your 15-digit Account Number</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="bank-al-habib-bank">
-                                                                    <div class="black fw-bold">Please enter 17 digit account number or 24 Alpha-numeric IBAN.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="bank_al_habib_bank">
+                                                                    <p class="black fw-bold mb-0">Please enter 17 digit Account Number or 24 Alpha-numeric IBAN</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="habib-bank">
-                                                                    <div class="black fw-bold">Please enter your 14 digit account number.</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="habib_bank">
+                                                                    <p class="black fw-bold mb-0">Please enter your 14 digit Account Number</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="albaraka-bank">
-                                                                    <div class="black fw-bold">Please enter 13 digit account number or 24 Alpha-numeric IBAN</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="albaraka_bank">
+                                                                    <p class="black fw-bold mb-0">Please enter 13 digit Account Number or 24 Alpha-numeric IBAN</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
-                                                                <div id="meezan-bank">
-                                                                    <div class="black fw-bold">Please enter 14 digit account number</div>
-                                                                    <div class="red fw-bold pt-1">Account not Found.</div>
-                                                                    <span class="emsg hidden pt-1">Please Enter a Valid Account Number</span>
+                                                                <div id="meezan_bank">
+                                                                    <p class="black fw-bold mb-0">Please enter 14 digit Account Number</p>
+                                                                    <p class="red fw-bold pt-1 mb-0">Account not Found</p>
+                                                                    <p class="emsg d-none pt-1 mb-0">Please Enter a Valid Account Number</p>
                                                                 </div>
                                                             </div>
                                                         </div>
